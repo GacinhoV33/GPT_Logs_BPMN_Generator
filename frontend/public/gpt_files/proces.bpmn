@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_1"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="Camunda Modeler"
+                  exporterVersion="4.8.0">
+  <bpmn:process id="Process_1" name="T-Shirt Shop">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn:task id="Task_1" name="Process Order">
+      <bpmn:incoming>SequenceFlow_1</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1" name="Is T-Shirt Available?" />
+    <bpmn:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="ExclusiveGateway_1" />
+    <bpmn:sequenceFlow id="SequenceFlow_3" sourceRef="ExclusiveGateway_1" targetRef="Task_2">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" language="JavaScript"><![CDATA[availability == true]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_4" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_2">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" language="JavaScript"><![CDATA[availability == false]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:task id="Task_2" name="Create Invoice">
+      <bpmn:incoming>SequenceFlow_3</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>SequenceFlow_7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_2">
+      <bpmn:incoming>SequenceFlow_4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_5" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn:task id="Task_3" name="Process Payment">
+      <bpmn:incoming>SequenceFlow_5</bpmn:incoming>
+  <bpmn:outgoing>SequenceFlow_6</bpmn:outgoing>
+</bpmn:task>
+<bpmn:sequenceFlow id="SequenceFlow_6" sourceRef="Task_3" targetRef="EndEvent_1" />
+<bpmn:task id="Task_4" name="Update Inventory">
+  <bpmn:incoming>SequenceFlow_2</bpmn:incoming>
+</bpmn:task>
+<bpmn:sequenceFlow id="SequenceFlow_7" sourceRef="Task_4" targetRef="EndEvent_1" />
+</bpmn:process>
+<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+<bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+<dc:Bounds x="180" y="200" width="36" height="36" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="188" y="239" width="22" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+<dc:Bounds x="280" y="180" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="ExclusiveGateway_1_di" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+<dc:Bounds x="430" y="200" width="50" height="50" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="450" y="250" width="10" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+<dc:Bounds x="540" y="180" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+<dc:Bounds x="840" y="210" width="36" height="36" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="848" y="249" width="20" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="EndEvent_2_di" bpmnElement="EndEvent_2">
+<dc:Bounds x="690" y="210" width="36" height="36" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="698" y="249" width="20" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+<dc:Bounds x="690" y="130" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+<dc:Bounds x="540" y="310" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+<di:waypoint x="216" y="218" />
+<di:waypoint x="280" y="218" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+<di:waypoint x="380" y="218" />
+<di:waypoint x="430" y="218" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="404" y="199" width="35" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+<di:waypoint x="480" y="200" />
+<di:waypoint x="480" y="130" />
+<di:waypoint x="590" y="130" />
+<bpmndi:BPMNLabel>
+<dc:Bounds x="511" y="156" width="27" height="14" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+<di:waypoint x="590" y="210" />
+<di:waypoint x="690" y="210" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+<di:waypoint x="790" y="210" />
+<di:waypoint x="840" y="210" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+<di:waypoint x="790" y="130" />
+<di:waypoint x="690" y="130" />
+<di:waypoint x="690" y="180" />
+<di:waypoint x="740" y="180" />
+</bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane>
+</bpmndi:BPMNDiagram>
+</bpmn:definitions>
