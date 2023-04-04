@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactBpmn from 'react-bpmn';
+import './LogComponent.scss';
 
 const LogComponent = ({url="gpt_files/proces.bpmn"}) => {
     function onShown() {
@@ -15,12 +16,13 @@ const LogComponent = ({url="gpt_files/proces.bpmn"}) => {
       }
     return (
         <ReactBpmn
-            url={url}
-            onShown={ onShown }
-            onLoading={ onLoading }
-            onError={ onError }
-        />
+                    url={url}
+                    onShown={ onShown }
+                    onLoading={ onLoading }
+                    onError={ onError }
+                />
+       
   )
 }
 
-export default LogComponent
+export default LogComponent;

@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './LogsDisplayer.scss';
+import LogComponent from './LogComponent.jsx'
 
 const LogsDisplayer = () => {
   return (
-    <div>LogsDisplayer</div>
+    <div className='logsDisplayer-main'>
+        <LogComponent/>
+    </div>
   )
 }
 
