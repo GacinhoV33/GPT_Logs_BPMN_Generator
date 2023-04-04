@@ -1,11 +1,8 @@
 import "./App.css";
-// import BPMNjs from "bpmn-js";
 import React from 'react';
-import {useEffect, useRef} from 'react';
-
-
-import ReactBpmn from 'react-bpmn';
-
+import Navbar from './components/Navbar'
+import MainApp from "./components/MainApp";
+import Footer from "./components/Footer";
 
 function App(props) {
 
@@ -22,17 +19,10 @@ function App(props) {
   }
 
   return (
-    <div style={{height: '70vh', width: '100vw'}}>
-      <ReactBpmn
-            url="gpt_files/proces.bpmn"
-            onShown={ onShown }
-            onLoading={ onLoading }
-            onError={ onError }
-      />
-        <div style={{height: '10vh'}}>
-        DEPLOY TEST HERE
-
-        </div>
+    <div className="app_main">
+      <Navbar/>
+      <MainApp/>
+      <Footer/>
     </div>
     
   );
