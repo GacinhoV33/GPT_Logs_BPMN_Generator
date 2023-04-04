@@ -28,9 +28,7 @@ function App(props) {
             onShown={ onShown }
             onLoading={ onLoading }
             onError={ onError }
-            
-            // style={{height: '50vh'}}
-          />
+      />
         <div style={{height: '10vh'}}>
         DEPLOY TEST HERE
 
