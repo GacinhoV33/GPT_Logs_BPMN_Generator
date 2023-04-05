@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="definitions"
+                  targetNamespace="http://www.example.com/bpmn"
+                  exporter="ChatGPT"
+                  exporterVersion="1.0">
+
+  <bpmn:process id="e-shop-selling-cakes" name="E-Shop Selling Cakes">
+    <bpmn:startEvent id="start" name="Customer Places Order" />
+    
+    <bpmn:sequenceFlow id="flow1" sourceRef="start" targetRef="check-cake-availability" />
+    
+    <bpmn:task id="check-cake-availability" name="Check Cake Availability">
+      <bpmn:incoming>flow1</bpmn:incoming>
+      <bpmn:outgoing>flow2</bpmn:outgoing>
+    </bpmn:task>
+    
+    <bpmn:exclusiveGateway id="gateway1" name="Cake Available?">
+      <bpmn:incoming>flow2</bpmn:incoming>
+      <bpmn:outgoing>flow3</bpmn:outgoing>
+      <bpmn:outgoing>flow4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    
+    <bpmn:task id="prepare-cake" name="Prepare Cake">
+      <bpmn:incoming>flow3</bpmn:incoming>
+      <bpmn:outgoing>flow5</bpmn:outgoing>
+    </bpmn:task>
+    
+    <bpmn:task id="deliver-cake" name="Deliver Cake">
+      <bpmn:incoming>flow5</bpmn:incoming>
+      <bpmn:outgoing>flow6</bpmn:outgoing>
+    </bpmn:task>
+    
+    <bpmn:endEvent id="end" name="Order Complete">
+      <bpmn:incoming>flow6</bpmn:incoming>
+    </bpmn:endEvent>
+    
+    <bpmn:task id="notify-customer" name="Notify Customer">
+      <bpmn:incoming>flow4</bpmn:incoming>
+      <bpmn:outgoing>flow7</bpmn:outgoing>
+    </bpmn:task>
+    
+    <bpmn:task id="reschedule-delivery" name="Reschedule Delivery">
+      <bpmn:incoming>flow7</bpmn:incoming>
+      <bpmn:outgoing>flow8</bpmn:outgoing>
+    </bpmn:task>
+    
+    <bpmn:sequenceFlow id="flow2" sourceRef="start" targetRef="check-cake-availability" />
+    <bpmn:sequenceFlow id="flow3" sourceRef="gateway1" targetRef="prepare-cake">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" language="http://www.w3.org/TR/1999/REC-xpath-19991116" />
+</bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="flow4" sourceRef="gateway1" targetRef="notify-customer">
+<bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" language="http://www.w3.org/TR/1999/REC-xpath-19991116" />
+</bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="flow5" sourceRef="prepare-cake" targetRef="deliver-cake" />
+<bpmn:sequenceFlow id="flow6" sourceRef="deliver-cake" targetRef="end" />
+<bpmn:sequenceFlow id="flow7" sourceRef="notify-customer" targetRef="reschedule-delivery" />
+<bpmn:sequenceFlow id="flow8" sourceRef="reschedule-delivery" targetRef="start" />
+
+</bpmn:process>
+
+<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="e-shop-selling-cakes">
+<bpmndi:BPMNShape id="_BPMNShape_start" bpmnElement="start">
+<dc:Bounds x="120" y="80" width="36" height="36" />
+bpmndi:BPMNLabel
+<dc:Bounds x="147" y="123" width="0" height="0" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="check-cake-availability_di" bpmnElement="check-cake-availability">
+<dc:Bounds x="270" y="70" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="exclusive-gateway_di" bpmnElement="gateway1" isMarkerVisible="true">
+<dc:Bounds x="470" y="80" width="50" height="50" />
+bpmndi:BPMNLabel
+<dc:Bounds x="495" y="125" width="0" height="0" />
+</bpmndi:BPMNLabel>
+<bpmndi:BPMNShape id="_BPMNShape_prepare-cake" bpmnElement="prepare-cake">
+<dc:Bounds x="600" y="70" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="_BPMNShape_deliver-cake" bpmnElement="deliver-cake">
+<dc:Bounds x="730" y="70" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="_BPMNShape_end" bpmnElement="end">
+<dc:Bounds x="870" y="80" width="36" height="36" />
+bpmndi:BPMNLabel
+<dc:Bounds x="899" y="123" width="0" height="0" />
+</bpmndi:BPMNLabel>
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="_BPMNShape_notify-customer" bpmnElement="notify-customer">
+<dc:Bounds x="470" y="200" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="_BPMNShape_reschedule-delivery" bpmnElement="reschedule-delivery">
+<dc:Bounds x="600" y="200" width="100" height="80" />
+</bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="flow1_di" bpmnElement="flow1">
+<di:waypoint x="156" y="98" />
+<di:waypoint x="270" y="110" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow2_di" bpmnElement="flow2">
+<di:waypoint x="370" y="110" />
+<di:waypoint x="470" y="110" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow3_di" bpmnElement="flow3">
+<di:waypoint x="520" y="110" />
+<di:waypoint x="600" y="110" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow4_di" bpmnElement="flow4">
+<di:waypoint x="545" y="130" />
+<di:waypoint x="545" y="200" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow5_di" bpmnElement="flow5">
+<di:waypoint x="700" y="110" />
+<di:waypoint x="730" y="110" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow6_di" bpmnElement="flow6">
+<di:waypoint x="830" y="110" />
+<di:waypoint x="870" y="110" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow7_di" bpmnElement="flow7">
+<di:waypoint x="520" y="240" />
+<di:waypoint x="470" y="240" />
+</bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="flow8_di" bpmnElement="flow8">
+<di:waypoint x="700" y="240" />
+<di:waypoint x="600" y="240" />
+</bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane>
+</bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -9,17 +9,24 @@
 
     .userPanel-firstItem{
         flex: 2;
+        background-color: #eee;
+        margin-left:10vw;
+        border-radius: 10px;
+        border: 1px solid #111;
         // background: green;
         padding: 2.5vh 5vw;
-        display: flex;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
         justify-content: center;
-        
+        align-items: center;
+        gap: 1vw;
     }
 
     .userPanel-secondItem{
-        flex: 3;
+        flex: 4;
         // background: black;
         padding: 2.5vh 5vw;
+        margin-right: 5vw;
         
     }
 }

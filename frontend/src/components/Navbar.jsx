@@ -8,16 +8,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-export default function MenuAppBar() {
+export default function MenuAppBar({setGptVersion}) {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (value=null) => {
+    if(value) setGptVersion(value);
     setAnchorEl(null);
   };
 
@@ -47,7 +48,7 @@ export default function MenuAppBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <img src='./gpt_logo.png' style={{width: '3vh'}}/>
+                <img src='./gpt_logo.png' style={{width: '1.5vw'}}/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -64,8 +65,8 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={() => handleClose("3.5")}>GPT 3.5</MenuItem>
+                <MenuItem onClick={() => handleClose("4.0")}>GPT 4.0</MenuItem>
               </Menu>
             </div>
           )}

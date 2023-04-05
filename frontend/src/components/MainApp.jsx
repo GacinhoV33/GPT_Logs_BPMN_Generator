@@ -3,10 +3,10 @@ import './MainApp.scss';
 import UserPanel from './UserPanel';
 import LogsDisplayer from './LogsDisplayer';
 
-const MainApp = () => {
+const MainApp = ({gptVersion}) => {
   return (
     <div className='mainApp-main'>
-        <UserPanel/>
+        <UserPanel gptVersion={gptVersion}/>
         <LogsDisplayer/>
     </div>
   )
