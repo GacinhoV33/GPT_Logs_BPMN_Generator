@@ -1,11 +1,11 @@
 import React from 'react';
 import './LogsDisplayer.scss';
-import LogComponent from './LogComponent.jsx'
+import LogComponent2 from './LogComponent2.jsx'
 
 const LogsDisplayer = () => {
   return (
     <div className='logsDisplayer-main'>
-        <LogComponent/>
+        <LogComponent2/>
     </div>
   )
 }

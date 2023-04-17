@@ -2,7 +2,7 @@ import React from 'react'
 import ReactBpmn from 'react-bpmn';
 import './LogComponent.scss';
 
-const LogComponent = ({url="gpt_files/gpt_test2.bpmn"}) => {
+const LogComponent = ({url="gpt_files/gpt_response2.bpmn"}) => {
     function onShown() {
         console.log('diagram shown');
       }

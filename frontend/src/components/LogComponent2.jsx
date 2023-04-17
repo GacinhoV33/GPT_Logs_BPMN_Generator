@@ -7,12 +7,12 @@ import axios from "axios";
 const LogHookComponent = () =>  {
   const [diagram, diagramSet] = useState("local");
   const container = document.getElementById("container");
-  console.log(diagram)
+
   useEffect(() => {
     if (diagram === "local") {
       axios
         .get(
-            'gpt_files/proces.bmpn'
+            './gpt_files/gpt_response5.bpmn'
         )
         .then((r) => {
           diagramSet(r.data);
