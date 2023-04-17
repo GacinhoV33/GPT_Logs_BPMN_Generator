@@ -12,7 +12,7 @@ const LogHookComponent = () =>  {
     if (diagram === "local") {
       axios
         .get(
-            './gpt_files/gpt_response5.bpmn'
+            './gpt_files/gpt_resp_4.bpmn'
         )
         .then((r) => {
           diagramSet(r.data);

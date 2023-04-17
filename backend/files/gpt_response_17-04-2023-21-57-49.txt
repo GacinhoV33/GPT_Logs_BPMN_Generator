@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="onlineShopProcess" name="Online Shop Process" isExecutable="true">
+    <startEvent id="startEvent" name="Start Event" />
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="websiteCreation" />
+    <task id="websiteCreation" name="Website Creation">
+      <documentation>First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking.</documentation>
+    </task>
+    <sequenceFlow id="flow2" sourceRef="websiteCreation" targetRef="productListing" />
+    <task id="productListing" name="Product Listing">
+      <documentation>The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices.</documentation>
+    </task>
+    <sequenceFlow id="flow3" sourceRef="productListing" targetRef="orderPlacement" />
+    <task id="orderPlacement" name="Order Placement">
+      <documentation>Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information.</documentation>
+    </task>
+    <sequenceFlow id="flow4" sourceRef="orderPlacement" targetRef="paymentProcessing" />
+    <task id="paymentProcessing" name="Payment Processing">
+      <documentation>The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods.</documentation>
+    </task>
+    <sequenceFlow id="flow5" sourceRef="paymentProcessing" targetRef="orderFulfillment" />
+    <task id="orderFulfillment" name="Order Fulfillment">
+      <documentation>Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery.</documentation>
+    </task>
+    <sequenceFlow id="flow6" sourceRef="orderFulfillment" targetRef="customerService" />
+    <task id="customerService" name="Customer Service">
+      <documentation>The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges.</documentation>
+    </task>
+    <sequenceFlow id="flow7" sourceRef="customerService" targetRef="endEvent" />
+    <endEvent id="endEvent" name="End Event" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="onlineShopProcess" id="BPMNPlane_1" />
+  </bpmndi:BPMNDiagram>
+</definitions>
