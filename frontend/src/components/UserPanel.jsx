@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 const UserPanel = ({ gptVersion }) => {
   const [temperatureValue, setTemperatureValue] = useState(0.73);
-  const [frequencyPenalty, setFrequencyPenalty] = useState(0.73);
+  const [frequencyPenalty, setFrequencyPenalty] = useState(0);
   const [itemValue, setItemValue] = useState(5);
   function handleChange(event) {
     setItemValue(event.target.value);
@@ -59,7 +59,7 @@ const UserPanel = ({ gptVersion }) => {
               label="Item number"
             >
               {[5, 10, 15, 20].map((numb) => (
-                <MenuItem value={numb}>{numb}</MenuItem>
+                <MenuItem value={numb} key={`itemNumb-${numb}`}>{numb}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -91,7 +91,7 @@ const UserPanel = ({ gptVersion }) => {
       </div>
       <div className="userPanel-secondItem">
         
-        <UserInput setShowWaiting={setShowWaiting}/>
+        <UserInput setShowWaiting={setShowWaiting} itemValue={itemValue} temperatureValue={temperatureValue} frequencyPenalty={frequencyPenalty}/>
         <div
           style={{ height: "5vh", gridRow: 2, gridColumn: 1 }}
         >

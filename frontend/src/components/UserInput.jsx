@@ -5,20 +5,28 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState, useRef } from "react";
 import { requestHandler } from "../utils";
 
-const LOCAL_HOST = "127.0.0.1:5000";
-const API_ADRESS = LOCAL_HOST;
+const LOCAL_HOST = "http://127.0.0.1:5000";
 
-const UserInput = ({ setShowWaiting }) => {
+const UserInput = ({ setShowWaiting, itemValue, temperatureValue, frequencyPenalty }) => {
   async function sendRequestToChatGPT(message) {
     setShowWaiting(true);
+
     const requestOptions = {
       method: "GET",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-      // TODO - configure body request
+        
+      }
+      // body: JSON.stringify({
+      //   user_text: message,
+      //   items_number: itemValue,
+      //   temperature: temperatureValue,
+      //   frequency_penalty: frequencyPenalty
+      // }),
     };
+    const API_ADRESS = `${LOCAL_HOST}?user_text=${message}&items_number=${itemValue}&temperature=${temperatureValue}&frequency_penalty=${frequencyPenalty}` 
+
     const openAIRequest = fetch(API_ADRESS, requestOptions);
     const xmlData = await requestHandler(openAIRequest);
     setTimeout(() => setShowWaiting(false), 3500); // After correct implement delete it

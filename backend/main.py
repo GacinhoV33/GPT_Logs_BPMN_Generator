@@ -30,7 +30,7 @@ MODEL_DESCRIBTION = "An online shop," \
                     " without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales " \
                     "and expand their customer base."
 PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around " + str(NUMBER_OF_ITEMS) + " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + MODEL_DESCRIBTION
-PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
+PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around"
 PROMPT_MIDDLE = " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
 MAX_TOKENS = 4096 - int(len(PROMPT)/4)
 print(MAX_TOKENS)
@@ -64,6 +64,9 @@ def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEM
     #TODO - change rest of params
     prompt = make_prompt(user_text, items_number)
     max_tokens = count_max_tokens(prompt)
+    # delete print after testing 
+    print(len(prompt))
+    print(prompt)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
