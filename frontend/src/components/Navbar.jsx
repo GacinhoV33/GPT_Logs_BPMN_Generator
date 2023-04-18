@@ -23,7 +23,7 @@ export default function MenuAppBar({setGptVersion}) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -48,7 +48,7 @@ export default function MenuAppBar({setGptVersion}) {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <img src='./gpt_logo.png' style={{width: '1.5vw'}}/>
+                <img src='./gpt_logo.png' style={{width: '1.5vw', paddingRight: '1.5vw'}}/>
               </IconButton>
               <Menu
                 id="menu-appbar"

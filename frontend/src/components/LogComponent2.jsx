@@ -55,10 +55,11 @@ const LogHookComponent = () =>  {
         id="container"
         style={{
           border: "1px solid #000000",
-          height: "90vh",
-          width: "90vw",
-          margin: "auto"
+          height: "70vh",
+          width: "80vw",
+          // margin: "auto"
         }}
+
       ></div>
     </div>
   );
