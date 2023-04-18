@@ -30,7 +30,8 @@ MODEL_DESCRIBTION = "An online shop," \
                     " without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales " \
                     "and expand their customer base."
 PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around " + str(NUMBER_OF_ITEMS) + " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + MODEL_DESCRIBTION
-
+PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
+PROMPT_MIDDLE = " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
 MAX_TOKENS = 4096 - int(len(PROMPT)/4)
 print(MAX_TOKENS)
 
@@ -51,21 +52,31 @@ def save_response(text, response):
         file2.write(text)
 
 
-def make_openai_request():
+def count_max_tokens(prompt: str):
+    return 4096 - int(len(prompt)/4)
+
+
+def make_prompt(user_text: str, number_of_items: int):
+    return PROMPT_BEGIN + str(number_of_items) + PROMPT_MIDDLE + user_text
+
+
+def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
+    #TODO - change rest of params
+    prompt = make_prompt(user_text, items_number)
+    max_tokens = count_max_tokens(prompt)
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=PROMPT,
-        temperature=TEMPERATURE,
-        max_tokens=MAX_TOKENS,
+        prompt=prompt,
+        temperature=temperature,
+        max_tokens=max_tokens,
         top_p=TOP_P,
-        frequency_penalty=FREQUENCE_PENALTY,
+        frequency_penalty=frequency_penalty,
         presence_penalty=PRESENCE_PENALTY,
     )
-
     return response
 
 
 if __name__ == "__main__":
-    response = make_openai_request()
+    response = make_openai_request(MODEL_DESCRIBTION)
     text = response['choices'][0]['text']
     save_response(text, response)
