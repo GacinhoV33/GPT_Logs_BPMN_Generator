@@ -1,0 +1,56 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="StartEvent_1"/>
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+
+    <!-- Check the oven's temperature -->
+    <task id="Task_1">
+      <incoming>flow1</incoming>
+      <outgoing>flow2</outgoing>
+      <documentation>Check the oven's temperature.</documentation> 
+    </task>
+
+    <!-- Get the ingredients --> 
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2"/>
+
+    <task id="Task_2">
+      <incoming>flow2</incoming>
+      <outgoing>flow3</outgoing>  				  				  		  
+      <documentation>Get the ingredients.</documentation> 
+    </task>
+
+    <!-- Preheat the oven --> 
+
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3"/>
+
+    <task id="Task_3">           		  	  
+      <incoming >flow3</incoming >                                               	      	      	         
+      <outgoing >flow4</outgoing >                                               	      	      	         
+      <documentation >Preheat the oven.</documentation >            	       	       
+
+     </task >                                              
+
+     <!-- Knead the dough --> 
+
+     <sequenceFlow id = "flow4" sourceRef = "Task_3" targetRef = "Task_4"/>             
+
+     <task id = "Task_4">            
+
+        <incoming > flow4 </incoming >            
+
+        <outgoing > flow5 </outgoing >            
+
+        <documentation > Knead the dough. </documentation >          
+
+     </task >              
+
+     <!-- Let it rest for 30 minutes -->           
+
+     <sequenceFlow id = "flow5" sourceRef = "Task_4" targetRef = "Task_5"/>              
+
+     <task id = "Task_5">             
+
+         
