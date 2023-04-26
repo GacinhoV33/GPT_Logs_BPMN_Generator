@@ -1,0 +1,66 @@
+ insufficient funds, credit limit, etc.
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1d12y2x" name="Provide payment information">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0l2zwvv</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0l2zwvv" sourceRef="Task_1d12y2x" targetRef="Task_1y8n0fj" />
+    <bpmn2:task id="Task_1y8n0fj" name="Encrypt payment details">
+      <bpmn2:incoming>SequenceFlow_0l2zwvv</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1yfvhjd</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1yfvhjd" sourceRef="Task_1y8n0fj" targetRef="Task_1q3q3h3" />
+    <bpmn2:task id="Task_1q3q3h3" name="Verify transaction details">
+      <bpmn2:incoming>SequenceFlow_1yfvhjd</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0fzg1sq</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0fzg1sq" sourceRef="Task_1q3q3h3" targetRef="Task_0zu7n6s" />
+    <bpmn2:task id="Task_0zu7n6s" name="Approve funds">
+      <bpmn2:incoming>SequenceFlow_0fzg1sq</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0z0t0us</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0z0t0us" sourceRef="Task_0zu7n6s" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1d12y2x_di" bpmnElement="Task_1d12y2x">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1y8n0fj_di" bpmnElement="Task_1y8n0fj">
+        <dc:Bounds x="409" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1q3q3h3_di" bpmnElement="Task_1q3q3h3">
+        <dc:Bounds x="559" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0zu7n6s_di" bpmnElement="Task_0zu7n6s">
+        <dc:Bounds x="709" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="859" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0l2zwvv_di" bpmnElement="SequenceFlow_0l2zwvv">
+        <di:waypoint xsi:type="dc:Point" x="295" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="395" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yfvhjd_di" bpmnElement="SequenceFlow_1yfvhjd">
+        <di:waypoint xsi:type="dc:Point" x="445" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="545" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fzg1sq_di" bpmnElement="SequenceFlow_0fzg1sq">
+        <di:waypoint xsi:type="dc:Point" x="595" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="695" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0z0t0us_di" bpmnElement="SequenceFlow_0z0t0us">
+        <di:waypoint xsi:type="dc:Point" x="745" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="845" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

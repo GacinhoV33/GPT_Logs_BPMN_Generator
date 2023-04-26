@@ -707,3 +707,1671 @@ top_p: 1
 
 ----------------------------------------------------------------------------------------------------
 
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1"/>
+    <bpmn2:task id="Task_1" name="Website Creation">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Product Listing">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Order Placement">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Payment Processing">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Order Fulfillment">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_6" name="Customer Service">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="Task_6"/>
+    <bpmn2:sequenceFlow id="Flow_7" sourceRef="Task_6" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="190" y="80" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="309" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="452" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="595" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="737" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="879" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_di" bpmnElement="Task_6">
+        <dc:Bounds x="1022" y="72" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1164" y="80" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="226" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="309" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="409" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="452" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="552" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="595" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="695" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="737" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="837" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="879" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="979" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="1022" y="98"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint xsi:type="dc:Point" x="1122" y="98"/>
+        <di:waypoint xsi:type="dc:Point" x="1164" y="98"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2105
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="Process_1" name="Business Process Automation">
+    <startEvent id="StartEvent_1" name="Start"/>
+    <sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <task id="Task_1" name="Business Process Management">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    <sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <task id="Task_2" name="Business Process Improvement">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_3</outgoing>
+    </task>
+    <sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <task id="Task_3" name="Business Process Reengineering">
+      <incoming>Flow_3</incoming>
+      <outgoing>Flow_4</outgoing>
+    </task>
+    <sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <task id="Task_4" name="Business Process Analysis">
+      <incoming>Flow_4</incoming>
+      <outgoing>Flow_5</outgoing>
+    </task>
+    <sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <task id="Task_5" name="Business Process Monitoring">
+      <incoming>Flow_5</incoming>
+      <outgoing>Flow_6</outgoing>
+    </task>
+    <endEvent id="EndEvent_1" name="End">
+      <incoming>Flow_6</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="135" y="40" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <omgdc:Bounds x="205" y="30" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <omgdc:Bounds x="345" y="30" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <omgdc:Bounds x="485" y="30" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <omgdc:Bounds x="625" y="30" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <omgdc:Bounds x="765" y="30" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="905" y="40" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="171" y="58"/>
+        <omgdi:waypoint x="205" y="58"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <omgdi:waypoint x="305" y="58"/>
+        <omgdi:waypoint x="345" y="58"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="445" y="58"/>
+        <omgdi:waypoint x="485" y="58"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <omgdi:waypoint x="585" y="58"/>
+        <omgdi:waypoint x="625" y="58"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <omgdi:waypoint x="725" y="58"/>
+        <omgdi:waypoint x="765" y="58"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <omgdi:waypoint x="845" y="58"/>
+        <omgdi:waypoint x="905" y="58"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1707
+
+----------------------------------------------------------------------------------------------------
+
+ insufficient funds, incorrect account numbers, expired debit or credit cards, etc.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="Start_1" />
+    <bpmn2:task id="Task_1" name="Provide Necessary Information" />
+    <bpmn2:task id="Task_2" name="Encrypt Payment Details" />
+    <bpmn2:task id="Task_3" name="Verify Transaction Details" />
+    <bpmn2:task id="Task_4" name="Approve Funds" />
+    <bpmn2:endEvent id="End_1" />
+    <bpmn2:sequenceFlow id="flow_1" sourceRef="Start_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="flow_5" sourceRef="Task_4" targetRef="End_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <dc:Bounds x="170" y="70" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_1_di" bpmnElement="End_1">
+        <dc:Bounds x="764" y="70" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="313" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="454" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="595" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="736" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_1_di" bpmnElement="flow_1">
+        <di:waypoint xsi:type="dc:Point" x="206" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="313" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_2_di" bpmnElement="flow_2">
+        <di:waypoint xsi:type="dc:Point" x="413" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="454" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_3_di" bpmnElement="flow_3">
+        <di:waypoint xsi:type="dc:Point" x="554" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="595" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_4_di" bpmnElement="flow_4">
+        <di:waypoint xsi:type="dc:Point" x="695" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="736" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_5_di" bpmnElement="flow_5">
+        <di:waypoint xsi:type="dc:Point" x="800" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="764" y="88" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1487
+
+----------------------------------------------------------------------------------------------------
+
+ insufficient funds, fraud, etc.Payment is confirmed: Once the banks have approved the transaction, both the seller and buyer receive confirmation that payment has been made and the transaction is complete.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="http://www.activiti.org/test" id="sid-fcf0a6c8-6d80-4b2a-b3d6-8e1921baa9a3">
+  <process id="Process_1" name="Online purchase process" isExecutable="true">
+    <startEvent id="StartEvent_1" name="Start" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <userTask id="Task_1" name="Customer provides payment information">
+      <extensionElements>
+        <activiti:formProperty id="FormProperty_1" name="Name" type="string" />
+        <activiti:formProperty id="FormProperty_2" name="Address" type="string" />
+        <activiti:formProperty id="FormProperty_3" name="Bank Account Info" type="string" />
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2" />
+    <serviceTask id="Task_2" name="Payment gateway encrypts data">
+      <extensionElements>
+        <activiti:field name="encryptionAlgorithm" stringValue="AES" />
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3" />
+    <serviceTask id="Task_3" name="Information is verified">
+      <extensionElements>
+        <activiti:field name="verificationMethod" stringValue="Credit Card" />
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow4" sourceRef="Task_3" targetRef="Task_4" />
+    <serviceTask id="Task_4" name="Funds are approved" />
+    <sequenceFlow id="flow5" sourceRef="Task_4" targetRef="Task_5" />
+    <serviceTask id="Task_5" name="Payment is confirmed" />
+    <sequenceFlow id="flow6" sourceRef="Task_5" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1" name="End" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="Process_1" id="BPMNPlane_1">
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="BPMNShape_1">
+        <dc:Bounds height="35.0" width="35.0" x="140.0" y="140.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_1" id="BPMNShape_2">
+        <dc:Bounds height="80.0" width="100.0" x="290.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_2" id="BPMNShape_3">
+        <dc:Bounds height="80.0" width="100.0" x="440.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_3" id="BPMNShape_4">
+        <dc:Bounds height="80.0" width="100.0" x="590.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_4" id="BPMNShape_5">
+        <dc:Bounds height="80.0" width="100.0" x="740.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_5" id="BPMNShape_6">
+        <dc:Bounds height="80.0" width="100.0" x="890.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndEvent_1" id="BPMNShape_7">
+        <dc:Bounds height="35.0" width="35.0" x="1040.0" y="140.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_1">
+        <di:waypoint xsi:type="dc:Point" x="175.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="290.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_2">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_3">
+        <di:waypoint xsi:type="dc:Point" x="540.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="590.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_4">
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="740.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_5">
+        <di:waypoint xsi:type="dc:Point" x="840.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_6">
+        <di:waypoint xsi:type="dc:Point" x="990.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="1040.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1981
+
+----------------------------------------------------------------------------------------------------
+
+ insufficient funds, credit limit, etc.
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1d12y2x" name="Provide payment information">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0l2zwvv</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0l2zwvv" sourceRef="Task_1d12y2x" targetRef="Task_1y8n0fj" />
+    <bpmn2:task id="Task_1y8n0fj" name="Encrypt payment details">
+      <bpmn2:incoming>SequenceFlow_0l2zwvv</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1yfvhjd</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1yfvhjd" sourceRef="Task_1y8n0fj" targetRef="Task_1q3q3h3" />
+    <bpmn2:task id="Task_1q3q3h3" name="Verify transaction details">
+      <bpmn2:incoming>SequenceFlow_1yfvhjd</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0fzg1sq</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0fzg1sq" sourceRef="Task_1q3q3h3" targetRef="Task_0zu7n6s" />
+    <bpmn2:task id="Task_0zu7n6s" name="Approve funds">
+      <bpmn2:incoming>SequenceFlow_0fzg1sq</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0z0t0us</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0z0t0us" sourceRef="Task_0zu7n6s" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1d12y2x_di" bpmnElement="Task_1d12y2x">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1y8n0fj_di" bpmnElement="Task_1y8n0fj">
+        <dc:Bounds x="409" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1q3q3h3_di" bpmnElement="Task_1q3q3h3">
+        <dc:Bounds x="559" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0zu7n6s_di" bpmnElement="Task_0zu7n6s">
+        <dc:Bounds x="709" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="859" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0l2zwvv_di" bpmnElement="SequenceFlow_0l2zwvv">
+        <di:waypoint xsi:type="dc:Point" x="295" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="395" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yfvhjd_di" bpmnElement="SequenceFlow_1yfvhjd">
+        <di:waypoint xsi:type="dc:Point" x="445" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="545" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fzg1sq_di" bpmnElement="SequenceFlow_0fzg1sq">
+        <di:waypoint xsi:type="dc:Point" x="595" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="695" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0z0t0us_di" bpmnElement="SequenceFlow_0z0t0us">
+        <di:waypoint xsi:type="dc:Point" x="745" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="845" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1790
+
+----------------------------------------------------------------------------------------------------
+
+ insufficient funds, incorrect account numbers, or the customer’s bank or credit card issuer may not be part of the payment network.Funds are transferred: Once the transaction is authorized, the funds are transferred from the buyer’s bank to the seller’s bank. The transfer of funds typically takes 2-3 business days to complete.
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Provide payment details">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Encrypt payment details">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Verify details">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Approve funds">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Transfer funds">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="400" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="541" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="682" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="823" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="964" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="259" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="359" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="400" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="500" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="541" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="641" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="682" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="783" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="823" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="923" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="964" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1921
+
+----------------------------------------------------------------------------------------------------
+
+ insufficient funds, incorrect account information, etc.Money is transferred: Once the banks approve the purchase, the funds are transferred from the buyer’s account to the seller’s account.Confirmation is sent: The buyer and the seller are notified that the payment has been processed successfully.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartProcess"/>
+    <bpmn2:task id="Task_1" name="Provide Payment Information"/>
+    <bpmn2:task id="Task_2" name="Encrypt Payment Details"/>
+    <bpmn2:task id="Task_3" name="Verify Payment Details"/>
+    <bpmn2:task id="Task_4" name="Transfer Funds"/>
+    <bpmn2:task id="Task_5" name="Send Confirmation"/>
+    <bpmn2:endEvent id="EndEvent_1" name="EndProcess"/>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="170" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="250" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="400" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="550" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="700" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="850" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1000" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="206" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="250" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="350" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="400" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="500" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="550" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="650" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="700" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="850" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1000" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1702
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="BankProcess">
+    <startEvent id="startEvent" />
+    <sequenceFlow id="startToCheckDeposits" sourceRef="startEvent" targetRef="CheckDepositsTask" />
+    <task id="CheckDepositsTask">
+      <incoming>startToCheckDeposits</incoming>
+      <outgoing>CheckDepositsToMakeLoansTask</outgoing>
+    </task>
+    <sequenceFlow id="CheckDepositsToMakeLoansTask" sourceRef="CheckDepositsTask" targetRef="MakeLoansTask" />
+    <task id="MakeLoansTask">
+      <incoming>CheckDepositsToMakeLoansTask</incoming>
+      <outgoing>MakeLoansToProvideServicesTask</outgoing>
+    </task>
+    <sequenceFlow id="MakeLoansToProvideServicesTask" sourceRef="MakeLoansTask" targetRef="ProvideServicesTask" />
+    <task id="ProvideServicesTask">
+      <incoming>MakeLoansToProvideServicesTask</incoming>
+      <outgoing>ProvideServicesToRegulatedTask</outgoing>
+    </task>
+    <sequenceFlow id="ProvideServicesToRegulatedTask" sourceRef="ProvideServicesTask" targetRef="RegulatedTask" />
+    <task id="RegulatedTask">
+      <incoming>ProvideServicesToRegulatedTask</incoming>
+      <outgoing>RegulatedTaskToEndEvent</outgoing>
+    </task>
+    <sequenceFlow id="RegulatedTaskToEndEvent" sourceRef="RegulatedTask" targetRef="endEvent" />
+    <endEvent id="endEvent" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BankProcess">
+      <bpmndi:BPMNShape id="startEvent_shape" bpmnElement="startEvent">
+        <omgdc:Bounds x="150" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CheckDepositsTask_shape" bpmnElement="CheckDepositsTask">
+        <omgdc:Bounds x="260" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MakeLoansTask_shape" bpmnElement="MakeLoansTask">
+        <omgdc:Bounds x="400" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ProvideServicesTask_shape" bpmnElement="ProvideServicesTask">
+        <omgdc:Bounds x="540" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RegulatedTask_shape" bpmnElement="RegulatedTask">
+        <omgdc:Bounds x="680" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endEvent_shape" bpmnElement="endEvent">
+        <omgdc:Bounds x="820" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="startToCheckDeposits_edge" bpmnElement="startToCheckDeposits">
+        <omgdi:waypoint x="186" y="130" />
+        <omgdi:waypoint x="260" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="CheckDepositsToMakeLoansTask_edge" bpmnElement="CheckDepositsToMakeLoansTask">
+        <omgdi:waypoint x="360" y="130" />
+        <omgdi:waypoint x="400" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="MakeLoansToProvideServicesTask_edge" bpmnElement="MakeLoansToProvideServicesTask">
+        <omgdi:waypoint x="500" y="130" />
+        <omgdi:waypoint x="540" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="ProvideServicesToRegulatedTask_edge" bpmnElement="ProvideServicesToRegulatedTask">
+        <omgdi:waypoint x="640" y="130" />
+        <omgdi:waypoint x="680" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="RegulatedTaskToEndEvent_edge" bpmnElement="RegulatedTaskToEndEvent">
+        <omgdi:waypoint x="780" y="130" />
+        <omgdi:waypoint x="820" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1534
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://www.example.org/bpmn2" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1" name="Accept deposits and make loan">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Provide related services">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Classify different types of banks">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Regulate by national and state governments">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="167" y="119" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="256" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="456" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="656" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="856" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1056" y="119" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="203" y="137" />
+        <di:waypoint xsi:type="dc:Point" x="256" y="137" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="356" y="137" />
+        <di:waypoint xsi:type="dc:Point" x="456" y="137" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="556" y="137" />
+        <di:waypoint xsi:type="dc:Point" x="656" y="137" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="756" y="137" />
+        <di:waypoint xsi:type="dc:Point" x="856" y="137" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="956" y="137" />
+        <di:waypoint xsi:type="dc:Point" x="1056" y="137" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1816
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Retail Bank Operations">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Commercial and Corporate Bank Operations">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Investment Bank Operations">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Regulation by National Government">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Regulation by Individual States">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="133" y="34" width="36" height="36" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="719" y="34" width="36" height="36" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="203" y="12" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="328" y="12" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="453" y="12" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="578" y="12" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="703" y="12" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="169" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="203" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="303" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="328" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="428" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="453" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="553" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="578" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="638" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="703" y="52" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+        <di:waypoint xsi:type="dc:Point" x="803" y="52" />
+        <di:waypoint xsi:type="dc:Point" x="719" y="52" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1934
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+	<bpmn2:process id="Process_1" isExecutable="false" processType="None">
+		<bpmn2:startEvent id="StartEvent_1" />
+		<bpmn2:task id="Task_1" name="Retail Banking Services">
+			<bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_2" name="Corporate Services">
+			<bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_3" name="Investment Banking Services">
+			<bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_4" name="Individual Retirement Accounts (IRAs)">
+			<bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_5" name="Certificates of Deposit (CDs)">
+			<bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_6" name="Currency Exchange">
+			<bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+			<bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:task id="Task_7" name="Safe Deposit Boxes">
+			<bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+			<bpmn2:outgoing>EndEvent_1</bpmn2:outgoing>
+		</bpmn2:task>
+		<bpmn2:endEvent id="EndEvent_1" />
+		<bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+		<bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+		<bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+		<bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+		<bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5" />
+		<bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="Task_6" />
+		<bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="Task_6" targetRef="Task_7" />
+		<bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="Task_7" targetRef="EndEvent_1" />
+	</bpmn2:process>
+	<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+		<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+			<bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1" >
+				<dc:Bounds x="175" y="80" width="36" height="36" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+				<dc:Bounds x="475" y="80" width="36" height="36" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+				<dc:Bounds x="225" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+				<dc:Bounds x="325" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+				<dc:Bounds x="425" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+				<dc:Bounds x="525" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+				<dc:Bounds x="625" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_6_di" bpmnElement="Task_6">
+				<dc:Bounds x="725" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Task_7_di" bpmnElement="Task_7">
+				<dc:Bounds x="825" y="50" width="100" height="80" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+				<di:waypoint xsi:type="dc:Point" x="211" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="225" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+				<di:waypoint xsi:type="dc:Point" x="325" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="411" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+				<di:waypoint xsi:type="dc:Point" x="525" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="611" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+				<di:waypoint xsi:type="dc:Point" x="625" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="711" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+				<di:waypoint xsi:type="dc:Point" x="725" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="811" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+				<di:waypoint xsi:type="dc:Point" x="825" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="911" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_7_di" bpmnElement="SequenceFlow_7">
+				<di:waypoint xsi:type="dc:Point" x="475" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="591" y="118" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="SequenceFlow_8_di" bpmnElement="SequenceFlow_8">
+				<di:waypoint xsi:type="dc:Point" x="911" y="118" />
+				<di:waypoint xsi:type="dc:Point" x="475" y="118" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2779
+
+----------------------------------------------------------------------------------------------------
+
+ <bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Accept deposits">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Make loans">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Provide IRAs">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Provide CDs">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Provide currency exchange">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_6" name="Provide safe deposit boxes">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="Task_6" />
+    <bpmn2:sequenceFlow id="Flow_7" sourceRef="Task_6" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_gui" bpmnElement="Task_1">
+        <dc:Bounds x="254" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_gui" bpmnElement="Task_2">
+        <dc:Bounds x="430" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_gui" bpmnElement="Task_3">
+        <dc:Bounds x="600" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_gui" bpmnElement="Task_4">
+        <dc:Bounds x="254" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_gui" bpmnElement="Task_5">
+        <dc:Bounds x="430" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_gui" bpmnElement="Task_6">
+        <dc:Bounds x="600" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_gui" bpmnElement="EndEvent_1">
+        <dc:Bounds x="786" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_gui" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="254" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_gui" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="354" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="430" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_gui" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="530" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="600" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_gui" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="354" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="430" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_gui" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="530" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="600" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_gui" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="700" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="786" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_gui" bpmnElement="Flow_7">
+        <di:waypoint xsi:type="dc:Point" x="700" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="786" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2063
+
+----------------------------------------------------------------------------------------------------
+
+ <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:jsbpmn="http://bpmn.io/schema/jsbpmn/1.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/jsbpmn">
+  <bpmn2:process id="Process_1" name="Payment Process" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="Payment Start"/>
+    <bpmn2:task id="Task_1" name="Account Verification"/>
+    <bpmn2:task id="Task_2" name="Payment Authorization"/>
+    <bpmn2:task id="Task_3" name="Payment Processing"/>
+    <bpmn2:task id="Task_4" name="Payment Reconciliation"/>
+    <bpmn2:endEvent id="EndEvent_1" name="Payment End"/>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="162" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+        <dc:Bounds x="240" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+        <dc:Bounds x="360" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+        <dc:Bounds x="480" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+        <dc:Bounds x="600" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_shape" bpmnElement="EndEvent_1">
+        <dc:Bounds x="720" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_edge" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="198" y="120"/>
+        <di:waypoint xsi:type="dc:Point" x="240" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_edge" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="340" y="120"/>
+        <di:waypoint xsi:type="dc:Point" x="360" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_edge" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="460" y="120"/>
+        <di:waypoint xsi:type="dc:Point" x="480" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_edge" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="600" y="120"/>
+        <di:waypoint xsi:type="dc:Point" x="620" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_edge" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="740" y="120"/>
+        <di:waypoint xsi:type="dc:Point" x="720" y="120"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1495
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+  xmlns:tns="http://www.jboss.org/drools" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  targetNamespace="http://www.jboss.org/drools" 
+  expressionLanguage="http://www.mvel.org/2.0" 
+  typeLanguage="http://www.java.com/javaTypes" 
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+
+  <bpmn2:process id="Process_1" name="Payment Process" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Payment Request">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Check Payment">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Authorize Payment">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Notify Payee">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Record Payment">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1" />
+  </bpmn2:process>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 858
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" id="definitions" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="process_1" isExecutable="true">
+    <bpmn2:startEvent id="startevent_1" />
+    <bpmn2:task id="task_1">
+      <bpmn2:incoming>startevent_1</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_1</bpmn2:outgoing>
+      <bpmn2:documentation>Evaluate the payment request</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_1" sourceRef="task_1" targetRef="gateway_1" />
+    <bpmn2:exclusiveGateway id="gateway_1" default="sequenceflow_3">
+      <bpmn2:incoming>sequenceflow_1</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>sequenceflow_3</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="sequenceflow_2" sourceRef="gateway_1" targetRef="task_2">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        gateway_1.value == "sequenceflow_2"
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_2">
+      <bpmn2:incoming>sequenceflow_2</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_4</bpmn2:outgoing>
+      <bpmn2:documentation>Initiate payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_3" sourceRef="gateway_1" targetRef="task_3">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        gateway_1.value == "sequenceflow_3"
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_3">
+      <bpmn2:incoming>sequenceflow_3</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_5</bpmn2:outgoing>
+      <bpmn2:documentation>Reject payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_4" sourceRef="task_2" targetRef="task_4">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        task_2.completed
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_4">
+      <bpmn2:incoming>sequenceflow_4</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_6</bpmn2:outgoing>
+      <bpmn2:documentation>Verify payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_5" sourceRef="task_3" targetRef="endevent_1" />
+    <bpmn2:sequenceFlow id="sequenceflow_6" sourceRef="task_4" targetRef="endevent_2" />
+    <bpmn2:endEvent id="endevent_1" />
+    <bpmn2:endEvent id="endevent_2" />
+  </bpmn2:process>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1054
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Request Payment">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Validate Payment">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Process Payment">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Send Notification">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="423" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="593" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="763" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="933" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="259" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="359" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="423" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="523" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="593" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="693" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="763" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="863" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="933" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1624
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-definitions" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="process_1" isExecutable="true">
+    <bpmn2:startEvent id="start_1" />
+    <bpmn2:task id="task_1">
+      <bpmn2:incoming>start_1</bpmn2:incoming>
+      <bpmn2:outgoing>task_2</bpmn2:outgoing>
+      <bpmn2:documentation>Select payment type</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:task id="task_2">
+      <bpmn2:incoming>task_1</bpmn2:incoming>
+      <bpmn2:outgoing>task_3</bpmn2:outgoing>
+      <bpmn2:documentation>Enter payment information</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:task id="task_3">
+      <bpmn2:incoming>task_2</bpmn2:incoming>
+      <bpmn2:outgoing>task_4</bpmn2:outgoing>
+      <bpmn2:documentation>Validate payment information</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:task id="task_4">
+      <bpmn2:incoming>task_3</bpmn2:incoming>
+      <bpmn2:outgoing>task_5</bpmn2:outgoing>
+      <bpmn2:documentation>Process payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:task id="task_5">
+      <bpmn2:incoming>task_4</bpmn2:incoming>
+      <bpmn2:outgoing>end_1</bpmn2:outgoing>
+      <bpmn2:documentation>Notify payer and payee</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="end_1" />
+    <bpmn2:sequenceFlow id="flow_1" sourceRef="start_1" targetRef="task_1" />
+    <bpmn2:sequenceFlow id="flow_2" sourceRef="task_1" targetRef="task_2" />
+    <bpmn2:sequenceFlow id="flow_3" sourceRef="task_2" targetRef="task_3" />
+    <bpmn2:sequenceFlow id="flow_4" sourceRef="task_3" targetRef="task_4" />
+    <bpmn2:sequenceFlow id="flow_5" sourceRef="task_4" targetRef="task_5" />
+    <bpmn2:sequenceFlow id="flow_6" sourceRef="task_5" targetRef="end_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1n9mjnh_di" bpmnElement="task_1">
+        <dc:Bounds x="253" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2r7h8ng_di" bpmnElement="task_2">
+        <dc:Bounds x="415" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3z15b60_di" bpmnElement="task_3">
+        <dc:Bounds x="577" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4h6fzk6_di" bpmnElement="task_4">
+        <dc:Bounds x="739" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5kv6r39_di" bpmnElement="task_5">
+        <dc:Bounds x="901" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1f948lh_di" bpmnElement="end_1">
+        <dc:Bounds x="1063" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1zli2wm_di" bpmnElement="flow_1">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="253" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2b2v6co_di" bpmnElement="flow_2">
+        <di:waypoint x="353" y="120" />
+        <di:waypoint x="415" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3h0c8xh_di" bpmnElement="flow_3">
+        <di:waypoint x="515" y="120" />
+        <di:waypoint x="577" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_46v02vp_di" bpmnElement="flow_4">
+        <di:waypoint x="677" y="120" />
+        <di:waypoint x="739" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5t5bekl_di" bpmnElement="flow_5">
+        <di:waypoint x="839" y="120" />
+        <di:waypoint x="901" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6wjv1u4_di" bpmnElement="flow_6">
+        <di:waypoint x="1001" y="120" />
+        <di:waypoint x="1063" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1937
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="6.3.3">
+  <process id="paymentProcess" isExecutable="true">
+    <startEvent id="startEvent" />
+    <task id="Step1" name="Payer initiates payment" />
+    <task id="Step2" name="Payee receives payment request" />
+    <task id="Step3" name="Payee approves payment request" />
+    <task id="Step4" name="Payer confirms payment" />
+    <task id="Step5" name="Payee sends invoice" />
+    <endEvent id="endEvent" />
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="Step1" />
+    <sequenceFlow id="flow2" sourceRef="Step1" targetRef="Step2" />
+    <sequenceFlow id="flow3" sourceRef="Step2" targetRef="Step3" />
+    <sequenceFlow id="flow4" sourceRef="Step3" targetRef="Step4" />
+    <sequenceFlow id="flow5" sourceRef="Step4" targetRef="Step5" />
+    <sequenceFlow id="flow6" sourceRef="Step5" targetRef="endEvent" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_paymentProcess">
+    <bpmndi:BPMNPlane bpmnElement="paymentProcess">
+      <bpmndi:BPMNShape bpmnElement="startEvent">
+        <omgdc:Bounds x="50" y="50" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Step1">
+        <omgdc:Bounds x="50" y="150" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Step2">
+        <omgdc:Bounds x="200" y="150" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Step3">
+        <omgdc:Bounds x="350" y="150" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Step4">
+        <omgdc:Bounds x="500" y="150" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Step5">
+        <omgdc:Bounds x="650" y="150" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endEvent">
+        <omgdc:Bounds x="800" y="50" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1">
+        <omgdi:waypoint x="98" y="68" />
+        <omgdi:waypoint x="98" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2">
+        <omgdi:waypoint x="148" y="168" />
+        <omgdi:waypoint x="248" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3">
+        <omgdi:waypoint x="298" y="168" />
+        <omgdi:waypoint x="398" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4">
+        <omgdi:waypoint x="448" y="168" />
+        <omgdi:waypoint x="548" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5">
+        <omgdi:waypoint x="598" y="168" />
+        <omgdi:waypoint x="698" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6">
+        <omgdi:waypoint x="748" y="168" />
+        <omgdi:waypoint x="848" y="68" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1374
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+   <bpmn2:process id="Process_1" isExecutable="false">
+      <bpmn2:startEvent id="StartEvent_1" name="Start Payment Process">
+         <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+      <bpmn2:task id="Task_1" name="Provide Payment Information">
+         <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+         <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+      <bpmn2:task id="Task_2" name="Verify Payment Information">
+         <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+         <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+      <bpmn2:task id="Task_3" name="Process Payment">
+         <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+         <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+      <bpmn2:task id="Task_4" name="Notify Payee of Payment">
+         <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+         <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+      <bpmn2:task id="Task_5" name="Record Payment">
+         <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+         <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+      <bpmn2:endEvent id="EndEvent_1" name="Payment Process Completed">
+         <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      </bpmn2:endEvent>
+   </bpmn2:process>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 846
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.3">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="StartEvent_1" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <task id="Task_1" name="Make payment">
+      <incoming>flow1</incoming>
+      <outgoing>flow2</outgoing>
+    </task>
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2" />
+    <task id="Task_2" name="Validate payment">
+      <incoming>flow2</incoming>
+      <outgoing>flow3</outgoing>
+    </task>
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3" />
+    <task id="Task_3" name="Notify payer">
+      <incoming>flow3</incoming>
+      <outgoing>flow4</outgoing>
+    </task>
+    <sequenceFlow id="flow4" sourceRef="Task_3" targetRef="Task_4" />
+    <task id="Task_4" name="Notify payee">
+      <incoming>flow4</incoming>
+      <outgoing>flow5</outgoing>
+    </task>
+    <sequenceFlow id="flow5" sourceRef="Task_4" targetRef="Task_5" />
+    <task id="Task_5" name="Record transaction">
+      <incoming>flow5</incoming>
+      <outgoing>flow6</outgoing>
+    </task>
+    <sequenceFlow id="flow6" sourceRef="Task_5" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="162" y="68" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_gui" bpmnElement="Task_1">
+        <dc:Bounds x="264" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_gui" bpmnElement="Task_2">
+        <dc:Bounds x="411" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_gui" bpmnElement="Task_3">
+        <dc:Bounds x="556" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_gui" bpmnElement="Task_4">
+        <dc:Bounds x="701" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_gui" bpmnElement="Task_5">
+        <dc:Bounds x="846" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_gui" bpmnElement="EndEvent_1">
+        <dc:Bounds x="990" y="68" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_gui" bpmnElement="flow1">
+        <di:waypoint xsi:type="dc:Point" x="198" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="264" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_gui" bpmnElement="flow2">
+        <di:waypoint xsi:type="dc:Point" x="364" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="411" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_gui" bpmnElement="flow3">
+        <di:waypoint xsi:type="dc:Point" x="511" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="556" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_gui" bpmnElement="flow4">
+        <di:waypoint xsi:type="dc:Point" x="656" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="701" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_gui" bpmnElement="flow5">
+        <di:waypoint xsi:type="dc:Point" x="801" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="846" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_gui" bpmnElement="flow6">
+        <di:waypoint xsi:type="dc:Point" x="946" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="990" y="86" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1740
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="PaymentProcess" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent" />
+    <bpmn2:task id="DeterminePayment" name="Determine Payment">
+      <bpmn2:incoming>StartEvent</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="CalculateAmount" name="Calculate Amount">
+      <bpmn2:incoming>DeterminePayment</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="AllocateFunds" name="Allocate Funds">
+      <bpmn2:incoming>CalculateAmount</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Pay" name="Pay">
+      <bpmn2:incoming>AllocateFunds</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="VerifyPayment" name="Verify Payment">
+      <bpmn2:incoming>Pay</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent">
+      <bpmn2:incoming>VerifyPayment</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="DeterminePayment" />
+    <bpmn2:sequenceFlow id="flow2" sourceRef="DeterminePayment" targetRef="CalculateAmount" />
+    <bpmn2:sequenceFlow id="flow3" sourceRef="CalculateAmount" targetRef="AllocateFunds" />
+    <bpmn2:sequenceFlow id="flow4" sourceRef="AllocateFunds" targetRef="Pay" />
+    <bpmn2:sequenceFlow id="flow5" sourceRef="Pay" targetRef="VerifyPayment" />
+    <bpmn2:sequenceFlow id="flow6" sourceRef="VerifyPayment" targetRef="EndEvent" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="PaymentProcess">
+      <bpmndi:BPMNShape id="StartEvent_Shape" bpmnElement="StartEvent">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DeterminePayment_Shape" bpmnElement="DeterminePayment">
+        <dc:Bounds x="255" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CalculateAmount_Shape" bpmnElement="CalculateAmount">
+        <dc:Bounds x="420" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AllocateFunds_Shape" bpmnElement="AllocateFunds">
+        <dc:Bounds x="590" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Pay_Shape" bpmnElement="Pay">
+        <dc:Bounds x="760" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="VerifyPayment_Shape" bpmnElement="VerifyPayment">
+        <dc:Bounds x="920" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Shape" bpmnElement="EndEvent">
+        <dc:Bounds x="1090" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_Edge" bpmnElement="flow1">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="255" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_Edge" bpmnElement="flow2">
+        <di:waypoint x="355" y="120" />
+        <di:waypoint x="420" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_Edge" bpmnElement="flow3">
+        <di:waypoint x="520" y="120" />
+        <di:waypoint x="590" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_Edge" bpmnElement="flow4">
+        <di:waypoint x="690" y="120" />
+        <di:waypoint x="760" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_Edge" bpmnElement="flow5">
+        <di:waypoint x="860" y="120" />
+        <di:waypoint x="920" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_Edge" bpmnElement="flow6">
+        <di:waypoint x="1026" y="120" />
+        <di:waypoint x="1090" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1770
+
+----------------------------------------------------------------------------------------------------
+

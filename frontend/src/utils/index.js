@@ -1,7 +1,11 @@
 export async function requestHandler(request) {
     const response = await request
       .then((response) => {
-        // console.log("response: ", response);
+        console.log("response: ", response);
+        if (response.status === 200){
+          console.log("response: ", response.json());
+          return response.json();
+        }
         if (response.ok && response.status === 200) {
           return response.json();
         }
@@ -14,7 +18,6 @@ export async function requestHandler(request) {
         return Promise.reject(response);
       })
       .then((data) => {
-        // console.log("data: ", data);
         return Promise.resolve(data);
       })
       .catch((data) => {

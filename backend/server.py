@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, request
-from main import make_openai_request, save_response
+from flask import Flask, jsonify, request, Response
+from main import make_openai_request, save_response, validate_response, clear_response
 app = Flask(__name__)
 
 # GET method route
@@ -13,10 +13,18 @@ def getOpenAiResponse():
     print("items_number", items_number)
     print("temperature: ", temperature)
     print("frequency_penalty", frequency_penalty)
-    resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
-    text = resp['choices'][0]['text']
-    save_response(text, resp)
-    return {"text" : text}, 200
+    # resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
+    # text = resp['choices'][0]['text']
+    # cleared_text = clear_response(text)
+    # validate_reponse(text)
+    # save_response(cleared_text, resp)
+    # print("Success, the data: ", cleared_text)
+
+    resp = Response("Foo bar baz")
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers["Access-Control-Allow-Credentials"] = True
+    resp.headers["Content-Type"] = "application/json"
+    return resp
 
 
 if __name__ == '__main__':

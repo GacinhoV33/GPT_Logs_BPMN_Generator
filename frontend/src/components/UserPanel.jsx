@@ -8,10 +8,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const UserPanel = ({ gptVersion }) => {
+const UserPanel = ({ gptVersion, diagram, setDiagram, setApiNumber }) => {
   const [temperatureValue, setTemperatureValue] = useState(0.73);
   const [frequencyPenalty, setFrequencyPenalty] = useState(0);
   const [itemValue, setItemValue] = useState(5);
+
   function handleChange(event) {
     setItemValue(event.target.value);
   }
@@ -91,7 +92,7 @@ const UserPanel = ({ gptVersion }) => {
       </div>
       <div className="userPanel-secondItem">
         
-        <UserInput setShowWaiting={setShowWaiting} itemValue={itemValue} temperatureValue={temperatureValue} frequencyPenalty={frequencyPenalty}/>
+        <UserInput setShowWaiting={setShowWaiting} itemValue={itemValue} temperatureValue={temperatureValue} frequencyPenalty={frequencyPenalty} diagram={diagram} setDiagram={setDiagram} setApiNumber={setApiNumber}/>
         <div
           style={{ height: "5vh", gridRow: 2, gridColumn: 1 }}
         >

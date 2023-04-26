@@ -1,0 +1,60 @@
+ insufficient funds, incorrect account numbers, expired debit or credit cards, etc.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="Start_1" />
+    <bpmn2:task id="Task_1" name="Provide Necessary Information" />
+    <bpmn2:task id="Task_2" name="Encrypt Payment Details" />
+    <bpmn2:task id="Task_3" name="Verify Transaction Details" />
+    <bpmn2:task id="Task_4" name="Approve Funds" />
+    <bpmn2:endEvent id="End_1" />
+    <bpmn2:sequenceFlow id="flow_1" sourceRef="Start_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="flow_5" sourceRef="Task_4" targetRef="End_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <dc:Bounds x="170" y="70" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_1_di" bpmnElement="End_1">
+        <dc:Bounds x="764" y="70" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="313" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="454" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="595" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="736" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_1_di" bpmnElement="flow_1">
+        <di:waypoint xsi:type="dc:Point" x="206" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="313" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_2_di" bpmnElement="flow_2">
+        <di:waypoint xsi:type="dc:Point" x="413" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="454" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_3_di" bpmnElement="flow_3">
+        <di:waypoint xsi:type="dc:Point" x="554" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="595" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_4_di" bpmnElement="flow_4">
+        <di:waypoint xsi:type="dc:Point" x="695" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="736" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow_5_di" bpmnElement="flow_5">
+        <di:waypoint xsi:type="dc:Point" x="800" y="88" />
+        <di:waypoint xsi:type="dc:Point" x="764" y="88" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

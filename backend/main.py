@@ -5,6 +5,7 @@ import os
 import openai
 from dotenv import load_dotenv
 from datetime import datetime
+from lxml import etree
 
 load_dotenv()
 """ RESPONSE SETTINGS"""
@@ -32,7 +33,7 @@ MODEL_DESCRIBTION = "An online shop," \
 PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around " + str(NUMBER_OF_ITEMS) + " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + MODEL_DESCRIBTION
 PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around"
 PROMPT_MIDDLE = " tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
-MAX_TOKENS = 4096 - int(len(PROMPT)/4)
+MAX_TOKENS = 4000 - int(len(PROMPT)/4)
 print(MAX_TOKENS)
 
 
@@ -60,6 +61,15 @@ def make_prompt(user_text: str, number_of_items: int):
     return PROMPT_BEGIN + str(number_of_items) + PROMPT_MIDDLE + user_text
 
 
+def validate_response(text: str):
+    xmlschema_doc = etree.parse(text)
+    xmlschema = etree.XMLSchema(xmlschema_doc)
+
+    xml_doc = etree.parse(text)
+    result = xmlschema.validate(xml_doc)
+    return result
+
+
 def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
     #TODO - change rest of params
     prompt = make_prompt(user_text, items_number)
@@ -67,6 +77,7 @@ def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEM
     # delete print after testing 
     print(len(prompt))
     print(prompt)
+    print("Max Tokens: ", max_tokens)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
@@ -79,7 +90,21 @@ def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEM
     return response
 
 
+def clear_response(text_resp: str):
+    #TODO think about regex
+    if "\n" in text_resp[:8]:
+        text2 = text_resp.replace("\n", "", 2)
+        if "." in text_resp[:4]:
+            return text2.replace(".", "", 1)
+        else:
+            return text2
+    else:
+        return text_resp
+
+
 if __name__ == "__main__":
     response = make_openai_request(MODEL_DESCRIBTION)
     text = response['choices'][0]['text']
+    # text_cleared = clear_response(text)
+    # validate_response(text_cleared)
     save_response(text, response)
