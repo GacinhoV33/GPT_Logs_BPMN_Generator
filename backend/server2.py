@@ -35,7 +35,6 @@ def server():
     CORS(app)
     api = Api(app)
     api.add_resource(OpenAI, '/openai')
-    # api.add_resource(PositionEvaluation, '/pos_eval')
     app.run()
 
 

@@ -13,14 +13,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
       bindTo: document
     }
   });
-  // const [modeler, setModeler] = useState(
-  //   new Modeler({
-  //     container,
-  //     keyboard: {
-  //       bindTo: document,
-  //     },
-  //   })
-  // );
+
   useEffect(() => {
     if (diagram === "local") {
       axios
@@ -34,54 +27,9 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
         console.log("Current diagram if:", diagram)
 
       } 
-    else{
-      console.log("Im in")
-      console.log("Current diagram elsE:", diagram)
-      modeler.clear();
-      modeler.importXML(diagram)
-      .then(({ warnings }) => {
-        if (warnings.length) {
-          console.log("Warnings", warnings);
-        }
-  
-        const canvas = modeler.get("modeling");
-        canvas.setColor("CalmCustomerTask", {
-          stroke: "green",
-          fill: "yellow"
-        });
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
-    }
-    // else {
-      // const newModeler = new Modeler({
-      //   container,
-      //   keyboard: {
-      //     bindTo: document,
-      //   },
-      // });
-    //   modeler
-    //     .importXML(diagram)
-    //     .then(({ warnings }) => {
-    //       if (warnings.length) {
-    //         console.log("Warnings", warnings);
-    //       }
-
-    //       const canvas = modeler.get("modeling");
-    //       canvas.setColor("CalmCustomerTask", {
-    //         stroke: "green",
-    //         fill: "yellow",
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.log("error", err);
-    //     });
-    //   // setModeler(newModeler);
-    // }
   }, [apiNumber]);
 
-  if(diagram.length > 10){
+  if(diagram.length > 5){
     console.log("Current diagram secondif:", diagram)
     modeler
     .importXML(diagram)
@@ -99,7 +47,10 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
     .catch((err) => {
       console.log("error", err);
     });
-    
+    const bjsContainer = document.getElementsByClassName('bjs-container');
+      if(bjsContainer.length > 1){
+        bjsContainer[0].remove();
+      }
   }
   console.log("Current diagram component: ", diagram)
 

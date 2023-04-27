@@ -11,7 +11,7 @@ const MainApp = ({gptVersion}) => {
   return (
     <div className='mainApp-main'>
         <UserPanel gptVersion={gptVersion} diagram={diagram} setDiagram={setDiagram} setApiNumber={setApiNumber}/>
-        <LogsDisplayer diagram={diagram} setDiagram={setDiagram} apiNumber={apiNumber}/>
+        <LogsDisplayer diagram={diagram} setDiagram={setDiagram} apiNumber={apiNumber} setApiNumber={setApiNumber}/>
     </div>
   )
 }
