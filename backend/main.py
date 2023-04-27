@@ -102,6 +102,25 @@ def clear_response(text_resp: str):
         return text_resp
 
 
+def get_test_XML(path: str = 'files/test_XML.bpmn'):
+    text_XML: str
+    with open(path, 'r') as file:
+        text_XML = file.read()
+    return text_XML
+
+
+def increment_requests_number():
+    print("req")
+
+
+def increment_failure_requests_number():
+    print("failure")
+
+
+def add_error(error_info: str):
+    print(error_info)
+
+
 if __name__ == "__main__":
     response = make_openai_request(MODEL_DESCRIBTION)
     text = response['choices'][0]['text']

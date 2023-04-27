@@ -32,9 +32,8 @@ const UserInput = ({
       }),
     };
 
-    const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json();
-    console.log(data.xmlString);
-    console.log(data.xmlString.length);
+    const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     setDiagram(data.xmlString);
     setTimeout(() => setApiNumber(prev => prev+1), 500); // After correct implement delete it
     setShowWaiting(false);

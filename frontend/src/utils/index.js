@@ -1,9 +1,11 @@
+export const LOCAL_HOST = "http://127.0.0.1:5000/";
+
 export async function requestHandler(request) {
     const response = await request
       .then((response) => {
-        console.log("response: ", response);
+        // console.log("response: ", response);
         if (response.status === 200){
-          console.log("response: ", response.json());
+          // console.log("response: ", response.json());
           return response.json();
         }
         if (response.ok && response.status === 200) {
@@ -25,4 +27,35 @@ export async function requestHandler(request) {
         return Promise.resolve([]);
       });
     return response;
+}
+
+export async function sendFailureInfo(error){
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      success: "failure",
+      error_info: error,
+    }),
+  };
+
+  const data = await ( await fetch(LOCAL_HOST + `reqInfo`, requestOptions)).json(); // FOR TEST REQUEST
+  console.log(data);
+}
+
+export async function sendRequestInfo(){
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      success: "success",
+    }),
+  };
+
+  const data = await ( await fetch(LOCAL_HOST + `reqInfo`, requestOptions)).json(); // FOR TEST REQUEST
+  console.log(data);
 }

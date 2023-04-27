@@ -3,7 +3,7 @@ import Modeler from "bpmn-js/lib/Modeler";
 import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import axios from "axios";
-
+import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
 
   const container = document.getElementById(`container${apiNumber}`);
@@ -24,13 +24,10 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
         .catch((e) => {
           console.log(e);
         });
-        console.log("Current diagram if:", diagram)
-
       } 
   }, [apiNumber]);
 
   if(diagram.length > 5){
-    console.log("Current diagram secondif:", diagram)
     modeler
     .importXML(diagram)
     .then(({ warnings }) => {
@@ -46,13 +43,15 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber }) => {
     })
     .catch((err) => {
       console.log("error", err);
+      sendFailureInfo(err);
     });
+
+    sendRequestInfo();
     const bjsContainer = document.getElementsByClassName('bjs-container');
       if(bjsContainer.length > 1){
         bjsContainer[0].remove();
       }
   }
-  console.log("Current diagram component: ", diagram)
 
   return (
     <div className="App">

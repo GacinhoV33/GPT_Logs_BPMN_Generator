@@ -4,7 +4,8 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS
-from main import make_openai_request, save_response, validate_response, clear_response
+from main import make_openai_request, save_response, validate_response, clear_response, get_test_XML, \
+    increment_requests_number, add_error, increment_failure_requests_number
 
 
 class OpenAI(Resource):
@@ -30,11 +31,42 @@ class OpenAI(Resource):
         return {'xmlString': cleared_text}, 200
 
 
+class TestRequest(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('user_text', required=True)
+        parser.add_argument('items_number', required=True)
+        parser.add_argument('temperature', required=True)
+        parser.add_argument('frequency_penalty', required=True)
+        args = parser.parse_args()
+        user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(
+            args['temperature']), float(args['frequency_penalty'])
+        test_XML = get_test_XML()
+        return {'xmlString': test_XML}, 200
+
+
+class RequestInfo(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('success', required=True)
+        parser.add_argument('error_info', required=False)
+        args = parser.parse_args()
+        success, error_info = args['success'], args['error_info']
+        if success == 'success':
+            increment_requests_number()
+        else:
+            increment_failure_requests_number()
+            add_error(error_info)
+        return {'status': 200}, 200
+
+
 def server():
     app = Flask(__name__)
     CORS(app)
     api = Api(app)
     api.add_resource(OpenAI, '/openai')
+    api.add_resource(TestRequest, '/testRequest')
+    api.add_resource(RequestInfo, '/reqInfo')
     app.run()
 
 

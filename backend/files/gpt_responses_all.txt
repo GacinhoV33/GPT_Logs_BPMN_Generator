@@ -2927,3 +2927,88 @@ top_p: 1
 
 ----------------------------------------------------------------------------------------------------
 
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:process id="Process_1" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Check payment information">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Process payment">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Manage payment">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Notify buyer">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="173" y="142" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="325" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="500" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="675" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="850" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1025" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1025" y="142" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="325" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="425" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="500" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="600" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="675" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="775" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="850" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="950" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="1025" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1874
+
+----------------------------------------------------------------------------------------------------
+
