@@ -30,11 +30,19 @@ export default ExampleCards;
 
 const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExample }) => {
     const isSelectedCard = bpmnID === currentExample;
+    function handleClick(bpmnID){
+      setCurrentExample(bpmnID);
+      window.scrollTo({
+        behavior: 'smooth',
+        left: 0,
+        top: document.body.scrollHeight
+      })
+    }
   return (
-    <Card sx={{ maxWidth: 345 }} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID == currentExample} key={`card-cont-${bpmnID}`}>
+    <Card sx={{ maxWidth: 345 }} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
       <CardMedia
         sx={{ height: 70 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image="./test_img.png"
         title="green iguana"
       />
       <CardContent>
@@ -47,7 +55,7 @@ const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExa
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => setCurrentExample(bpmnID)}>Show</Button>
+        <Button size="small" onClick={() => handleClick(bpmnID)}>Show</Button>
       </CardActions>
     </Card>
   );

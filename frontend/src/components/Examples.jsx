@@ -8,7 +8,7 @@ const [currentExample, setCurrentExample] = useState(0);
 return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: '2vh'}}>
         <ExampleCards currentExample={currentExample} setCurrentExample={setCurrentExample}/>
-        <ExampleLogComponent currentExample={currentExample}/>
+        <ExampleLogComponent currentExample={currentExample} />
     </div>
   )
 }
@@ -16,9 +16,9 @@ return (
 export default Examples;
 
 export const examplesData = [
-    {filePath: '', describtion: '', bpmnID: 0, title: 'Online Payment'},
-    {filePath: '', describtion: '', bpmnID: 1, title: 'Online shop buying process'},
-    {filePath: '', describtion: '', bpmnID: 2, title: 'Creating Website'},
-    {filePath: '', describtion: '', bpmnID: 3, title: 'Adding employer too system'},
-    {filePath: '', describtion: '', bpmnID: 4, title: 'Migrate database'}
+    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 0, title: 'Online Payment'},
+    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 1, title: 'Online shop buying process'},
+    {filePath: 'examples/gpt_response4.bpmn', describtion: '', bpmnID: 2, title: 'Creating Website'},
+    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 3, title: 'Adding employer too system'},
+    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 4, title: 'Migrate database'}
 ]

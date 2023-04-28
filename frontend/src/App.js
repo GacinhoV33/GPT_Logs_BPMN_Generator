@@ -19,7 +19,7 @@ function App(props) {
             <Route path='*' element={<NotFound/>} key='route-non-found'/>
         </Routes>
       {/* <MainApp gptVersion={gptVersion}/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
     
   );
