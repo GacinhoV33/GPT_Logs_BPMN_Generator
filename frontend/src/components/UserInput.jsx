@@ -4,11 +4,13 @@ import { Formik } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState, useRef } from "react";
 import { requestHandler } from "../utils";
+import { requestStates } from "./MainApp";
 
 const LOCAL_HOST = "http://127.0.0.1:5000/";
 
 const UserInput = ({
-  setShowWaiting,
+  requestStatus,
+  setRequestStatus,
   itemValue,
   temperatureValue,
   frequencyPenalty,
@@ -17,7 +19,7 @@ const UserInput = ({
   setApiNumber,
 }) => {
   async function sendRequestToChatGPT(message) {
-    setShowWaiting(true);
+    setRequestStatus(requestStates.WAITING);
 
     const requestOptions = {
       method: "POST",
@@ -34,9 +36,14 @@ const UserInput = ({
 
     const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
-    setDiagram(data.xmlString);
-    setTimeout(() => setApiNumber(prev => prev+1), 500); // After correct implement delete it
-    setShowWaiting(false);
+
+    if(data.message !== "Internal Server Error"){
+      setDiagram(data.xmlString);
+      setTimeout(() => setApiNumber(prev => prev+1), 500); 
+    }
+    else{
+      setRequestStatus(requestStates.ERROR);
+    }
   }
   const form = useRef();
 
