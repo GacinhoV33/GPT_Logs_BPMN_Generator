@@ -67,7 +67,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) 
       <div
         id={`container${apiNumber}`}
         style={{
-          border: "1px solid #000000",
           height: "70vh",
           width: "80vw",
         }}

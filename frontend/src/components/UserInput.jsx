@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { useState, useRef } from "react";
-import { requestHandler } from "../utils";
 import { requestStates } from "./MainApp";
 
 const LOCAL_HOST = "http://127.0.0.1:5000/";
@@ -100,7 +98,7 @@ const UserInput = ({
                 />
               </Box>
               <Box display="flex" justifyContent="end" mt="20px">
-                <Button type="submit" color="secondary" variant="contained">
+                <Button type="submit" color="primary" variant="contained">
                   Wyślij
                 </Button>
               </Box>
