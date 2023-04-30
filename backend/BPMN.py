@@ -2,22 +2,19 @@ import re
 import lxml.etree as etree
 
 
-with open("gpt_response2.txt", "r+") as file:
-    xml_string = file.read()
+def clean_xml(xml_string: str):
+    # Remove all white characters
+    cleaned_xml = re.sub(r"[\r\n]+", "", xml_string)
+    # Filter in all content inside < > brackets
+    cleaned_xml = "".join(re.findall(r'<.*?>', cleaned_xml))
 
-# Assuming your string is called `xml_string`
-cleaned_xml = re.sub(r"[\r\n]+", "", xml_string)
-cleaned_xml = "".join(re.findall(r'<.*?>', cleaned_xml))
+    # Parse XML to check if it's well-formed
+    try:
+        x = etree.fromstring(cleaned_xml)
+        cleaned_pretty_xml = etree.tostring(x, pretty_print=True)
+        return cleaned_pretty_xml
 
-#
-try:
-    x = etree.fromstring(cleaned_xml)
-    cleaned_pretty_cml = etree.tostring(x, pretty_print=True)
-    with open("cleaned_xml.xml", "wb") as file:
-        file.write(cleaned_pretty_cml)
-except:
-    print("XML not well formed")
-
+    except:
+        raise ValueError("Given XML is not well-formed")
 
 #
-
