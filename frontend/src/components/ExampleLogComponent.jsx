@@ -1,36 +1,35 @@
+import {examplesData} from "./Examples";
 import React, { useEffect, useState } from "react";
 import Modeler from "bpmn-js/lib/Modeler";
 import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-import axios from "axios";
-import {sendFailureInfo, sendRequestInfo} from '../utils/index';
-import { requestStates } from "./MainApp";
-const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) => {
+import axios from 'axios'
+import './Examples.scss';
 
-  const container = document.getElementById(`container${apiNumber}`);
+const ExampleLogComponent = ({ currentExample }) => {
+  const [diagramExample, setDiagramExample] = useState('local');
+  const container = document.getElementById('containerExample');
   const modeler = new Modeler({
     container,
     keyboard: {
       bindTo: document
     }
   });
-  const [isError, setError] = useState(false);
+
   useEffect(() => {
-    if (diagram === "local") {
       axios
-        .get("./gpt_files/gpt_response4.bpmn")
+        .get(examplesData[currentExample].filePath)
         .then((r) => {
-          setDiagram(r.data);
+          setDiagramExample(r.data);
         })
         .catch((e) => {
           console.log(e);
         });
-      } 
-  }, [apiNumber]);
+  }, [currentExample]);
 
-  if(diagram.length > 5){
+  if(diagramExample.length > 5){
     modeler
-    .importXML(diagram)
+    .importXML(diagramExample)
     .then(({ warnings }) => {
       if (warnings.length) {
         console.log("Warnings", warnings);
@@ -43,35 +42,27 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) 
       });
     })
     .catch((err) => {
-      setError(true);
       console.log("error", err);
-
     });
-    if(isError){
-      sendFailureInfo("Error");
-      setRequestStatus(requestStates.WARNING);
-    }
-    else if(apiNumber > 0){
-      sendRequestInfo();
-      setRequestStatus(requestStates.CORRECT);
-    }    
 
     const bjsContainer = document.getElementsByClassName('bjs-container');
       if(bjsContainer.length > 1){
         bjsContainer[0].remove();
       }
   }
-
   return (
-    <div className="App">
+    <div className="AppExample">
       <div
-        id={`container${apiNumber}`}
+        id='containerExample'
         style={{
-          height: "70vh",
+          border: "1px solid #000000",
+          height: "75vh",
           width: "80vw",
+          marginTop: '5vh'
         }}
       ></div>
     </div>
   );
 };
-export default LogHookComponent;
+
+export default ExampleLogComponent;

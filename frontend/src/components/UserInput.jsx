@@ -1,25 +1,53 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { useState, useRef } from "react";
+import { requestStates } from "./MainApp";
 
+const LOCAL_HOST = "http://127.0.0.1:5000/";
 
-function sendRequestToChatGPT(){
-    console.log("This functions should be placed in MainApp and it is responsible for sending request with message to chat-gpt API")
-}
+const UserInput = ({
+  requestStatus,
+  setRequestStatus,
+  itemValue,
+  temperatureValue,
+  frequencyPenalty,
+  diagram,
+  setDiagram,
+  setApiNumber,
+}) => {
+  async function sendRequestToChatGPT(message) {
+    setRequestStatus(requestStates.WAITING);
 
-const UserInput = () => {
-  const [userMessage, setUserMessage] = useState("");
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_text: message,
+        items_number: itemValue,
+        temperature: temperatureValue,
+        frequency_penalty: frequencyPenalty
+      }),
+    };
+
+    const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+
+    if(data.message !== "Internal Server Error"){
+      setDiagram(data.xmlString);
+      setTimeout(() => setApiNumber(prev => prev+1), 500); 
+    }
+    else{
+      setRequestStatus(requestStates.ERROR);
+    }
+  }
   const form = useRef();
 
   function handleSubmit(values) {
-    setUserMessage(values.message);
+    sendRequestToChatGPT(values.message);
   }
-
-  useEffect(() => {
-    sendRequestToChatGPT()
-  }, [userMessage])
 
   return (
     <Box className="formComponent-contact">
@@ -44,10 +72,17 @@ const UserInput = () => {
                 gridTemplateColumns="repeat(4, minmax(0, 1fr)"
                 sx={{ "& > div": "span 4" }}
               >
-                <Box sx={{gridColumn: 'span 4'}}>
-                    <Typography style={{display: 'flex', justifyContent: 'center', fontSize: '1.75vh', fontWeight: '600'}}>
-                        Type a quick description of business model:
-                    </Typography>
+                <Box sx={{ gridColumn: "span 4" }}>
+                  <Typography
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "1.75vh",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Type a quick description of business model:
+                  </Typography>
                 </Box>
                 <TextField
                   fullWidth
@@ -57,13 +92,13 @@ const UserInput = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   name="message"
-                  sx={{ gridColumn: "span 4", maxHeight: '20vh' }}
+                  sx={{ gridColumn: "span 4", maxHeight: "20vh" }}
                   multiline={true}
                   maxRows={3}
                 />
               </Box>
               <Box display="flex" justifyContent="end" mt="20px">
-                <Button type="submit" color="secondary" variant="contained">
+                <Button type="submit" color="primary" variant="contained">
                   Wyślij
                 </Button>
               </Box>

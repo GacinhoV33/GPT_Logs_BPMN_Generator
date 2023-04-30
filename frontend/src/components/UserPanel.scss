@@ -1,12 +1,15 @@
 .userPanel-main{
-    width: 100vw;
+    width: 99vw;
     height: 30vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 0;
-
+    @media (max-width: 1400px){
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
     .userPanel-firstItem{
         flex: 2;
         background-color: #eee;
@@ -15,16 +18,16 @@
         border: 1px solid #111;
         padding: 2.5vh 5vw;
         display: grid;
-        grid-template-rows: repeat(2, 1fr);
+        // grid-column: 1fr, 1fr;
         justify-content: center;
         align-items: center;
-        gap: 1vw;
+        gap: 1vh 5vw;
     }
 
     .userPanel-secondItem{
         flex: 4;
         padding: 2.5vh 5vw;
-        margin-right: 5vw;
+        // margin-right: 5vw;
         
     }
 }

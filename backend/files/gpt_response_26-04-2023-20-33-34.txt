@@ -1,0 +1,50 @@
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" id="definitions" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="process_1" isExecutable="true">
+    <bpmn2:startEvent id="startevent_1" />
+    <bpmn2:task id="task_1">
+      <bpmn2:incoming>startevent_1</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_1</bpmn2:outgoing>
+      <bpmn2:documentation>Evaluate the payment request</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_1" sourceRef="task_1" targetRef="gateway_1" />
+    <bpmn2:exclusiveGateway id="gateway_1" default="sequenceflow_3">
+      <bpmn2:incoming>sequenceflow_1</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>sequenceflow_3</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="sequenceflow_2" sourceRef="gateway_1" targetRef="task_2">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        gateway_1.value == "sequenceflow_2"
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_2">
+      <bpmn2:incoming>sequenceflow_2</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_4</bpmn2:outgoing>
+      <bpmn2:documentation>Initiate payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_3" sourceRef="gateway_1" targetRef="task_3">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        gateway_1.value == "sequenceflow_3"
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_3">
+      <bpmn2:incoming>sequenceflow_3</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_5</bpmn2:outgoing>
+      <bpmn2:documentation>Reject payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_4" sourceRef="task_2" targetRef="task_4">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="JavaScript" >
+        task_2.completed
+      </bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="task_4">
+      <bpmn2:incoming>sequenceflow_4</bpmn2:incoming>
+      <bpmn2:outgoing>sequenceflow_6</bpmn2:outgoing>
+      <bpmn2:documentation>Verify payment</bpmn2:documentation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="sequenceflow_5" sourceRef="task_3" targetRef="endevent_1" />
+    <bpmn2:sequenceFlow id="sequenceflow_6" sourceRef="task_4" targetRef="endevent_2" />
+    <bpmn2:endEvent id="endevent_1" />
+    <bpmn2:endEvent id="endevent_2" />
+  </bpmn2:process>
+</bpmn2:definitions>

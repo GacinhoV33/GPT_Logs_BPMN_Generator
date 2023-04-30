@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="PaymentProcess" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent" />
+    <bpmn2:task id="DeterminePayment" name="Determine Payment">
+      <bpmn2:incoming>StartEvent</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="CalculateAmount" name="Calculate Amount">
+      <bpmn2:incoming>DeterminePayment</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="AllocateFunds" name="Allocate Funds">
+      <bpmn2:incoming>CalculateAmount</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Pay" name="Pay">
+      <bpmn2:incoming>AllocateFunds</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="VerifyPayment" name="Verify Payment">
+      <bpmn2:incoming>Pay</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent">
+      <bpmn2:incoming>VerifyPayment</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="DeterminePayment" />
+    <bpmn2:sequenceFlow id="flow2" sourceRef="DeterminePayment" targetRef="CalculateAmount" />
+    <bpmn2:sequenceFlow id="flow3" sourceRef="CalculateAmount" targetRef="AllocateFunds" />
+    <bpmn2:sequenceFlow id="flow4" sourceRef="AllocateFunds" targetRef="Pay" />
+    <bpmn2:sequenceFlow id="flow5" sourceRef="Pay" targetRef="VerifyPayment" />
+    <bpmn2:sequenceFlow id="flow6" sourceRef="VerifyPayment" targetRef="EndEvent" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="PaymentProcess">
+      <bpmndi:BPMNShape id="StartEvent_Shape" bpmnElement="StartEvent">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DeterminePayment_Shape" bpmnElement="DeterminePayment">
+        <dc:Bounds x="255" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CalculateAmount_Shape" bpmnElement="CalculateAmount">
+        <dc:Bounds x="420" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AllocateFunds_Shape" bpmnElement="AllocateFunds">
+        <dc:Bounds x="590" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Pay_Shape" bpmnElement="Pay">
+        <dc:Bounds x="760" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="VerifyPayment_Shape" bpmnElement="VerifyPayment">
+        <dc:Bounds x="920" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Shape" bpmnElement="EndEvent">
+        <dc:Bounds x="1090" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_Edge" bpmnElement="flow1">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="255" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_Edge" bpmnElement="flow2">
+        <di:waypoint x="355" y="120" />
+        <di:waypoint x="420" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_Edge" bpmnElement="flow3">
+        <di:waypoint x="520" y="120" />
+        <di:waypoint x="590" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_Edge" bpmnElement="flow4">
+        <di:waypoint x="690" y="120" />
+        <di:waypoint x="760" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_Edge" bpmnElement="flow5">
+        <di:waypoint x="860" y="120" />
+        <di:waypoint x="920" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_Edge" bpmnElement="flow6">
+        <di:waypoint x="1026" y="120" />
+        <di:waypoint x="1090" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

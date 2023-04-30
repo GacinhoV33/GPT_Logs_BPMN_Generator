@@ -1,0 +1,84 @@
+ insufficient funds, fraud, etc.Payment is confirmed: Once the banks have approved the transaction, both the seller and buyer receive confirmation that payment has been made and the transaction is complete.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="http://www.activiti.org/test" id="sid-fcf0a6c8-6d80-4b2a-b3d6-8e1921baa9a3">
+  <process id="Process_1" name="Online purchase process" isExecutable="true">
+    <startEvent id="StartEvent_1" name="Start" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <userTask id="Task_1" name="Customer provides payment information">
+      <extensionElements>
+        <activiti:formProperty id="FormProperty_1" name="Name" type="string" />
+        <activiti:formProperty id="FormProperty_2" name="Address" type="string" />
+        <activiti:formProperty id="FormProperty_3" name="Bank Account Info" type="string" />
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2" />
+    <serviceTask id="Task_2" name="Payment gateway encrypts data">
+      <extensionElements>
+        <activiti:field name="encryptionAlgorithm" stringValue="AES" />
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3" />
+    <serviceTask id="Task_3" name="Information is verified">
+      <extensionElements>
+        <activiti:field name="verificationMethod" stringValue="Credit Card" />
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="flow4" sourceRef="Task_3" targetRef="Task_4" />
+    <serviceTask id="Task_4" name="Funds are approved" />
+    <sequenceFlow id="flow5" sourceRef="Task_4" targetRef="Task_5" />
+    <serviceTask id="Task_5" name="Payment is confirmed" />
+    <sequenceFlow id="flow6" sourceRef="Task_5" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1" name="End" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="Process_1" id="BPMNPlane_1">
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="BPMNShape_1">
+        <dc:Bounds height="35.0" width="35.0" x="140.0" y="140.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_1" id="BPMNShape_2">
+        <dc:Bounds height="80.0" width="100.0" x="290.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_2" id="BPMNShape_3">
+        <dc:Bounds height="80.0" width="100.0" x="440.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_3" id="BPMNShape_4">
+        <dc:Bounds height="80.0" width="100.0" x="590.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_4" id="BPMNShape_5">
+        <dc:Bounds height="80.0" width="100.0" x="740.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_5" id="BPMNShape_6">
+        <dc:Bounds height="80.0" width="100.0" x="890.0" y="130.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndEvent_1" id="BPMNShape_7">
+        <dc:Bounds height="35.0" width="35.0" x="1040.0" y="140.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_1">
+        <di:waypoint xsi:type="dc:Point" x="175.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="290.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_2">
+        <di:waypoint xsi:type="dc:Point" x="390.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_3">
+        <di:waypoint xsi:type="dc:Point" x="540.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="590.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_4">
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="740.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_5">
+        <di:waypoint xsi:type="dc:Point" x="840.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_6">
+        <di:waypoint xsi:type="dc:Point" x="990.0" y="157.0" />
+        <di:waypoint xsi:type="dc:Point" x="1040.0" y="157.0" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.3">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="StartEvent_1" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <task id="Task_1" name="Make payment">
+      <incoming>flow1</incoming>
+      <outgoing>flow2</outgoing>
+    </task>
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2" />
+    <task id="Task_2" name="Validate payment">
+      <incoming>flow2</incoming>
+      <outgoing>flow3</outgoing>
+    </task>
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3" />
+    <task id="Task_3" name="Notify payer">
+      <incoming>flow3</incoming>
+      <outgoing>flow4</outgoing>
+    </task>
+    <sequenceFlow id="flow4" sourceRef="Task_3" targetRef="Task_4" />
+    <task id="Task_4" name="Notify payee">
+      <incoming>flow4</incoming>
+      <outgoing>flow5</outgoing>
+    </task>
+    <sequenceFlow id="flow5" sourceRef="Task_4" targetRef="Task_5" />
+    <task id="Task_5" name="Record transaction">
+      <incoming>flow5</incoming>
+      <outgoing>flow6</outgoing>
+    </task>
+    <sequenceFlow id="flow6" sourceRef="Task_5" targetRef="EndEvent_1" />
+    <endEvent id="EndEvent_1" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="162" y="68" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_gui" bpmnElement="Task_1">
+        <dc:Bounds x="264" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_gui" bpmnElement="Task_2">
+        <dc:Bounds x="411" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_gui" bpmnElement="Task_3">
+        <dc:Bounds x="556" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_gui" bpmnElement="Task_4">
+        <dc:Bounds x="701" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_gui" bpmnElement="Task_5">
+        <dc:Bounds x="846" y="56" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_gui" bpmnElement="EndEvent_1">
+        <dc:Bounds x="990" y="68" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_gui" bpmnElement="flow1">
+        <di:waypoint xsi:type="dc:Point" x="198" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="264" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_gui" bpmnElement="flow2">
+        <di:waypoint xsi:type="dc:Point" x="364" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="411" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_gui" bpmnElement="flow3">
+        <di:waypoint xsi:type="dc:Point" x="511" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="556" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_gui" bpmnElement="flow4">
+        <di:waypoint xsi:type="dc:Point" x="656" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="701" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_gui" bpmnElement="flow5">
+        <di:waypoint xsi:type="dc:Point" x="801" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="846" y="86" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_gui" bpmnElement="flow6">
+        <di:waypoint xsi:type="dc:Point" x="946" y="86" />
+        <di:waypoint xsi:type="dc:Point" x="990" y="86" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
