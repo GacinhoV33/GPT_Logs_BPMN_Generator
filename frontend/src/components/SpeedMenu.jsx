@@ -5,9 +5,10 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
+import UndoIcon from '@mui/icons-material/Undo';
+import RedoIcon from '@mui/icons-material/Redo';
 
-const BottomMenu = ({diagram}) => {
+const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, currentDiagramNumber}) => {
     
     function handleCopy(){
         navigator.clipboard.writeText(diagram);
@@ -23,17 +24,30 @@ const BottomMenu = ({diagram}) => {
         URL.revokeObjectURL(url);
     }
     function handlePrevious(){
-
+      console.log('CurrentDiagramNumber: handlePrevious: ', currentDiagramNumber)
+      setDiagram(diagramHistory[currentDiagramNumber-1])
     }
+    
     function handleNext(){
-
+      
     }
+    
+    function handlePrint(){
+      changeSaveFlag(prev => prev+1);
+    }
+
     const actions = [
         { icon: <FileCopyIcon />, name: 'Copy', handleClick: handleCopy },
         { icon: <SaveIcon />, name: 'Save',  handleClick: handleSave },
-        { icon: <PrintIcon />, name: 'Print',  handleClick: handleNext },
-        { icon: <ShareIcon />, name: 'Share',  handleClick: handlePrevious },
+        { icon: <PrintIcon />, name: 'Print SVG',  handleClick: handlePrint },
+        { icon: <UndoIcon />, name: 'Previous',  handleClick: handlePrevious },
+        { icon: <RedoIcon />, name: 'Next',  handleClick: handleNext },
+
       ];
+
+    const isPreviousDisabled = !(diagramHistory.length > 1);
+    const isNextDisabled = !(diagramHistory.length > 1);
+
     return (
     <div>
       <SpeedDial
@@ -49,6 +63,7 @@ const BottomMenu = ({diagram}) => {
           tooltipTitle={action.name}
           tooltipPlacement="right"
           onClick={action.handleClick}
+          disabled={action.name === 'Previous' && isPreviousDisabled || action.name === 'Next' && isNextDisabled}
         />
         ))}
       </SpeedDial>

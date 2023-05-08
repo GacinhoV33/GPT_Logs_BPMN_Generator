@@ -5,8 +5,9 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import axios from "axios";
 import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
-const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) => {
 
+const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, saveFlag}) => {
+  const [blobSvg, setBlobSvg] = useState('')
   const container = document.getElementById(`container${apiNumber}`);
   const modeler = new Modeler({
     container,
@@ -27,7 +28,24 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) 
         });
       } 
   }, [apiNumber]);
-
+  
+  useEffect(() => {
+    if(diagram.length > 5){
+      console.log('svg')
+      // TODO do it correctly
+      const svg = modeler.saveSVG().then((data) => setBlobSvg(data.svg));
+      const filename = "gpt_diagram"
+      const blob = new Blob([blobSvg], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      console.log(blob)
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);  
+        }
+  }, [saveFlag])
+  
   if(diagram.length > 5){
     modeler
     .importXML(diagram)
@@ -43,7 +61,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus }) 
       });
     })
     .catch((err) => {
-      setError(true);
+      if(isError !== true) setError(true); // IMPORTANT, without if statement component is re-rendering all the time and stay in a loop.
       console.log("error", err);
 
     });

@@ -106,8 +106,8 @@ def get_test_XML(path: str = 'files/test_XML.bpmn'):
     text_XML: str
     with open(path, 'r') as file:
         text_XML = file.read()
-    # return text_XML
-    return "blablasl"
+    return text_XML
+    # return "blablasl"
 
 def increment_requests_number():
     print("req")
