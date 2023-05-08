@@ -25,8 +25,6 @@ const UserPanel = ({
     setItemValue(event.target.value);
   }
 
-  // const [showWaiting, setShowWaiting] = useState(false);
-
   return (
     <div className="userPanel-main">
       <div className="userPanel-firstItem">
@@ -40,7 +38,7 @@ const UserPanel = ({
             gridRow: 1,
           }}
         >
-          <h5>Temperature: {temperatureValue}</h5>
+          <h5>Temperature: {temperatureValue.toFixed(2)}</h5>
           <Slider
             defaultValue={0.73}
             aria-label="Default"
@@ -84,7 +82,7 @@ const UserPanel = ({
             gridRow: 1,
           }}
         >
-          <h5>Frequency Penalty: {frequencyPenalty}</h5>
+          <h5>Frequency Penalty: {frequencyPenalty.toFixed(2)}</h5>
           <Slider
             defaultValue={0}
             aria-label="Default"
@@ -100,7 +98,6 @@ const UserPanel = ({
       </div>
       <div className="userPanel-secondItem">
         <UserInput
-          // setShowWaiting={setShowWaiting}
           requestStatus={requestStatus}
           setRequestStatus={setRequestStatus}
           itemValue={itemValue}
