@@ -1,0 +1,118 @@
+­lations and recipes)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" name="Bakery Management">
+    <bpmn2:startEvent id="StartEvent_1" name="StartEvent"/>
+    <bpmn2:task id="Task_1" name="Production planning and demand forecasting"/>
+    <bpmn2:task id="Task_2" name="Raw materials and ingredients supply"/>
+    <bpmn2:task id="Task_3" name="Production management"/>
+    <bpmn2:task id="Task_4" name="Engineering and maintenance"/>
+    <bpmn2:task id="Task_5" name="Plant personnel management"/>
+    <bpmn2:task id="Task_6" name="Continuous improvement"/>
+    <bpmn2:task id="Task_7" name="Quality assurance"/>
+    <bpmn2:task id="Task_8" name="Plant sanitation"/>
+    <bpmn2:task id="Task_9" name="Plant economics control, overall plant operation and financial reports"/>
+    <bpmn2:task id="Task_10" name="Support and strategic areas (R&D, bakery formu­lations and recipes)">
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" name="EndEvent">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="Task_6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="Task_6" targetRef="Task_7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="Task_7" targetRef="Task_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" sourceRef="Task_8" targetRef="Task_9"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" sourceRef="Task_9" targetRef="Task_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" sourceRef="Task_10" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+        <dc:Bounds x="200" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+        <dc:Bounds x="350" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+        <dc:Bounds x="500" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+        <dc:Bounds x="650" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_shape" bpmnElement="Task_5">
+        <dc:Bounds x="800" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_shape" bpmnElement="Task_6">
+        <dc:Bounds x="950" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_7_shape" bpmnElement="Task_7">
+        <dc:Bounds x="1100" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_8_shape" bpmnElement="Task_8">
+        <dc:Bounds x="1250" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_9_shape" bpmnElement="Task_9">
+        <dc:Bounds x="1400" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_10_shape" bpmnElement="Task_10">
+        <dc:Bounds x="1550" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_shape" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1700" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="136" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="300" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="350" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="500" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="600" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="650" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="750" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="950" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_7_di" bpmnElement="SequenceFlow_7">
+        <di:waypoint xsi:type="dc:Point" x="1050" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1100" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_8_di" bpmnElement="SequenceFlow_8">
+        <di:waypoint xsi:type="dc:Point" x="1200" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1250" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_9_di" bpmnElement="SequenceFlow_9">
+        <di:waypoint xsi:type="dc:Point" x="1350" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1400" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10_di" bpmnElement="SequenceFlow_10">
+        <di:waypoint xsi:type="dc:Point" x="1450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1550" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11_di" bpmnElement="SequenceFlow_11">
+        <di:waypoint xsi:type="dc:Point" x="1650" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1700" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

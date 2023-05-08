@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="http://bpmn.io/schema/bpmn"
+             exporter="bpmn-js (https://demo.bpmn.io)"
+             exporterVersion="6.2.2">
+  <process id="BakeryProcess" isExecutable="false">
+    <startEvent id="StartEvent" />
+    <task id="ProductionPlanning" name="Production Planning and Demand Forecasting" />
+    <task id="RawMaterials" name="Raw Materials and Ingredients Supply" />
+    <task id="ProductionManagement" name="Production Management" />
+    <task id="Engineering" name="Engineering and Maintenance" />
+    <task id="PersonnelManagement" name="Plant Personnel Management" />
+    <task id="ContinuousImprovement" name="Continuous Improvement" />
+    <task id="QualityAssurance" name="Quality Assurance" />
+    <task id="Sanitation" name="Plant Sanitation" />
+    <task id="Operation" name="Plant Economics Control, Overall Plant Operation and Financial Reports" />
+    <task id="StrategicAreas" name="Support and Strategic Areas (R&amp;D, Bakery Formulations)" />
+    <endEvent id="EndEvent" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="ProductionPlanning" />
+    <sequenceFlow id="flow2" sourceRef="ProductionPlanning" targetRef="RawMaterials" />
+    <sequenceFlow id="flow3" sourceRef="RawMaterials" targetRef="ProductionManagement" />
+    <sequenceFlow id="flow4" sourceRef="ProductionManagement" targetRef="Engineering" />
+    <sequenceFlow id="flow5" sourceRef="Engineering" targetRef="PersonnelManagement" />
+    <sequenceFlow id="flow6" sourceRef="PersonnelManagement" targetRef="ContinuousImprovement" />
+    <sequenceFlow id="flow7" sourceRef="ContinuousImprovement" targetRef="QualityAssurance" />
+    <sequenceFlow id="flow8" sourceRef="QualityAssurance" targetRef="Sanitation" />
+    <sequenceFlow id="flow9" sourceRef="Sanitation" targetRef="Operation" />
+    <sequenceFlow id="flow10" sourceRef="Operation" targetRef="StrategicAreas" />
+    <sequenceFlow id="flow11" sourceRef="StrategicAreas" targetRef="EndEvent" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BakeryProcess">
+      <bpmndi:BPMNShape id="StartEvent_1" bpmnElement="StartEvent">
+        <omgdc:Bounds x="128" y="53" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ProductionPlanning_1" bpmnElement="ProductionPlanning">
+        <omgdc:Bounds x="232" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RawMaterials_1" bpmnElement="RawMaterials">
+        <omgdc:Bounds x="368" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ProductionManagement_1" bpmnElement="ProductionManagement">
+        <omgdc:Bounds x="504" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Engineering_1" bpmnElement="Engineering">
+        <omgdc:Bounds x="640" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PersonnelManagement_1" bpmnElement="PersonnelManagement">
+        <omgdc:Bounds x="776" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ContinuousImprovement_1" bpmnElement="ContinuousImprovement">
+        <omgdc:Bounds x="912" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualityAssurance_1" bpmnElement="QualityAssurance">
+        <omgdc:Bounds x="1048" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sanitation_1" bpmnElement="Sanitation">
+        <omgdc:Bounds x="1184" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Operation_1" bpmnElement="Operation">
+        <omgdc:Bounds x="1320" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StrategicAreas_1" bpmnElement="StrategicAreas">
+        <omgdc:Bounds x="1456" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1" bpmnElement="EndEvent">
+        <omgdc:Bounds x="1592" y="53" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_1" bpmnElement="flow1">
+        <omgdi:waypoint x="164" y="71" />
+        <omgdi:waypoint x="232" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_1" bpmnElement="flow2">
+        <omgdi:waypoint x="332" y="71" />
+        <omgdi:waypoint x="368" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_1" bpmnElement="flow3">
+        <omgdi:waypoint x="468" y="71" />
+        <omgdi:waypoint x="504" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_1" bpmnElement="flow4">
+        <omgdi:waypoint x="604" y="71" />
+        <omgdi:waypoint x="640" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_1" bpmnElement="flow5">
+        <omgdi:waypoint x="740" y="71" />
+        <omgdi:waypoint x="776" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_1" bpmnElement="flow6">
+        <omgdi:waypoint x="876" y="71" />
+        <omgdi:waypoint x="912" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow7_1" bpmnElement="flow7">
+        <omgdi:waypoint x="1012" y="71" />
+        <omgdi:waypoint x="1048" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow8_1" bpmnElement="flow8">
+        <omgdi:waypoint x="1148" y="71" />
+        <omgdi:waypoint x="1184" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow9_1" bpmnElement="flow9">
+        <omgdi:waypoint x="1284" y="71" />
+        <omgdi:waypoint x="1320" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow10_1" bpmnElement="flow10">
+        <omgdi:waypoint x="1420" y="71" />
+        <omgdi:waypoint x="1456" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow11_1" bpmnElement="flow11">
+        <omgdi:waypoint x="1556" y="71" />
+        <omgdi:waypoint x="1592" y="71" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

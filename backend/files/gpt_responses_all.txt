@@ -3410,3 +3410,537 @@ top_p: 1
 
 ----------------------------------------------------------------------------------------------------
 
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Production planning and demand forecasting">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Raw materials and ingredients supply">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Production management">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Engineering and maintenance">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Plant personnel management">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_6" name="Continuous improvement">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_7" name="Quality assurance">
+      <bpmn2:incoming>Task_6</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_8" name="Plant sanitation">
+      <bpmn2:incoming>Task_7</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_9" name="Plant economics control, overall plant operation and financial reports">
+      <bpmn2:incoming>Task_8</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_10" name="Support and strategic areas(R&D, bakery formulations)">
+      <bpmn2:incoming>Task_9</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_10</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="Task_6" />
+    <bpmn2:sequenceFlow id="Flow_7" sourceRef="Task_6" targetRef="Task_7" />
+    <bpmn2:sequenceFlow id="Flow_8" sourceRef="Task_7" targetRef="Task_8" />
+    <bpmn2:sequenceFlow id="Flow_9" sourceRef="Task_8" targetRef="Task_9" />
+    <bpmn2:sequenceFlow id="Flow_10" sourceRef="Task_9" targetRef="Task_10" />
+    <bpmn2:sequenceFlow id="Flow_11" sourceRef="Task_10" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+        <dc:Bounds x="255" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+        <dc:Bounds x="400" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+        <dc:Bounds x="545" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+        <dc:Bounds x="690" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_shape" bpmnElement="Task_5">
+        <dc:Bounds x="835" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_shape" bpmnElement="Task_6">
+        <dc:Bounds x="255" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_7_shape" bpmnElement="Task_7">
+        <dc:Bounds x="400" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_8_shape" bpmnElement="Task_8">
+        <dc:Bounds x="545" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_9_shape" bpmnElement="Task_9">
+        <dc:Bounds x="690" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_10_shape" bpmnElement="Task_10">
+        <dc:Bounds x="835" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_shape" bpmnElement="EndEvent_1">
+        <dc:Bounds x="976" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_edge" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="255" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_edge" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="355" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="400" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_edge" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="500" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="545" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_edge" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="645" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="690" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_edge" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="790" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="835" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_edge" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="355" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="400" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_edge" bpmnElement="Flow_7">
+        <di:waypoint xsi:type="dc:Point" x="500" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="545" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_edge" bpmnElement="Flow_8">
+        <di:waypoint xsi:type="dc:Point" x="645" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="690" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_edge" bpmnElement="Flow_9">
+        <di:waypoint xsi:type="dc:Point" x="790" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="835" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_edge" bpmnElement="Flow_10">
+        <di:waypoint xsi:type="dc:Point" x="935" y="210" />
+        <di:waypoint xsi:type="dc:Point" x="976" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_edge" bpmnElement="Flow_11">
+        <di:waypoint xsi:type="dc:Point" x="871" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="917" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 3086
+
+----------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="http://bpmn.io/schema/bpmn"
+             exporter="bpmn-js (https://demo.bpmn.io)"
+             exporterVersion="6.2.2">
+  <process id="BakeryProcess" isExecutable="false">
+    <startEvent id="StartEvent" />
+    <task id="ProductionPlanning" name="Production Planning and Demand Forecasting" />
+    <task id="RawMaterials" name="Raw Materials and Ingredients Supply" />
+    <task id="ProductionManagement" name="Production Management" />
+    <task id="Engineering" name="Engineering and Maintenance" />
+    <task id="PersonnelManagement" name="Plant Personnel Management" />
+    <task id="ContinuousImprovement" name="Continuous Improvement" />
+    <task id="QualityAssurance" name="Quality Assurance" />
+    <task id="Sanitation" name="Plant Sanitation" />
+    <task id="Operation" name="Plant Economics Control, Overall Plant Operation and Financial Reports" />
+    <task id="StrategicAreas" name="Support and Strategic Areas (R&amp;D, Bakery Formulations)" />
+    <endEvent id="EndEvent" />
+    <sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="ProductionPlanning" />
+    <sequenceFlow id="flow2" sourceRef="ProductionPlanning" targetRef="RawMaterials" />
+    <sequenceFlow id="flow3" sourceRef="RawMaterials" targetRef="ProductionManagement" />
+    <sequenceFlow id="flow4" sourceRef="ProductionManagement" targetRef="Engineering" />
+    <sequenceFlow id="flow5" sourceRef="Engineering" targetRef="PersonnelManagement" />
+    <sequenceFlow id="flow6" sourceRef="PersonnelManagement" targetRef="ContinuousImprovement" />
+    <sequenceFlow id="flow7" sourceRef="ContinuousImprovement" targetRef="QualityAssurance" />
+    <sequenceFlow id="flow8" sourceRef="QualityAssurance" targetRef="Sanitation" />
+    <sequenceFlow id="flow9" sourceRef="Sanitation" targetRef="Operation" />
+    <sequenceFlow id="flow10" sourceRef="Operation" targetRef="StrategicAreas" />
+    <sequenceFlow id="flow11" sourceRef="StrategicAreas" targetRef="EndEvent" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BakeryProcess">
+      <bpmndi:BPMNShape id="StartEvent_1" bpmnElement="StartEvent">
+        <omgdc:Bounds x="128" y="53" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ProductionPlanning_1" bpmnElement="ProductionPlanning">
+        <omgdc:Bounds x="232" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="RawMaterials_1" bpmnElement="RawMaterials">
+        <omgdc:Bounds x="368" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ProductionManagement_1" bpmnElement="ProductionManagement">
+        <omgdc:Bounds x="504" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Engineering_1" bpmnElement="Engineering">
+        <omgdc:Bounds x="640" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PersonnelManagement_1" bpmnElement="PersonnelManagement">
+        <omgdc:Bounds x="776" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ContinuousImprovement_1" bpmnElement="ContinuousImprovement">
+        <omgdc:Bounds x="912" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualityAssurance_1" bpmnElement="QualityAssurance">
+        <omgdc:Bounds x="1048" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sanitation_1" bpmnElement="Sanitation">
+        <omgdc:Bounds x="1184" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Operation_1" bpmnElement="Operation">
+        <omgdc:Bounds x="1320" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StrategicAreas_1" bpmnElement="StrategicAreas">
+        <omgdc:Bounds x="1456" y="53" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1" bpmnElement="EndEvent">
+        <omgdc:Bounds x="1592" y="53" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_1" bpmnElement="flow1">
+        <omgdi:waypoint x="164" y="71" />
+        <omgdi:waypoint x="232" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_1" bpmnElement="flow2">
+        <omgdi:waypoint x="332" y="71" />
+        <omgdi:waypoint x="368" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_1" bpmnElement="flow3">
+        <omgdi:waypoint x="468" y="71" />
+        <omgdi:waypoint x="504" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_1" bpmnElement="flow4">
+        <omgdi:waypoint x="604" y="71" />
+        <omgdi:waypoint x="640" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_1" bpmnElement="flow5">
+        <omgdi:waypoint x="740" y="71" />
+        <omgdi:waypoint x="776" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_1" bpmnElement="flow6">
+        <omgdi:waypoint x="876" y="71" />
+        <omgdi:waypoint x="912" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow7_1" bpmnElement="flow7">
+        <omgdi:waypoint x="1012" y="71" />
+        <omgdi:waypoint x="1048" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow8_1" bpmnElement="flow8">
+        <omgdi:waypoint x="1148" y="71" />
+        <omgdi:waypoint x="1184" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow9_1" bpmnElement="flow9">
+        <omgdi:waypoint x="1284" y="71" />
+        <omgdi:waypoint x="1320" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow10_1" bpmnElement="flow10">
+        <omgdi:waypoint x="1420" y="71" />
+        <omgdi:waypoint x="1456" y="71" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow11_1" bpmnElement="flow11">
+        <omgdi:waypoint x="1556" y="71" />
+        <omgdi:waypoint x="1592" y="71" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2461
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Production planning and demand forecasting">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:task id="Task_2" name="Raw materials and ingredients supply">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:task id="Task_3" name="Production management">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:task id="Task_4" name="Engineering and maintenance">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:task id="Task_5" name="Plant personnel management">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="Task_6" />
+    <bpmn2:task id="Task_6" name="Continuous improvement">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="Task_6" targetRef="Task_7" />
+    <bpmn2:task id="Task_7" name="Quality assurance">
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="Task_7" targetRef="Task_8" />
+    <bpmn2:task id="Task_8" name="Plant sanitation">
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" sourceRef="Task_8" targetRef="Task_9" />
+    <bpmn2:task id="Task_9" name="Plant economics control, overall plant operation and financial reports">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" sourceRef="Task_9" targetRef="Task_10" />
+    <bpmn2:task id="Task_10" name="Support and strategic areas (R&amp;D, bakery formulations)">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>EndEvent_1</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <dc:Bounds x="259" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <dc:Bounds x="429" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <dc:Bounds x="600" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <dc:Bounds x="770" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <dc:Bounds x="259" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_di" bpmnElement="Task_6">
+        <dc:Bounds x="429" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_7_di" bpmnElement="Task_7">
+        <dc:Bounds x="600" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_8_di" bpmnElement="Task_8">
+        <dc:Bounds x="770" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_9_di" bpmnElement="Task_9">
+        <dc:Bounds x="259" y="320" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="429" y="320" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="770" y="320" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="259" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="359" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="429" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="529" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="600" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="700" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="770" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="359" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="429" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+        <di:waypoint xsi:type="dc:Point" x="529" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="600" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_7_di" bpmnElement="SequenceFlow_7">
+        <di:waypoint xsi:type="dc:Point" x="700" y="240" />
+        <di:waypoint xsi:type="dc:Point" x="770" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_8_di" bpmnElement="SequenceFlow_8">
+        <di:waypoint xsi:type="dc:Point" x="359" y="360" />
+        <di:waypoint xsi:type="dc:Point" x="429" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_9_di" bpmnElement="SequenceFlow_9">
+        <di:waypoint xsi:type="dc:Point" x="529" y="360" />
+        <di:waypoint xsi:type="dc:Point" x="600" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10_di" bpmnElement="SequenceFlow_10">
+        <di:waypoint xsi:type="dc:Point" x="700" y="360" />
+        <di:waypoint xsi:type="dc:Point" x="770" y="360" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 3285
+
+----------------------------------------------------------------------------------------------------
+
+­lations and recipes)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" name="Bakery Management">
+    <bpmn2:startEvent id="StartEvent_1" name="StartEvent"/>
+    <bpmn2:task id="Task_1" name="Production planning and demand forecasting"/>
+    <bpmn2:task id="Task_2" name="Raw materials and ingredients supply"/>
+    <bpmn2:task id="Task_3" name="Production management"/>
+    <bpmn2:task id="Task_4" name="Engineering and maintenance"/>
+    <bpmn2:task id="Task_5" name="Plant personnel management"/>
+    <bpmn2:task id="Task_6" name="Continuous improvement"/>
+    <bpmn2:task id="Task_7" name="Quality assurance"/>
+    <bpmn2:task id="Task_8" name="Plant sanitation"/>
+    <bpmn2:task id="Task_9" name="Plant economics control, overall plant operation and financial reports"/>
+    <bpmn2:task id="Task_10" name="Support and strategic areas (R&D, bakery formu­lations and recipes)">
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" name="EndEvent">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="Task_6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="Task_6" targetRef="Task_7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="Task_7" targetRef="Task_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" sourceRef="Task_8" targetRef="Task_9"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" sourceRef="Task_9" targetRef="Task_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" sourceRef="Task_10" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+        <dc:Bounds x="200" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+        <dc:Bounds x="350" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+        <dc:Bounds x="500" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+        <dc:Bounds x="650" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_shape" bpmnElement="Task_5">
+        <dc:Bounds x="800" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_6_shape" bpmnElement="Task_6">
+        <dc:Bounds x="950" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_7_shape" bpmnElement="Task_7">
+        <dc:Bounds x="1100" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_8_shape" bpmnElement="Task_8">
+        <dc:Bounds x="1250" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_9_shape" bpmnElement="Task_9">
+        <dc:Bounds x="1400" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_10_shape" bpmnElement="Task_10">
+        <dc:Bounds x="1550" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_shape" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1700" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_di" bpmnElement="SequenceFlow_1">
+        <di:waypoint xsi:type="dc:Point" x="136" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2_di" bpmnElement="SequenceFlow_2">
+        <di:waypoint xsi:type="dc:Point" x="300" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="350" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_di" bpmnElement="SequenceFlow_3">
+        <di:waypoint xsi:type="dc:Point" x="450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="500" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_di" bpmnElement="SequenceFlow_4">
+        <di:waypoint xsi:type="dc:Point" x="600" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="650" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_di" bpmnElement="SequenceFlow_5">
+        <di:waypoint xsi:type="dc:Point" x="750" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_6_di" bpmnElement="SequenceFlow_6">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="950" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_7_di" bpmnElement="SequenceFlow_7">
+        <di:waypoint xsi:type="dc:Point" x="1050" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1100" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_8_di" bpmnElement="SequenceFlow_8">
+        <di:waypoint xsi:type="dc:Point" x="1200" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1250" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_9_di" bpmnElement="SequenceFlow_9">
+        <di:waypoint xsi:type="dc:Point" x="1350" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1400" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10_di" bpmnElement="SequenceFlow_10">
+        <di:waypoint xsi:type="dc:Point" x="1450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1550" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11_di" bpmnElement="SequenceFlow_11">
+        <di:waypoint xsi:type="dc:Point" x="1650" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1700" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>Prompt: Generate advanced BPMN 2.0 XML for business proccess that has around 10 tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.
+ Business process describtion:An online shop,also known as an e-commerce website, is a platform that allows businesses to sell products or services to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the business creates a website where customers can browse products, view prices, and make purchases. The website is designed to be user-friendly and secure, with features like shopping carts, payment gateways, and order tracking. Product listing: The business adds product information, photos, and pricing to their website. This includes creating product descriptions, categorizing products, and setting prices. Order placement: Customers browse the online shop, select the products they want to buy, and add them to their shopping cart. Once they are ready to checkout, they provide their billing and shipping information. Payment processing: The online shop uses a payment gateway to securely process the customer's payment information. This may include credit card information, PayPal, or other payment methods. Order fulfillment: Once the payment is processed, the business receives the order and prepares the product for shipping. They may use a third-party logistics provider to handle shipping and delivery. Customer service: The online shop provides customer service to handle any issues that arise with orders, such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales and expand their customer base.
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2875
+
+----------------------------------------------------------------------------------------------------
+
