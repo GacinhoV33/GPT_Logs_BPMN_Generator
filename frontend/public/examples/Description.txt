@@ -1,0 +1,5 @@
+This booking process involves selecting a travel date and destination, choosing a flight, providing personal and payment information, and confirming the booking. The completed booking record contains details such as the passenger name, flight number and departure time, payment information, and booking confirmation number. Overall, this process streamlines the booking experience for customers and ensures a seamless transaction.
+
+The diagram describes library book lending process. 
+
+

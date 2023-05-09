@@ -1,7 +1,0 @@
-Descritption for BPMN Business Process - Book Lending Example
-
-A Business Process Diagram using BPMN 2.0 depicting a library book lending example.
-
-This BPMN diagram is configured with simulation script to support a simulation that displays a UI dialog, that interacts with the user, when running the simulation.
-
-==============================================================================================================================

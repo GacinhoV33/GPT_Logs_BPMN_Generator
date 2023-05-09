@@ -16,9 +16,9 @@ return (
 export default Examples;
 
 export const examplesData = [
-    {filePath: 'examples/gpt_response2.bpmn', describtion: ' Lizards are a widespread group of squamate reptiles, with over 6,000species, ranging across all continents except Antarctica', bpmnID: 0, title: 'Online Payment', imgPath: ''},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '  Lizards are a widespread group of squamate reptiles, with over 6,000species, ranging across all continents except Antarctica', bpmnID: 1, title: 'Online shop buying process', imgPath: ''},
-    {filePath: 'examples/gpt_response4.bpmn', describtion: ' ... ', bpmnID: 2, title: 'Creating Website', imgPath: ''},
-    {filePath: 'examples/gpt_response2.bpmn', describtion: '... ', bpmnID: 3, title: 'Adding employer too system', imgPath: ''},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '... ', bpmnID: 4, title: 'Migrate database', imgPath: ''}
+    {filePath: 'examples/BookLendingExample.bpmn', description: 'BPMN describes library lending process. ', bpmnID: 0, title: 'Book Lending', imgPath: ''},
+    {filePath: 'examples/BookingExample.bpmn', description: 'This is a booking process that involves booking travel activities.', bpmnID: 1, title: 'Booking', imgPath: ''},
+    {filePath: 'examples/CashMaschineExample.bpmn', description: ' Following example contatins process of cash flow in ATM cash maschine. ', bpmnID: 2, title: 'Cash Maschine', imgPath: ''},
+    {filePath: 'examples/OnlineShopExample.bpmn', description: ' Diagram contains process of placing order in online shop. ', bpmnID: 3, title: 'Online Shop', imgPath: ''},
+    {filePath: 'examples/PizzaOrderingExample.bpmn', description: 'Ordering pizza in restaurant described by BPMN. ', bpmnID: 4, title: 'Pizza Ordering', imgPath: ''}
 ]
