@@ -16,9 +16,9 @@ return (
 export default Examples;
 
 export const examplesData = [
-    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 0, title: 'Online Payment'},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 1, title: 'Online shop buying process'},
-    {filePath: 'examples/gpt_response4.bpmn', describtion: '', bpmnID: 2, title: 'Creating Website'},
-    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 3, title: 'Adding employer too system'},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 4, title: 'Migrate database'}
+    {filePath: 'examples/gpt_response2.bpmn', describtion: ' Lizards are a widespread group of squamate reptiles, with over 6,000species, ranging across all continents except Antarctica', bpmnID: 0, title: 'Online Payment', imgPath: ''},
+    {filePath: 'examples/gpt_response3.bpmn', describtion: '  Lizards are a widespread group of squamate reptiles, with over 6,000species, ranging across all continents except Antarctica', bpmnID: 1, title: 'Online shop buying process', imgPath: ''},
+    {filePath: 'examples/gpt_response4.bpmn', describtion: ' ... ', bpmnID: 2, title: 'Creating Website', imgPath: ''},
+    {filePath: 'examples/gpt_response2.bpmn', describtion: '... ', bpmnID: 3, title: 'Adding employer too system', imgPath: ''},
+    {filePath: 'examples/gpt_response3.bpmn', describtion: '... ', bpmnID: 4, title: 'Migrate database', imgPath: ''}
 ]

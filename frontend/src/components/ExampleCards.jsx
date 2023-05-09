@@ -28,7 +28,7 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
 
 export default ExampleCards;
 
-const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExample }) => {
+const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExample, imgPath }) => {
     const isSelectedCard = bpmnID === currentExample;
     function handleClick(bpmnID){
       setCurrentExample(bpmnID);
@@ -42,7 +42,7 @@ const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExa
     <Card sx={{ maxWidth: 345 }} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
       <CardMedia
         sx={{ height: 70 }}
-        image="./test_img.png"
+        image={imgPath}
         title="green iguana"
       />
       <CardContent>
@@ -50,6 +50,7 @@ const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExa
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
+          {describtion}
           Lizards are a widespread group of squamate reptiles, with over 6,000
           species, ranging across all continents except Antarctica
         </Typography>
