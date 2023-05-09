@@ -4,6 +4,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS
+import os
 
 from BPMN import clean_xml
 from main import make_openai_request, save_response, get_test_XML, \
@@ -69,7 +70,8 @@ def server():
     api.add_resource(OpenAI, '/openai')
     api.add_resource(TestRequest, '/testRequest')
     api.add_resource(RequestInfo, '/reqInfo')
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
 
 
 if __name__ == '__main__':
