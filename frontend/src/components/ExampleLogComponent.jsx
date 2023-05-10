@@ -28,7 +28,7 @@ const ExampleLogComponent = ({ currentExample }) => {
         }),
       };
       
-      const data = await ( await fetch(LOCAL_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
+      const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
       if(data.message !== "Error"){
         setDiagramExample(data.xmlString);
       }
