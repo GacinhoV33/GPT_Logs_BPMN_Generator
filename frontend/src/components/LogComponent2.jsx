@@ -30,21 +30,24 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
 
   }, [apiNumber]);
   
-  useEffect(() => {
-    if(diagram.length > 5){
-      // TODO do it correctly
-      const svg = modeler.saveSVG().then((data) => setBlobSvg(data.svg));
-      const filename = "gpt_diagram"
-      const blob = new Blob([blobSvg], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      console.log(blob)
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      link.click();
-      URL.revokeObjectURL(url);  
-        }
-  }, [saveFlag])
+  // useEffect(() => {
+  //   if(diagram.length > 5){
+  //     // TODO do it correctly
+  //     // const svg = modeler.saveSVG().then((data) => setBlobSvg(data.svg));
+  //     const newModeler = new Modeler();
+  //     modeler.importXML(diagram);
+  //     const svg = modeler.saveSVG().then((data) => console.log(data));
+  //     const filename = "gpt_diagram"
+  //     const blob = new Blob([blobSvg], { type: 'image/svg+xml;charset=utf-8' });
+  //     const url = URL.createObjectURL(blob);
+  //     console.log(blob)
+  //     const link = document.createElement('a');
+  //     link.href = url;
+  //     link.download = filename;
+  //     link.click();
+  //     URL.revokeObjectURL(url);  
+  //       }
+  // }, [saveFlag])
   
   if(diagram.length > 5){
     modeler
