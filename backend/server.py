@@ -18,20 +18,13 @@ class OpenAI(Resource):
         parser.add_argument('items_number', required=True)
         parser.add_argument('temperature', required=True)
         parser.add_argument('frequency_penalty', required=True)
-
         args = parser.parse_args()
         user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(args['temperature']), float(args['frequency_penalty'])
-        print("user_text: ", user_text)
-        # print("items_number", items_number)
-        # print("temperature: ", temperature)
-        # print("frequency_penalty", frequency_penalty)
+
         resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
         text = resp['choices'][0]['text']
-        print(text)
         cleared_text = clean_xml(text)
-        # cleared_text = clear_response(text)
         save_response(cleared_text, resp)
-        # print("Success, the data: ", cleared_text)
         return {'xmlString': cleared_text}, 200
 
 
@@ -45,7 +38,7 @@ class TestRequest(Resource):
         args = parser.parse_args()
         user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(
             args['temperature']), float(args['frequency_penalty'])
-        test_XML = get_test_XML()
+        test_XML = get_example_XML("examples/BookLendingExample.bpmn")
         return {'xmlString': test_XML}, 200
 
 
