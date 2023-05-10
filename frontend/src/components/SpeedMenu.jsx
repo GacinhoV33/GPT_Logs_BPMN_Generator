@@ -52,7 +52,7 @@ const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, curren
     <div>
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: "absolute", right: 85, top: 350}}
+        sx={{ position: "absolute", right: 85, top: 400}}
         icon={<SpeedDialIcon />}
         direction="down"
       >

@@ -5,7 +5,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
 const LOCAL_HOST = "http://127.0.0.1:5000/";
-
+export const PRODUCTION_HOST = "https://gpt-logs-4.azurewebsites.net/"
 const UserInput = ({
   requestStatus,
   setRequestStatus,
@@ -32,8 +32,13 @@ const UserInput = ({
       }),
     };
     console.log(requestOptions)
+    // LOCAL
     // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // PRODUCTION
+    // const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+
     if(data.message !== "Internal Server Error"){
       setDiagram(data.xmlString);
       setTimeout(() => setApiNumber(prev => prev+1), 500); 

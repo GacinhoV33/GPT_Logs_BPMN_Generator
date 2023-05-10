@@ -1,11 +1,13 @@
 .userPanel-main{
     width: 99vw;
     height: auto;
+    min-height: 30vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 0;
+    margin-bottom: 3vh;
     @media (max-width: 1400px){
         margin-top: 10vh;
         margin-bottom: 5vh;

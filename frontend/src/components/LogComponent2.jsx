@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Modeler from "bpmn-js/lib/Modeler";
 import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-import axios from "axios";
 import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
 // import {file} from 'gpt_files/gpt_response4.bpmn';
+import {PRODUCTION_HOST} from './UserInput';
 
 const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, saveFlag}) => {
   const [blobSvg, setBlobSvg] = useState('')
@@ -18,16 +18,16 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
   });
   const [isError, setError] = useState(false);
   useEffect(() => {
-    if (diagram === "local") {
-      axios
-        .get(process.env.PUBLIC_URL + "/gpt_files/gpt_response4.bpmn")
-        .then((r) => {
-          setDiagram(r.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-      } 
+    async function getInitialDiagram(){
+      if (diagram === "local") {
+        const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+      if(data.message !== "Internal Server Error"){
+        setDiagram(data.xmlString);
+      }
+    }
+      };
+      getInitialDiagram().then((console.log("Diagram loaded successfully")));
+
   }, [apiNumber]);
   
   useEffect(() => {
@@ -70,7 +70,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
       setRequestStatus(requestStates.WARNING);
     }
     else if(apiNumber > 0){
-      sendRequestInfo();
       setRequestStatus(requestStates.CORRECT);
     }    
 
@@ -92,4 +91,19 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
     </div>
   );
 };
+
+// for init diagram
+const requestOptions = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    user_text: "None",
+    items_number: 0,
+    temperature: 0.15,
+    frequency_penalty: 0.15
+  }),
+};
+
 export default LogHookComponent;
