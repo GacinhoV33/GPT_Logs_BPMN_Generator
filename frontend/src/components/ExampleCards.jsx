@@ -17,9 +17,9 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
         gap: "1.5vw",
       }}
     >
-      {examplesData.map(({ filePath, description, bpmnID, title }, index) => {
+      {examplesData.map(({ filePath, description, bpmnID, title, imgPath }, index) => {
         return (
-          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID} description={description}/>
+          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID} description={description} imgPath={imgPath}/>
         );
       })}
     </div>
@@ -39,9 +39,9 @@ const ExampleCard = ({ title, description, bpmnID, setCurrentExample, currentExa
       })
     }
   return (
-    <Card sx={{ maxWidth: "17.5vw" }} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
+    <Card sx={{ width: "17.5vw" , height: '325px'}} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
       <CardMedia
-        sx={{ height: 70 }}
+        sx={{ height: 175 }}
         image={imgPath}
         title="green iguana"
       />
