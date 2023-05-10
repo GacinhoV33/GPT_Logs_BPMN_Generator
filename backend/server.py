@@ -88,7 +88,7 @@ class ExampleFile(Resource):
 
 def server():
     app = Flask(__name__)
-    # CORS(app)
+    CORS(app)
     api = Api(app)
     api.add_resource(OpenAI, '/openai')
     api.add_resource(TestRequest, '/testRequest')
