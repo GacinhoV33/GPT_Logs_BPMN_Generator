@@ -5,6 +5,7 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import axios from "axios";
 import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
+// import {file} from 'gpt_files/gpt_response4.bpmn';
 
 const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, saveFlag}) => {
   const [blobSvg, setBlobSvg] = useState('')
@@ -19,7 +20,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
   useEffect(() => {
     if (diagram === "local") {
       axios
-        .get("./gpt_files/gpt_response4.bpmn")
+        .get(process.env.PUBLIC_URL + "/gpt_files/gpt_response4.bpmn")
         .then((r) => {
           setDiagram(r.data);
         })
@@ -31,7 +32,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
   
   useEffect(() => {
     if(diagram.length > 5){
-      console.log('svg')
       // TODO do it correctly
       const svg = modeler.saveSVG().then((data) => setBlobSvg(data.svg));
       const filename = "gpt_diagram"

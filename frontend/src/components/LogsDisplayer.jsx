@@ -11,10 +11,10 @@ const LogsDisplayer = ({diagram, setDiagram, apiNumber,setRequestStatus}) => {
     if(diagram.length > 5){
       setDiagramHistory(prev => [...prev, diagram]);
       setCurrentDiagramNumber(prev => prev+1);
-      console.log('CurrentDiagramNumber: useEffect: ', currentDiagramNumber)
+      // console.log('CurrentDiagramNumber: useEffect: ', currentDiagramNumber)
     }
   }, [diagram]);
-  console.log(diagramHistory.length);
+  // console.log(diagramHistory.length);
   return (
     <div className='logsDisplayer-main'>
         <LogComponent2 diagram={diagram} setDiagram={setDiagram} apiNumber={apiNumber} setRequestStatus={setRequestStatus} saveFlag={saveFlag}/>

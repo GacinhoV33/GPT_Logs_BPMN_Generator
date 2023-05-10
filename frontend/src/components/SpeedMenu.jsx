@@ -24,7 +24,7 @@ const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, curren
         URL.revokeObjectURL(url);
     }
     function handlePrevious(){
-      console.log('CurrentDiagramNumber: handlePrevious: ', currentDiagramNumber)
+      // console.log('CurrentDiagramNumber: handlePrevious: ', currentDiagramNumber)
       setDiagram(diagramHistory[currentDiagramNumber-1])
     }
     
