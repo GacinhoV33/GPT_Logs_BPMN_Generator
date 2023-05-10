@@ -97,6 +97,13 @@ def get_test_XML(path: str = 'files/test_XML.bpmn'):
     return text_XML
 
 
+def get_example_XML(path: str = 'examples/BookingExample.bpmn'):
+    text_XML: str
+    with open(path, 'r') as file:
+        text_XML = file.read()
+    return text_XML
+
+
 def increment_requests_number():
     print("req")
 

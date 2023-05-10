@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
-const LOCAL_HOST = "http://127.0.0.1:5000/";
+export const LOCAL_HOST = "http://127.0.0.1:5000/";
 export const PRODUCTION_HOST = "https://gpt-logs-4.azurewebsites.net/"
 const UserInput = ({
   requestStatus,

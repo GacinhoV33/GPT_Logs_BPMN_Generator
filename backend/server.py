@@ -8,7 +8,7 @@ import os
 
 from BPMN import clean_xml
 from main import make_openai_request, save_response, get_test_XML, \
-    increment_requests_number, add_error, increment_failure_requests_number
+    increment_requests_number, add_error, increment_failure_requests_number, get_example_XML
 
 
 class OpenAI(Resource):
@@ -64,12 +64,35 @@ class RequestInfo(Resource):
         return {'status': 200}, 200
 
 
+class ExampleFile(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('exampleNumber', required=True)
+        args = parser.parse_args()
+        example_number = int(args['exampleNumber'])
+        xml_file: str
+        if example_number == 0:
+            xml_file = get_example_XML("examples/BookLendingExample.bpmn")
+        elif example_number == 1:
+            xml_file = get_example_XML("examples/BookingExample.bpmn")
+        elif example_number == 2:
+            xml_file = get_example_XML("examples/CashMaschineExample.bpmn")
+        elif example_number == 3:
+            xml_file = get_example_XML("examples/OnlineShopExample.bpmn")
+        elif example_number == 4:
+            xml_file = get_example_XML("examples/PizzaOrderingExample.bpmn")
+        else:
+            return {'xmlString': 'ERROR'}, 404
+        return {'xmlString': xml_file}, 200
+
+
 def server():
     app = Flask(__name__)
     CORS(app)
     api = Api(app)
     api.add_resource(OpenAI, '/openai')
     api.add_resource(TestRequest, '/testRequest')
+    api.add_resource(ExampleFile, '/examples')
     api.add_resource(RequestInfo, '/reqInfo')
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)

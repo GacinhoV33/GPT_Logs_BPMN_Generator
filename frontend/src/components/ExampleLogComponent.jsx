@@ -5,7 +5,7 @@ import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import axios from 'axios'
 import './Examples.scss';
-
+import { PRODUCTION_HOST, LOCAL_HOST } from "./UserInput";
 const ExampleLogComponent = ({ currentExample }) => {
   const [diagramExample, setDiagramExample] = useState('local');
   const container = document.getElementById('containerExample');
@@ -17,15 +17,37 @@ const ExampleLogComponent = ({ currentExample }) => {
   });
 
   useEffect(() => {
-      axios
-        .get(examplesData[currentExample].filePath)
-        .then((r) => {
-          setDiagramExample(r.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async function getInitialDiagram(){
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          exampleNumber: currentExample,
+        }),
+      };
+      
+      const data = await ( await fetch(LOCAL_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
+      if(data.message !== "Error"){
+        setDiagramExample(data.xmlString);
+      }
+
+      };
+      getInitialDiagram().then((console.log("Diagram loaded successfully")));
+
   }, [currentExample]);
+
+  // useEffect(() => {
+  //     axios
+  //       .get(examplesData[currentExample].filePath)
+  //       .then((r) => {
+  //         setDiagramExample(r.data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  // }, [currentExample]);
 
   if(diagramExample.length > 5){
     modeler
