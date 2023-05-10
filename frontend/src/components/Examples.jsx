@@ -16,9 +16,9 @@ return (
 export default Examples;
 
 export const examplesData = [
-    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 0, title: 'Online Payment'},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 1, title: 'Online shop buying process'},
-    {filePath: 'examples/gpt_response4.bpmn', describtion: '', bpmnID: 2, title: 'Creating Website'},
-    {filePath: 'examples/gpt_response2.bpmn', describtion: '', bpmnID: 3, title: 'Adding employer too system'},
-    {filePath: 'examples/gpt_response3.bpmn', describtion: '', bpmnID: 4, title: 'Migrate database'}
+    {filePath: 'examples/BookLendingExample.bpmn', description: 'BPMN diagram describes library lending process. ', bpmnID: 0, title: 'Book Lending', imgPath: './images/book.jpg'},
+    {filePath: 'examples/BookingExample.bpmn', description: 'This is a booking process that involves booking travel activities.', bpmnID: 1, title: 'Booking', imgPath: './images/travel.jpg'},
+    {filePath: 'examples/CashMaschineExample.bpmn', description: ' Following example contatins process of cash flow in ATM cash maschine. ', bpmnID: 2, title: 'Cash Machine', imgPath: './images/cashMachine.jpg'},
+    {filePath: 'examples/OnlineShopExample.bpmn', description: ' Diagram contains process of placing order in online shop. ', bpmnID: 3, title: 'Online Shop', imgPath: './images/onlineShop.jpg'},
+    {filePath: 'examples/PizzaOrderingExample.bpmn', description: 'Ordering pizza in restaurant described by BPMN. ', bpmnID: 4, title: 'Pizza Ordering', imgPath: './images/pizza.jpg'}
 ]

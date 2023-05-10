@@ -17,9 +17,9 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
         gap: "1.5vw",
       }}
     >
-      {examplesData.map(({ filePath, describtion, bpmnID, title }, index) => {
+      {examplesData.map(({ filePath, description, bpmnID, title, imgPath }, index) => {
         return (
-          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID}/>
+          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID} description={description} imgPath={imgPath}/>
         );
       })}
     </div>
@@ -28,7 +28,7 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
 
 export default ExampleCards;
 
-const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExample }) => {
+const ExampleCard = ({ title, description, bpmnID, setCurrentExample, currentExample, imgPath }) => {
     const isSelectedCard = bpmnID === currentExample;
     function handleClick(bpmnID){
       setCurrentExample(bpmnID);
@@ -39,10 +39,10 @@ const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExa
       })
     }
   return (
-    <Card sx={{ maxWidth: 345 }} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
+    <Card sx={{ width: "17.5vw" , height: '325px'}} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
       <CardMedia
-        sx={{ height: 70 }}
-        image="./test_img.png"
+        sx={{ height: 175 }}
+        image={imgPath}
         title="green iguana"
       />
       <CardContent>
@@ -50,8 +50,7 @@ const ExampleCard = ({ title, describtion, bpmnID, setCurrentExample, currentExa
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {description}
         </Typography>
       </CardContent>
       <CardActions>

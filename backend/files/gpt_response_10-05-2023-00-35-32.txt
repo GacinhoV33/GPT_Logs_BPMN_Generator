@@ -1,0 +1,75 @@
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" name="Online Shop Process" isExecutable="true">
+    <bpmn2:startEvent id="startEvent" name="Start Event"/>
+    <bpmn2:sequenceFlow id="flow1" sourceRef="startEvent" targetRef="taskCreateSite"/>
+    <bpmn2:task id="taskCreateSite" name="Create Website"/>
+    <bpmn2:sequenceFlow id="flow2" sourceRef="taskCreateSite" targetRef="taskListProducts"/>
+    <bpmn2:task id="taskListProducts" name="List Products"/>
+    <bpmn2:sequenceFlow id="flow3" sourceRef="taskListProducts" targetRef="taskOrderPlacement"/>
+    <bpmn2:task id="taskOrderPlacement" name="Order Placement"/>
+    <bpmn2:sequenceFlow id="flow4" sourceRef="taskOrderPlacement" targetRef="taskPaymentProcessing"/>
+    <bpmn2:task id="taskPaymentProcessing" name="Payment Processing"/>
+    <bpmn2:sequenceFlow id="flow5" sourceRef="taskPaymentProcessing" targetRef="taskOrderFulfillment"/>
+    <bpmn2:task id="taskOrderFulfillment" name="Order Fulfillment"/>
+    <bpmn2:sequenceFlow id="flow6" sourceRef="taskOrderFulfillment" targetRef="taskCustomerService"/>
+    <bpmn2:task id="taskCustomerService" name="Customer Service"/>
+    <bpmn2:endEvent id="endEvent" name="End Event"/>
+    <bpmn2:sequenceFlow id="flow7" sourceRef="taskCustomerService" targetRef="endEvent"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="startEvent_shape" bpmnElement="startEvent">
+        <dc:Bounds x="130" y="85" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_edge" bpmnElement="flow1">
+        <di:waypoint xsi:type="dc:Point" x="166" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="222" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskCreateSite_shape" bpmnElement="taskCreateSite">
+        <dc:Bounds x="222" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow2_edge" bpmnElement="flow2">
+        <di:waypoint xsi:type="dc:Point" x="322" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="378" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskListProducts_shape" bpmnElement="taskListProducts">
+        <dc:Bounds x="378" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow3_edge" bpmnElement="flow3">
+        <di:waypoint xsi:type="dc:Point" x="478" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="534" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskOrderPlacement_shape" bpmnElement="taskOrderPlacement">
+        <dc:Bounds x="534" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow4_edge" bpmnElement="flow4">
+        <di:waypoint xsi:type="dc:Point" x="634" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="690" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskPaymentProcessing_shape" bpmnElement="taskPaymentProcessing">
+        <dc:Bounds x="690" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow5_edge" bpmnElement="flow5">
+        <di:waypoint xsi:type="dc:Point" x="790" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="846" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskOrderFulfillment_shape" bpmnElement="taskOrderFulfillment">
+        <dc:Bounds x="846" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow6_edge" bpmnElement="flow6">
+        <di:waypoint xsi:type="dc:Point" x="946" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="1002" y="103"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="taskCustomerService_shape" bpmnElement="taskCustomerService">
+        <dc:Bounds x="1002" y="73" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endEvent_shape" bpmnElement="endEvent">
+        <dc:Bounds x="1142" y="85" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow7_edge" bpmnElement="flow7">
+        <di:waypoint xsi:type="dc:Point" x="1106" y="103"/>
+        <di:waypoint xsi:type="dc:Point" x="1142" y="103"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -9,12 +9,13 @@ def clean_xml(xml_string: str):
     cleaned_xml = "".join(re.findall(r'<.*?>', cleaned_xml))
 
     # Parse XML to check if it's well-formed
-    try:
-        x = etree.fromstring(cleaned_xml)
-        cleaned_pretty_xml = etree.tostring(x, pretty_print=True)
-        return cleaned_pretty_xml
+    # try:
+    x = etree.fromstring(cleaned_xml.encode())
+    cleaned_pretty_xml = etree.tostring(x, pretty_print=True)
+    return cleaned_pretty_xml.decode('utf-8')
 
-    except:
-        raise ValueError("Given XML is not well-formed")
+    # except:
+    #     raise ValueError("Given XML is not well-formed")
 
-#
+
+# ===================

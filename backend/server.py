@@ -27,6 +27,7 @@ class OpenAI(Resource):
         # print("frequency_penalty", frequency_penalty)
         resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
         text = resp['choices'][0]['text']
+        print(text)
         cleared_text = clean_xml(text)
         # cleared_text = clear_response(text)
         save_response(cleared_text, resp)

@@ -1,0 +1,267 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema"
+  expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="process_1">
+    <startEvent id="startevent_1" />
+    <sequenceFlow id="flow_1" sourceRef="startevent_1" targetRef="task_1" />
+    <task id="task_1">
+      <incoming>flow_1</incoming>
+      <outgoing>flow_2</outgoing>
+    </task>
+    <sequenceFlow id="flow_2" sourceRef="task_1" targetRef="task_2" />
+    <task id="task_2">
+      <incoming>flow_2</incoming>
+      <outgoing>flow_3</outgoing>
+    </task>
+    <sequenceFlow id="flow_3" sourceRef="task_2" targetRef="task_3" />
+    <task id="task_3">
+      <incoming>flow_3</incoming>
+      <outgoing>flow_4</outgoing>
+    </task>
+    <sequenceFlow id="flow_4" sourceRef="task_3" targetRef="task_4" />
+    <task id="task_4">
+      <incoming>flow_4</incoming>
+      <outgoing>flow_5</outgoing>
+    </task>
+    <sequenceFlow id="flow_5" sourceRef="task_4" targetRef="task_5" />
+    <task id="task_5">
+      <incoming>flow_5</incoming>
+      <outgoing>flow_6</outgoing>
+    </task>
+    <sequenceFlow id="flow_6" sourceRef="task_5" targetRef="task_6" />
+    <task id="task_6">
+      <incoming>flow_6</incoming>
+      <outgoing>flow_7</outgoing>
+    </task>
+    <sequenceFlow id="flow_7" sourceRef="task_6" targetRef="task_7" />
+    <task id="task_7">
+      <incoming>flow_7</incoming>
+      <outgoing>flow_8</outgoing>
+    </task>
+    <sequenceFlow id="flow_8" sourceRef="task_7" targetRef="task_8" />
+    <task id="task_8">
+      <incoming>flow_8</incoming>
+      <outgoing>flow_9</outgoing>
+    </task>
+    <sequenceFlow id="flow_9" sourceRef="task_8" targetRef="task_9" />
+    <task id="task_9">
+      <incoming>flow_9</incoming>
+      <outgoing>flow_10</outgoing>
+    </task>
+    <sequenceFlow id="flow_10" sourceRef="task_9" targetRef="task_10" />
+    <task id="task_10">
+      <incoming>flow_10</incoming>
+      <outgoing>flow_11</outgoing>
+    </task>
+    <sequenceFlow id="flow_11" sourceRef="task_10" targetRef="endevent_1" />
+    <endEvent id="endevent_1" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process_1">
+      <bpmndi:BPMNShape id="startevent_1_shape" bpmnElement="startevent_1">
+        <omgdc:Bounds x="174" y="85" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endevent_1_shape" bpmnElement="endevent_1">
+        <omgdc:Bounds x="794" y="85" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_1_edge" bpmnElement="flow_1">
+        <omgdi:waypoint x="210" y="103" />
+        <omgdi:waypoint x="310" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_1_shape" bpmnElement="task_1">
+        <omgdc:Bounds x="310" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_2_edge" bpmnElement="flow_2">
+        <omgdi:waypoint x="410" y="103" />
+        <omgdi:waypoint x="510" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_2_shape" bpmnElement="task_2">
+        <omgdc:Bounds x="510" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_3_edge" bpmnElement="flow_3">
+        <omgdi:waypoint x="610" y="103" />
+        <omgdi:waypoint x="710" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_3_shape" bpmnElement="task_3">
+        <omgdc:Bounds x="710" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_4_edge" bpmnElement="flow_4">
+        <omgdi:waypoint x="810" y="103" />
+        <omgdi:waypoint x="910" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_4_shape" bpmnElement="task_4">
+        <omgdc:Bounds x="910" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_5_edge" bpmnElement="flow_5">
+        <omgdi:waypoint x="1010" y="103" />
+        <omgdi:waypoint x="1110" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_5_shape" bpmnElement="task_5">
+        <omgdc:Bounds x="1110" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_6_edge" bpmnElement="flow_6">
+        <omgdi:waypoint x="1210" y="103" />
+        <omgdi:waypoint x="1310" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_6_shape" bpmnElement="task_6">
+        <omgdc:Bounds x="1310" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_7_edge" bpmnElement="flow_7">
+        <omgdi:waypoint x="1410" y="103" />
+        <omgdi:waypoint x="1510" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_7_shape" bpmnElement="task_7">
+        <omgdc:Bounds x="1510" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_8_edge" bpmnElement="flow_8">
+        <omgdi:waypoint x="1610" y="103" />
+        <omgdi:waypoint x="1710" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_8_shape" bpmnElement="task_8">
+        <omgdc:Bounds x="1710" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_9_edge" bpmnElement="flow_9">
+        <omgdi:waypoint x="1810" y="103" />
+        <omgdi:waypoint x="1910" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_9_shape" bpmnElement="task_9">
+        <omgdc:Bounds x="1910" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_10_edge" bpmnElement="flow_10">
+        <omgdi:waypoint x="2010" y="103" />
+        <omgdi:waypoint x="2110" y="103" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="task_10_shape" bpmnElement="task_10">
+        <omgdc:Bounds x="2110" y="68" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow_11_edge" bpmnElement="flow_11">
+        <omgdi:waypoint x="2210" y="103" />
+        <omgdi:waypoint x="830" y="103" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="onlinePaymentProcess" name="Online Payment Process" isExecutable="true">
+    <startEvent id="startEvent" name="Start Event" />
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="userInputTask" />
+    <userTask id="userInputTask" name="User Input Task" activiti:assignee="${userId}">
+      <extensionElements>
+        <activiti:formProperty id="amount" name="Amount" type="long" required="true" />
+        <activiti:formProperty id="paymentMethod" name="Payment Method" type="enum" required="true">
+          <activiti:value id="creditCard" name="Credit Card" />
+          <activiti:value id="paypal" name="PayPal" />
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow2" sourceRef="userInputTask" targetRef="validateInputTask" />
+    <serviceTask id="validateInputTask" name="Validate Input Task" activiti:class="org.activiti.engine.impl.bpmn.helper.ValidateInputTask" />
+    <sequenceFlow id="flow3" sourceRef="validateInputTask" targetRef="paymentGatewayTask" />
+    <serviceTask id="paymentGatewayTask" name="Payment Gateway Task" activiti:class="org.activiti.engine.impl.bpmn.helper.PaymentGatewayTask" />
+    <sequenceFlow id="flow4" sourceRef="paymentGatewayTask" targetRef="paymentConfirmationTask" />
+    <userTask id="paymentConfirmationTask" name="Payment Confirmation Task" activiti:assignee="${userId}">
+      <extensionElements>
+        <activiti:formProperty id="confirmPayment" name="Confirm Payment" type="boolean" required="true" />
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow5" sourceRef="paymentConfirmationTask" targetRef="paymentSuccessTask" />
+    <serviceTask id="paymentSuccessTask" name="Payment Success Task" activiti:class="org.activiti.engine.impl.bpmn.helper.PaymentSuccessTask" />
+    <sequenceFlow id="flow6" sourceRef="paymentSuccessTask" targetRef="notifyUserTask" />
+    <serviceTask id="notifyUserTask" name="Notify User Task" activiti:class="org.activiti.engine.impl.bpmn.helper.NotifyUserTask" />
+    <sequenceFlow id="flow7" sourceRef="notifyUserTask" targetRef="updateAccountTask" />
+    <serviceTask id="updateAccountTask" name="Update Account Task" activiti:class="org.activiti.engine.impl.bpmn.helper.UpdateAccountTask" />
+    <sequenceFlow id="flow8" sourceRef="updateAccountTask" targetRef="logTransactionTask" />
+    <serviceTask id="logTransactionTask" name="Log Transaction Task" activiti:class="org.activiti.engine.impl.bpmn.helper.LogTransactionTask" />
+    <sequenceFlow id="flow9" sourceRef="logTransactionTask" targetRef="endEvent" />
+    <endEvent id="endEvent" name="End Event" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="onlinePaymentProcess" id="BPMNPlane_1" />
+  </bpmndi:BPMNDiagram>
+</definitions>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:task id="Task_1" name="Select Items">
+      <bpmn2:incoming>StartEvent_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Billing">
+      <bpmn2:incoming>Task_1</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Shipping">
+      <bpmn2:incoming>Task_2</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Payment">
+      <bpmn2:incoming>Task_3</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Complete Payment">
+      <bpmn2:incoming>Task_4</bpmn2:incoming>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>Task_5</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3" />
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4" />
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_gui" bpmnElement="Task_1">
+        <dc:Bounds x="241" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_gui" bpmnElement="Task_2">
+        <dc:Bounds x="385" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_gui" bpmnElement="Task_3">
+        <dc:Bounds x="529" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_gui" bpmnElement="Task_4">
+        <dc:Bounds x="673" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_gui" bpmnElement="Task_5">
+        <dc:Bounds x="817" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_gui" bpmnElement="EndEvent_1">
+        <dc:Bounds x="957" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_gui" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="241" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_gui" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="341" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="385" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_gui" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="485" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="529" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_gui" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="629" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="673" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_gui" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="773" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="817" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_gui" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="917" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="957" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
