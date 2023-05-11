@@ -1,3 +1,2 @@
 17-04 : Generate BPMN 2.0 XML for simple business process that describes online payments. Make it in format that may be used in js-bmpn library.
 17-04:  Generate advanced BPMN 2.0 XML for business process that describes online payments. Make it in format that may be used in js-bmpn library and without <bpmn2:extensionElements>. - 3 items only
-

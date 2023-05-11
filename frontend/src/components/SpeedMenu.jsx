@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import { SpeedDial } from "@mui/material/SpeedDial";
 import { SpeedDialAction, SpeedDial } from "@mui/material";
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
@@ -7,10 +7,32 @@ import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, currentDiagramNumber}) => {
-    
+  const [open, setOpen] = useState(false);
+
+  const handleSnack = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
     function handleCopy(){
+        handleSnack();
         navigator.clipboard.writeText(diagram);
     }
     function handleSave(){
@@ -67,6 +89,11 @@ const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, curren
         />
         ))}
       </SpeedDial>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Diagram BPMN 2.0 copied successfully!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

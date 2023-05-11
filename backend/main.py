@@ -31,7 +31,7 @@ MODEL_DESCRIBTION = "An online shop," \
                     " without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales " \
                     "and expand their customer base."
 PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around "  + f" {str(NUMBER_OF_ITEMS)} tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + MODEL_DESCRIBTION
-PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around"
+PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
 PROMPT_MIDDLE = "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
 MAX_TOKENS = 4000 - int(len(PROMPT)/4)
 # print(MAX_TOKENS)

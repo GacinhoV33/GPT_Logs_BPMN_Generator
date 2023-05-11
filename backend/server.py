@@ -18,8 +18,9 @@ class OpenAI(Resource):
         parser.add_argument('items_number', required=True)
         parser.add_argument('temperature', required=True)
         parser.add_argument('frequency_penalty', required=True)
+        parser.add_argument('regenerate_answer', required=True)
         args = parser.parse_args()
-        user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(args['temperature']), float(args['frequency_penalty'])
+        user_text, items_number, temperature, frequency_penalty, regenerate_answer = args['user_text'], int(args['items_number']), float(args['temperature']), float(args['frequency_penalty']), bool(args['regenerate_answer'])
 
         resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
         text = resp['choices'][0]['text']

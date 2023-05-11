@@ -15,6 +15,7 @@ const UserInput = ({
   diagram,
   setDiagram,
   setApiNumber,
+  regenerateAnswer
 }) => {
   async function sendRequestToChatGPT(message) {
     setRequestStatus(requestStates.WAITING);
@@ -28,7 +29,8 @@ const UserInput = ({
         user_text: message,
         items_number: itemValue,
         temperature: temperatureValue,
-        frequency_penalty: frequencyPenalty
+        frequency_penalty: frequencyPenalty,
+        regenerate_answer: regenerateAnswer
       }),
     };
     console.log(requestOptions)
@@ -49,7 +51,7 @@ const UserInput = ({
   }
   const form = useRef();
 
-  function handleSubmit(values) {
+  async function handleSubmit(values) {
     sendRequestToChatGPT(values.message);
   }
 

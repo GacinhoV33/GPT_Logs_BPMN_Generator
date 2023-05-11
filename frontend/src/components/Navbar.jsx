@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Link } from "react-router-dom";
+import { Tooltip } from "@mui/material";
 
 export default function MenuAppBar({ setGptVersion }) {
   const [auth, setAuth] = React.useState(true);
@@ -56,26 +57,23 @@ export default function MenuAppBar({ setGptVersion }) {
                 onClose={handleClose}
               >
                 <MenuItem onClick={() => handleClose("3.5")}>GPT 3.5</MenuItem>
-                <MenuItem onClick={() => handleClose("4.0")}>GPT 4.0</MenuItem>
+                <Tooltip title='Not supported yet.'>
+                  <MenuItem>GPT 4.0</MenuItem>
+                </Tooltip>
               </Menu>
             </div>
           )}
-          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '5vw'}} to='/'>
+          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '1.5vw'}} to='/'>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             GPT Logs Generator
           </Typography>
           </Link>
 
-          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '1vw'}} to='/examples'>
+          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '1.5vw'}} to='/examples'>
             <Typography variant="h6" component="div" style={{textDecoration: 'none', color: 'white'}}>
               Examples
             </Typography>
           </Link>
-
-          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            History
-          </Typography> */}
-          
         </Toolbar>
       </AppBar>
     </Box>
