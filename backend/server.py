@@ -8,7 +8,7 @@ import os
 
 from BPMN import clean_xml
 from main import make_openai_request, save_response, get_test_XML, \
-    increment_requests_number, add_error, increment_failure_requests_number, get_example_XML
+    increment_requests_number, add_error, increment_failure_requests_number, get_example_XML, make_list_of_activities_regenerate_request, make_diagram_based_on_activities
 
 
 class OpenAI(Resource):
@@ -20,12 +20,51 @@ class OpenAI(Resource):
         parser.add_argument('frequency_penalty', required=True)
         parser.add_argument('regenerate_answer', required=True)
         args = parser.parse_args()
-        user_text, items_number, temperature, frequency_penalty, regenerate_answer = args['user_text'], int(args['items_number']), float(args['temperature']), float(args['frequency_penalty']), bool(args['regenerate_answer'])
+        user_text, items_number, temperature, frequency_penalty, regenerate_answer = args['user_text'], int(
+            args['items_number']), float(args['temperature']), float(args['frequency_penalty']), bool(args['regenerate_answer'])
 
-        resp = make_openai_request(user_text, items_number, temperature, frequency_penalty)
-        text = resp['choices'][0]['text']
-        cleared_text = clean_xml(text)
-        save_response(cleared_text, resp)
+        try:
+            resp = make_openai_request(
+                user_text, items_number, temperature, frequency_penalty)
+            text = resp['choices'][0]['text']
+            cleared_text = clean_xml(get_test_XML())
+            save_response(cleared_text, resp)
+        except Exception as e:
+            if "Please reduce your prompt; or completion length." or "is less than the minimum" in str(e):
+                return {'xmlString': "Length error:" + str(e)}, 411
+            else:
+                return {'xmlString': str(e)}, 500
+        return {'xmlString': cleared_text}, 200
+
+
+class OpenAIRegenerate(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('user_text', required=True)
+        parser.add_argument('items_number', required=True)
+        parser.add_argument('temperature', required=True)
+        parser.add_argument('frequency_penalty', required=True)
+        parser.add_argument('regenerate_answer', required=True)
+        args = parser.parse_args()
+        user_text, items_number, temperature, frequency_penalty, regenerate_answer = args['user_text'], int(
+            args['items_number']), float(args['temperature']), float(args['frequency_penalty']), bool(args['regenerate_answer'])
+
+        try:
+            activities = make_list_of_activities_regenerate_request(
+                user_text, items_number, temperature, frequency_penalty)
+            activities_text = activities['choices'][0]['text']
+            print(activities_text)
+
+            diagram = make_diagram_based_on_activities(
+                activities_text, items_number, temperature, frequency_penalty)
+            diagram_text = diagram['choices'][0]['text']
+            print(diagram_text)
+
+            cleared_text = clean_xml(diagram_text)
+            save_response(cleared_text, diagram)
+
+        except Exception as e:
+            return {'xmlString': str(e)}, 500
         return {'xmlString': cleared_text}, 200
 
 
@@ -85,6 +124,7 @@ def server():
     CORS(app)
     api = Api(app)
     api.add_resource(OpenAI, '/openai')
+    api.add_resource(OpenAIRegenerate, '/openairegenerate')
     api.add_resource(TestRequest, '/testRequest')
     api.add_resource(ExampleFile, '/examples')
     api.add_resource(RequestInfo, '/reqInfo')

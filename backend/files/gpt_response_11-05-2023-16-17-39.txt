@@ -1,0 +1,20 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="Activiti" exporterVersion="6.16.2" id="sid-eb2b2f1b-f25d-47d6-b9f9-9c412cf1d3d3" targetNamespace="http://www.activiti.org/bpmn20">
+  <process id="reasonsWhyYouShouldUseNetBanking" name="Reasons Why You Should Use Net Banking" isExecutable="true">
+    <startEvent id="startevent1" name="Start"/>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="task1"/>
+    <userTask id="task1" name="Saves Time"/>
+    <sequenceFlow id="flow2" sourceRef="task1" targetRef="task2"/>
+    <userTask id="task2" name="Open Accounts and Transact Digitally"/>
+    <sequenceFlow id="flow3" sourceRef="task2" targetRef="task3"/>
+    <userTask id="task3" name="Secure"/>
+    <sequenceFlow id="flow4" sourceRef="task3" targetRef="task4"/>
+    <userTask id="task4" name="Money Transfer Easy"/>
+    <sequenceFlow id="flow5" sourceRef="task4" targetRef="task5"/>
+    <userTask id="task5" name="Multiple Options to Consumers"/>
+    <sequenceFlow id="flow6" sourceRef="task5" targetRef="endevent1"/>
+    <endEvent id="endevent1" name="End"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="reasonsWhyYouShouldUseNetBanking" id="BPMNPlane_1"/>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
@@ -17,6 +17,28 @@ const UserInput = ({
   setApiNumber,
   regenerateAnswer
 }) => {
+
+  const [failCounter, setFailCounter] = useState(0);
+  const [userInput, setUserInput] = useState("");
+
+  useEffect(() => {
+
+    if (requestStatus === 6 && regenerateAnswer && failCounter < 1) {
+      setFailCounter(prev => prev + 1)
+      console.log("BPMN JS XML error - trying to regenerate answer")
+      resendRequestToChatGPT(userInput)
+    }
+    console.log(requestStatus)
+
+  }, [requestStatus])
+
+  const form = useRef();
+
+  async function handleSubmit(values) {
+    setUserInput(values.message)
+    sendRequestToChatGPT(values.message);
+  }
+
   async function sendRequestToChatGPT(message) {
     setRequestStatus(requestStates.WAITING);
 
@@ -35,24 +57,58 @@ const UserInput = ({
     };
     console.log(requestOptions)
     // LOCAL
-    // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    const data = await (await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
 
-    if(data.message !== "Internal Server Error"){
-      setDiagram(data.xmlString);
-      setTimeout(() => setApiNumber(prev => prev+1), 500); 
+    if (data.message !== "Internal Server Error") {
+      if ((data.xmlString).includes("Length error")) {
+        console.log("Length error") // TODO: prepare state for it and dispaly it in the component
+      } else {
+        setDiagram(data.xmlString)
+        setTimeout(() => setApiNumber(prev => prev + 1), 500);
+      }
     }
-    else{
+    else {
       setRequestStatus(requestStates.ERROR);
     }
   }
-  const form = useRef();
 
-  async function handleSubmit(values) {
-    sendRequestToChatGPT(values.message);
+  async function resendRequestToChatGPT(message) {
+    setRequestStatus(requestStates.WAITING_RESEND);
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_text: message,
+        items_number: itemValue,
+        temperature: temperatureValue,
+        frequency_penalty: frequencyPenalty,
+        regenerate_answer: regenerateAnswer
+      }),
+    };
+
+    // LOCAL
+    // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // PRODUCTION
+    // const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+
+    console.log(data.xmlString)
+
+    if (data.message !== "Internal Server Error") {
+      setDiagram(data.xmlString)
+      setTimeout(() => setApiNumber(prev => prev + 1), 500);
+    }
+    else {
+      setRequestStatus(requestStates.ERROR);
+    }
   }
 
   return (

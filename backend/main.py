@@ -73,7 +73,45 @@ def validate_response(text: str):
 def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
     #TODO - change rest of params
     prompt = make_prompt(user_text, items_number)
-    max_tokens = count_max_tokens(prompt)
+    max_tokens = count_max_tokens(prompt) - 20 # temporary solution
+    # delete print after testing 
+    # print(len(prompt))
+    # print(prompt)
+    # print("Max Tokens: ", max_tokens)
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=prompt,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        top_p=TOP_P,
+        frequency_penalty=frequency_penalty,
+        presence_penalty=PRESENCE_PENALTY,
+    )
+    return response
+
+def make_list_of_activities_regenerate_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
+        #TODO - change rest of params
+    prompt = "Generate list of {number} tasks based on following description: {description}".format(number=items_number, description=user_text)
+    max_tokens = count_max_tokens(prompt) - 20 # temporary solution
+    # delete print after testing 
+    # print(len(prompt))
+    # print(prompt)
+    # print("Max Tokens: ", max_tokens)
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=prompt,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        top_p=TOP_P,
+        frequency_penalty=frequency_penalty,
+        presence_penalty=PRESENCE_PENALTY,
+    )
+    return response
+
+def make_diagram_based_on_activities(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
+            #TODO - change rest of params
+    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text
+    max_tokens = count_max_tokens(prompt) - 20 # temporary solution
     # delete print after testing 
     # print(len(prompt))
     # print(prompt)

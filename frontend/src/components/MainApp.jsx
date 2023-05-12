@@ -11,6 +11,8 @@ export const requestStates = {
   CORRECT: 3, 
   WARNING: 4,
   ERROR: 5,
+  DISPLAY_ERROR: 6,
+  WAITING_RESEND: 7,
 }
 
 const MainApp = ({gptVersion}) => {

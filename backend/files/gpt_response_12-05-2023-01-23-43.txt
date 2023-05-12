@@ -1,0 +1,85 @@
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.jboss.org/drools" id="Definitions_1" targetNamespace="http://www.jboss.org/drools" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.2.0.Final-v20150602-0705-B119">
+  <bpmn2:process id="Process_1" name="MyProcess" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event">
+      <bpmn2:outgoing/>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1" name="Preheat Oven">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Gather Ingredients">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Grease and Flour Pans">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Measure and Mix Ingredients">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Bake Cake">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event">
+      <bpmn2:incoming/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="Flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="Flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="Flow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="83" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+        <dc:Bounds x="287" y="69" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+        <dc:Bounds x="437" y="69" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+        <dc:Bounds x="587" y="69" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+        <dc:Bounds x="737" y="69" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_shape" bpmnElement="Task_5">
+        <dc:Bounds x="887" y="69" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_shape" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1037" y="83" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_edge" bpmnElement="Flow_1">
+        <di:waypoint xsi:type="dc:Point" x="215" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="287" y="101"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_edge" bpmnElement="Flow_2">
+        <di:waypoint xsi:type="dc:Point" x="387" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="437" y="101"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_edge" bpmnElement="Flow_3">
+        <di:waypoint xsi:type="dc:Point" x="537" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="587" y="101"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_edge" bpmnElement="Flow_4">
+        <di:waypoint xsi:type="dc:Point" x="687" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="737" y="101"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_edge" bpmnElement="Flow_5">
+        <di:waypoint xsi:type="dc:Point" x="837" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="887" y="101"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_edge" bpmnElement="Flow_6">
+        <di:waypoint xsi:type="dc:Point" x="987" y="101"/>
+        <di:waypoint xsi:type="dc:Point" x="1037" y="101"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

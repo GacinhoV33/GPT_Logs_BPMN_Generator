@@ -164,6 +164,13 @@ const UserPanel = ({
               <strong>Try ask him one more time</strong>
             </Alert>
           )}
+          {requestStatus === requestStates.DISPLAY_ERROR && (
+            <Alert severity="info" style={{ marginTop: "1vh" }}>
+              <AlertTitle>Information</AlertTitle>
+              ChatGPT generated not valid BPMN 2.0 file{" "}
+              <strong>Trying to regenerate it</strong>
+            </Alert>
+          )}
           {requestStatus === requestStates.ERROR && (
             <Alert severity="error" style={{ marginTop: "1vh" }}>
               <AlertTitle>Error</AlertTitle>

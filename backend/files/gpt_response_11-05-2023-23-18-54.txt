@@ -1,0 +1,78 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:jsbpmn="http://www.js-bpmn.org/bpmn/extensions" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.js-bpmn.org/bpmn/sample">
+  <process id="payCollect" name="Payment Collection Process" isExecutable="true">
+    <startEvent id="start" name="Start Event"/>
+    <task id="task1" name="Authorize Payment">
+      <incoming/>
+    </task>
+    <task id="task2" name="Business Bank Communication">
+      <incoming/>
+    </task>
+    <task id="task3" name="Action Payment Request">
+      <incoming/>
+    </task>
+    <task id="task4" name="Debit Customer">
+      <incoming/>
+    </task>
+    <task id="task5" name="Credit Business">
+      <incoming/>
+    </task>
+    <endEvent id="end" name="End Event">
+      <incoming/>
+    </endEvent>
+    <sequenceFlow id="flow1" sourceRef="start" targetRef="task1"/>
+    <sequenceFlow id="flow2" sourceRef="task1" targetRef="task2"/>
+    <sequenceFlow id="flow3" sourceRef="task2" targetRef="task3"/>
+    <sequenceFlow id="flow4" sourceRef="task3" targetRef="task4"/>
+    <sequenceFlow id="flow5" sourceRef="task4" targetRef="task5"/>
+    <sequenceFlow id="flow6" sourceRef="task5" targetRef="end"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_payCollect">
+    <bpmndi:BPMNPlane bpmnElement="payCollect">
+      <bpmndi:BPMNShape bpmnElement="start">
+        <omgdc:Bounds x="169" y="105" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task1">
+        <omgdc:Bounds x="279" y="77" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task2">
+        <omgdc:Bounds x="419" y="77" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task3">
+        <omgdc:Bounds x="559" y="77" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task4">
+        <omgdc:Bounds x="699" y="77" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task5">
+        <omgdc:Bounds x="839" y="77" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end">
+        <omgdc:Bounds x="979" y="105" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1">
+        <omgdi:waypoint x="205" y="123"/>
+        <omgdi:waypoint x="279" y="123"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2">
+        <omgdi:waypoint x="379" y="123"/>
+        <omgdi:waypoint x="419" y="123"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3">
+        <omgdi:waypoint x="519" y="123"/>
+        <omgdi:waypoint x="559" y="123"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4">
+        <omgdi:waypoint x="659" y="123"/>
+        <omgdi:waypoint x="699" y="123"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5">
+        <omgdi:waypoint x="799" y="123"/>
+        <omgdi:waypoint x="839" y="123"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6">
+        <omgdi:waypoint x="919" y="123"/>
+        <omgdi:waypoint x="979" y="123"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

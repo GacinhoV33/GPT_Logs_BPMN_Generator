@@ -47,11 +47,11 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
     .catch((err) => {
       if(isError !== true) setError(true); // IMPORTANT, without if statement component is re-rendering all the time and stay in a loop.
       console.log("error", err);
-
+      
     });
     if(isError){
       sendFailureInfo("Error");
-      setRequestStatus(requestStates.WARNING);
+      setRequestStatus(requestStates.DISPLAY_ERROR);
     }
     else if(apiNumber > 0){
       setRequestStatus(requestStates.CORRECT);
