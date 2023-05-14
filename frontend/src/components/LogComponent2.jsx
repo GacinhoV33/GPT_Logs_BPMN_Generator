@@ -20,7 +20,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, sa
   useEffect(() => {
     async function getInitialDiagram(){
       if (diagram === "local") {
-        const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+        const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
       if(data.message !== "Internal Server Error"){
         setDiagram(data.xmlString);
       }
@@ -83,10 +83,7 @@ const requestOptions = {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    user_text: "None",
-    items_number: 0,
-    temperature: 0.15,
-    frequency_penalty: 0.15
+    exampleNumber: 5,
   }),
 };
 

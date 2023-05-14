@@ -38,16 +38,6 @@ const ExampleLogComponent = ({ currentExample }) => {
 
   }, [currentExample]);
 
-  // useEffect(() => {
-  //     axios
-  //       .get(examplesData[currentExample].filePath)
-  //       .then((r) => {
-  //         setDiagramExample(r.data);
-  //       })
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  // }, [currentExample]);
 
   if(diagramExample.length > 5){
     modeler

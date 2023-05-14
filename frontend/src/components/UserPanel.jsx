@@ -51,7 +51,6 @@ const UserPanel = ({
             valueLabelDisplay="auto"
             value={temperatureValue}
             step={0.01}
-            // marks
             min={0}
             max={1}
             onChange={(event, newValue) => setTemperatureValue(newValue)}
@@ -95,7 +94,6 @@ const UserPanel = ({
             valueLabelDisplay="auto"
             value={frequencyPenalty}
             step={0.01}
-            // marks
             min={0}
             max={1}
             onChange={(event, newValue) => setFrequencyPenalty(newValue)}
@@ -145,7 +143,6 @@ const UserPanel = ({
                   ChatGPT is generating a diagram
                 </AlertTitle>
                 Usually it takes more than 2 minutes. Be patient.
-                {/* </div> */}
               </Alert>
               <CircularProgress />
             </div>
@@ -167,8 +164,8 @@ const UserPanel = ({
           {requestStatus === requestStates.DISPLAY_ERROR && (
             <Alert severity="info" style={{ marginTop: "1vh" }}>
               <AlertTitle>Information</AlertTitle>
-              ChatGPT generated not valid BPMN 2.0 file{" "}
-              <strong>Trying to regenerate it</strong>
+              ChatGPT generated not valid BPMN 2.0 file.{" "}
+              <strong>Trying to regenerate it.</strong>
             </Alert>
           )}
           {requestStatus === requestStates.ERROR && (

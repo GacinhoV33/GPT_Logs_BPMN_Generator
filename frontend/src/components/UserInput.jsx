@@ -5,7 +5,9 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
 export const LOCAL_HOST = "http://127.0.0.1:5000/";
-export const PRODUCTION_HOST = "https://gpt-logs-4.azurewebsites.net/"
+export const PRODUCTION_HOST = "https://gpt-logs-4.azurewebsites.net/";
+
+
 const UserInput = ({
   requestStatus,
   setRequestStatus,
@@ -55,15 +57,13 @@ const UserInput = ({
         regenerate_answer: regenerateAnswer
       }),
     };
-    console.log(requestOptions)
     // LOCAL
-    const data = await (await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    // const data = await (await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    // const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-
-    if (data.message !== "Internal Server Error") {
+    if (data.status === 200) {
       if ((data.xmlString).includes("Length error")) {
         console.log("Length error") // TODO: prepare state for it and dispaly it in the component
       } else {
@@ -95,10 +95,10 @@ const UserInput = ({
 
     // LOCAL
     // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
     // const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
-    // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
 
     console.log(data.xmlString)
 

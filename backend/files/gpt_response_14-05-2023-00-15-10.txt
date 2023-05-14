@@ -1,0 +1,85 @@
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:jsbpmn="http://jsbpmn.org/schema/bpmn" id="definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing/>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1" name="Create a marketing plan to promote the bakery in the local community.">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Develop a menu of breads, pastries, and other baked goods.">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Develop a pricing strategy for the bakery's products.">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Hire and train a staff to support the bakery's operations.">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Establish relationships with local grocery stores and other vendors to source ingredients.">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+      <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+        <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+          <dc:Bounds x="170" y="90" width="36" height="36"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Task_1_shape" bpmnElement="Task_1">
+          <dc:Bounds x="241" y="81" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Task_2_shape" bpmnElement="Task_2">
+          <dc:Bounds x="389" y="81" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Task_3_shape" bpmnElement="Task_3">
+          <dc:Bounds x="539" y="81" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Task_4_shape" bpmnElement="Task_4">
+          <dc:Bounds x="689" y="81" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Task_5_shape" bpmnElement="Task_5">
+          <dc:Bounds x="839" y="81" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="_BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
+          <dc:Bounds x="990" y="90" width="36" height="36"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="SequenceFlow_1_edge" bpmnElement="SequenceFlow_1">
+          <di:waypoint xsi:type="dc:Point" x="206" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="241" y="108"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="SequenceFlow_2_edge" bpmnElement="SequenceFlow_2">
+          <di:waypoint xsi:type="dc:Point" x="341" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="389" y="108"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="SequenceFlow_3_edge" bpmnElement="SequenceFlow_3">
+          <di:waypoint xsi:type="dc:Point" x="489" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="539" y="108"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="SequenceFlow_4_edge" bpmnElement="SequenceFlow_4">
+          <di:waypoint xsi:type="dc:Point" x="639" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="689" y="108"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="SequenceFlow_5_edge" bpmnElement="SequenceFlow_5">
+          <di:waypoint xsi:type="dc:Point" x="789" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="839" y="108"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="SequenceFlow_6_edge" bpmnElement="SequenceFlow_6">
+          <di:waypoint xsi:type="dc:Point" x="949" y="108"/>
+          <di:waypoint xsi:type="dc:Point" x="990" y="108"/>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:process>
+</bpmn2:definitions>

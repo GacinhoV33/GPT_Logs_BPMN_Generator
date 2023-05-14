@@ -9,6 +9,7 @@ import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Modeler from "bpmn-js/lib/Modeler";
 
 const Alert = React.forwardRef(function Alert(
   props,
@@ -19,7 +20,7 @@ const Alert = React.forwardRef(function Alert(
 
 const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, currentDiagramNumber}) => {
   const [open, setOpen] = useState(false);
-
+  const [svgData, setSVGData] = useState('');
   const handleSnack = () => {
     setOpen(true);
   };
@@ -55,7 +56,32 @@ const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, curren
     }
     
     function handlePrint(){
-      changeSaveFlag(prev => prev+1);
+      const divMock = <div id='mock-div'></div>
+      const container = document.getElementById(`mock-div`);
+      const bpmnModeler = new Modeler({
+        container,
+      });
+      
+      bpmnModeler.importXML(diagram, function(err) {
+        if (err) {
+          console.error(err);
+        } else {
+          const canvas = bpmnModeler.get('canvas');
+          canvas.zoom('fit-viewport');
+          function saveData(data){
+            const svgBlob = new Blob([data], { type: 'image/svg+xml' });
+            const svgUrl = URL.createObjectURL(svgBlob);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = svgUrl;
+            downloadLink.download = 'diagram2.svg';
+            downloadLink.click();
+          }
+          bpmnModeler.saveSVG().then((data) => saveData(data.svg));
+
+          
+          
+        }
+      })
     }
 
     const actions = [

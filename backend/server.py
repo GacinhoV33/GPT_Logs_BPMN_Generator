@@ -27,14 +27,14 @@ class OpenAI(Resource):
             resp = make_openai_request(
                 user_text, items_number, temperature, frequency_penalty)
             text = resp['choices'][0]['text']
-            cleared_text = clean_xml(get_test_XML())
-            save_response(cleared_text, resp)
+            cleared_text = clean_xml(text)
+            save_response(cleared_text, resp, user_text)
         except Exception as e:
             if "Please reduce your prompt; or completion length." or "is less than the minimum" in str(e):
                 return {'xmlString': "Length error:" + str(e)}, 411
             else:
-                return {'xmlString': str(e)}, 500
-        return {'xmlString': cleared_text}, 200
+                return {'xmlString': str(e), 'status': 500}, 500
+        return {'xmlString': cleared_text, 'status': 200}, 200
 
 
 class OpenAIRegenerate(Resource):
@@ -61,11 +61,11 @@ class OpenAIRegenerate(Resource):
             print(diagram_text)
 
             cleared_text = clean_xml(diagram_text)
-            save_response(cleared_text, diagram)
+            save_response(cleared_text, diagram, user_text)
 
         except Exception as e:
-            return {'xmlString': str(e)}, 500
-        return {'xmlString': cleared_text}, 200
+            return {'xmlString': str(e), 'status': 500}, 500
+        return {'xmlString': cleared_text, 'status': 200}, 200
 
 
 class TestRequest(Resource):
@@ -75,11 +75,13 @@ class TestRequest(Resource):
         parser.add_argument('items_number', required=True)
         parser.add_argument('temperature', required=True)
         parser.add_argument('frequency_penalty', required=True)
+        parser.add_argument('regenerate_answer', required=False)
+
         args = parser.parse_args()
         user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(
             args['temperature']), float(args['frequency_penalty'])
         test_XML = get_example_XML("examples/BookLendingExample.bpmn")
-        return {'xmlString': test_XML}, 200
+        return {'xmlString': test_XML, 'status': 200}, 200
 
 
 class RequestInfo(Resource):
@@ -114,9 +116,11 @@ class ExampleFile(Resource):
             xml_file = get_example_XML("examples/OnlineShopExample.bpmn")
         elif example_number == 4:
             xml_file = get_example_XML("examples/PizzaOrderingExample.bpmn")
+        elif example_number == 5:
+            xml_file = get_example_XML("examples/app_explained.bpmn")
         else:
-            return {'xmlString': 'ERROR'}, 404
-        return {'xmlString': xml_file}, 200
+            return {'xmlString': 'ERROR', 'status:' : 404}, 404
+        return {'xmlString': xml_file, 'status': 200}, 200
 
 
 def server():

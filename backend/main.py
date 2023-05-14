@@ -15,7 +15,10 @@ TOP_P = 1
 FREQUENCE_PENALTY = 0
 PRESENCE_PENALTY = 0
 NUMBER_OF_ITEMS = 10
-MODEL_DESCRIBTION = "An online shop," \
+PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
+PROMPT_MIDDLE = "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
+
+EXAMPLE_MODEL_DESCRIBTION = "An online shop," \
                     "also known as an e-commerce website, is a platform that allows businesses to sell products or services" \
                     " to customers over the internet. Here are the basic steps of how an online shop typically works: Website creation: First, the " \
                     "business creates a website where customers can browse products, view prices, and make purchases. " \
@@ -30,18 +33,15 @@ MODEL_DESCRIBTION = "An online shop," \
                     " such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers" \
                     " without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales " \
                     "and expand their customer base."
-PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around "  + f" {str(NUMBER_OF_ITEMS)} tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + MODEL_DESCRIBTION
-PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
-PROMPT_MIDDLE = "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
-MAX_TOKENS = 4000 - int(len(PROMPT)/4)
-# print(MAX_TOKENS)
+EXAMPLE_PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around "  + f" {str(NUMBER_OF_ITEMS)} tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + EXAMPLE_MODEL_DESCRIBTION
+MAX_TOKENS = 4000 - int(len(EXAMPLE_PROMPT)/4)
 
 
-def save_response(text, response):
+def save_response(text, response, prompt=EXAMPLE_MODEL_DESCRIBTION):
     with open("files/gpt_responses_all.txt", 'a') as file:
         file.write(text)
         file.write(
-            f"Prompt: {PROMPT}\nTemperature: {TEMPERATURE} \ntop_p: {TOP_P}\n Tokens_resp: {response['usage']['completion_tokens']}")
+            f"Prompt: {prompt}\nTemperature: {TEMPERATURE} \ntop_p: {TOP_P}\n Tokens_resp: {response['usage']['completion_tokens']}")
         file.write("\n\n")
         file.write("-" * 100)
         file.write("\n\n")
@@ -71,13 +71,8 @@ def validate_response(text: str):
 
 
 def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
-    #TODO - change rest of params
     prompt = make_prompt(user_text, items_number)
     max_tokens = count_max_tokens(prompt) - 20 # temporary solution
-    # delete print after testing 
-    # print(len(prompt))
-    # print(prompt)
-    # print("Max Tokens: ", max_tokens)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
@@ -88,15 +83,11 @@ def make_openai_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEM
         presence_penalty=PRESENCE_PENALTY,
     )
     return response
+
 
 def make_list_of_activities_regenerate_request(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
-        #TODO - change rest of params
     prompt = "Generate list of {number} tasks based on following description: {description}".format(number=items_number, description=user_text)
     max_tokens = count_max_tokens(prompt) - 20 # temporary solution
-    # delete print after testing 
-    # print(len(prompt))
-    # print(prompt)
-    # print("Max Tokens: ", max_tokens)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
@@ -108,14 +99,10 @@ def make_list_of_activities_regenerate_request(user_text, items_number=NUMBER_OF
     )
     return response
 
+
 def make_diagram_based_on_activities(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
-            #TODO - change rest of params
-    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text
+    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text + "Try to use extend this list."
     max_tokens = count_max_tokens(prompt) - 20 # temporary solution
-    # delete print after testing 
-    # print(len(prompt))
-    # print(prompt)
-    # print("Max Tokens: ", max_tokens)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
@@ -155,6 +142,6 @@ def add_error(error_info: str):
 
 
 if __name__ == "__main__":
-    response = make_openai_request(MODEL_DESCRIBTION)
+    response = make_openai_request(EXAMPLE_MODEL_DESCRIBTION)
     text = response['choices'][0]['text']
     save_response(text, response)
