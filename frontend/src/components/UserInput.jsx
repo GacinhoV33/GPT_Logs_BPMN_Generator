@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Tooltip, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
 export const LOCAL_HOST = "http://127.0.0.1:5000/";
@@ -136,22 +136,25 @@ const UserInput = ({
                 sx={{ "& > div": "span 4" }}
               >
                 <Box sx={{ gridColumn: "span 4" }}>
-                  <Typography
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      fontSize: "1.75vh",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Type a quick description of business model:
-                  </Typography>
+                  <Tooltip title='Checkout EXAMPLES to find out how give a good prompts for model.'>
+                    <Typography
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        fontSize: "1.75vh",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Type a quick description of business model:
+                    </Typography>
+                  </Tooltip>
+                 
                 </Box>
                 <TextField
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="Message"
+                  label={values.message === " " || values.message === ""  ? "ex. Small bakery in big town that generate money from delivering fresh breadstuff to clients houses." : "Describtion"}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   name="message"
