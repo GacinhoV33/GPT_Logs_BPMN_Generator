@@ -119,7 +119,7 @@ class ExampleFile(Resource):
         elif example_number == 5:
             xml_file = get_example_XML("examples/app_explained.bpmn")
         else:
-            return {'xmlString': 'ERROR', 'status:' : 404}, 404
+            return {'xmlString': 'ERROR', 'status:': 404}, 404
         return {'xmlString': xml_file, 'status': 200}, 200
 
 

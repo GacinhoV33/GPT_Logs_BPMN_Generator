@@ -69,7 +69,7 @@ export default function MenuAppBar({ setGptVersion }) {
           </Typography>
           </Link>
 
-          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '1.5vw'}} to='/examples'>
+          <Link sx={{ flexGrow: 1 }} style={{textDecoration: 'none', color: 'white', marginRight: '1.5vw'}} to='/examples' >
             <Typography variant="h6" component="div" style={{textDecoration: 'none', color: 'white'}}>
               Examples
             </Typography>

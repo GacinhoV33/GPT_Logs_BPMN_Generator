@@ -5,10 +5,9 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
 // import {file} from 'gpt_files/gpt_response4.bpmn';
-import {PRODUCTION_HOST} from './UserInput';
+import {LOCAL_HOST, PRODUCTION_HOST} from './UserInput';
 
-const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, saveFlag}) => {
-  const [blobSvg, setBlobSvg] = useState('')
+const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) => {
   const container = document.getElementById(`container${apiNumber}`);
   const modeler = new Modeler({
     container,

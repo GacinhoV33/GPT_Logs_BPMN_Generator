@@ -5,6 +5,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
 export const LOCAL_HOST = "http://127.0.0.1:5000/";
+export const LOCAL_HOST2 = "http://192.168.0.17:5000";
 export const PRODUCTION_HOST = "https://gpt-logs-4.azurewebsites.net/";
 
 
@@ -14,7 +15,6 @@ const UserInput = ({
   itemValue,
   temperatureValue,
   frequencyPenalty,
-  diagram,
   setDiagram,
   setApiNumber,
   regenerateAnswer
@@ -97,8 +97,8 @@ const UserInput = ({
     // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     // const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    // const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
-    const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
+    const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
 
     console.log(data.xmlString)
 
@@ -113,6 +113,7 @@ const UserInput = ({
 
   return (
     <Box className="formComponent-contact">
+
       <Box className="contact-content">
         <Formik
           onSubmit={handleSubmit}

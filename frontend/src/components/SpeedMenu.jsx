@@ -18,7 +18,7 @@ const Alert = React.forwardRef(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, currentDiagramNumber}) => {
+const BottomMenu = ({diagram, setDiagram, diagramHistory, currentDiagramNumber}) => {
   const [open, setOpen] = useState(false);
   const [svgData, setSVGData] = useState('');
   const handleSnack = () => {
@@ -76,9 +76,7 @@ const BottomMenu = ({diagram, setDiagram, changeSaveFlag, diagramHistory, curren
             downloadLink.download = 'diagram2.svg';
             downloadLink.click();
           }
-          bpmnModeler.saveSVG().then((data) => saveData(data.svg));
-
-          
+          bpmnModeler.saveSVG().then((data) => saveData(data.svg)); 
           
         }
       })

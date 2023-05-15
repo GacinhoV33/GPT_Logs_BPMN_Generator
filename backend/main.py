@@ -101,7 +101,7 @@ def make_list_of_activities_regenerate_request(user_text, items_number=NUMBER_OF
 
 
 def make_diagram_based_on_activities(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
-    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text + "Try to use extend this list."
+    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text + " One task shouldn't have describtion longer than 50 characters."
     max_tokens = count_max_tokens(prompt) - 20 # temporary solution
     response = openai.Completion.create(
         model="text-davinci-003",
