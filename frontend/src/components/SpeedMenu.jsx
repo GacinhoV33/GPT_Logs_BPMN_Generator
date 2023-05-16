@@ -18,9 +18,8 @@ const Alert = React.forwardRef(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const BottomMenu = ({diagram, setDiagram, diagramHistory, currentDiagramNumber}) => {
+const BottomMenu = ({diagram, setDiagram, diagramHistory, currentDiagramNumber, setCurrentDiagramNumber}) => {
   const [open, setOpen] = useState(false);
-  const [svgData, setSVGData] = useState('');
   const handleSnack = () => {
     setOpen(true);
   };
@@ -47,12 +46,15 @@ const BottomMenu = ({diagram, setDiagram, diagramHistory, currentDiagramNumber})
         URL.revokeObjectURL(url);
     }
     function handlePrevious(){
-      // console.log('CurrentDiagramNumber: handlePrevious: ', currentDiagramNumber)
-      setDiagram(diagramHistory[currentDiagramNumber-1])
+      // setCurrentDiagramNumber(prev => prev - 1);
+      // setDiagram(diagramHistory[currentDiagramNumber-1]);
+      // console.log("Previous In")
     }
     
     function handleNext(){
-      
+      // setCurrentDiagramNumber(prev => prev + 1);
+      // console.log("Next In")
+
     }
     
     function handlePrint(){
@@ -91,14 +93,14 @@ const BottomMenu = ({diagram, setDiagram, diagramHistory, currentDiagramNumber})
 
       ];
 
-    const isPreviousDisabled = !(diagramHistory.length > 1);
-    const isNextDisabled = !(diagramHistory.length > 1);
+    const isPreviousDisabled = !(diagramHistory.length > 1 && currentDiagramNumber !== 0);
+    const isNextDisabled = !(diagramHistory.length > 1 && currentDiagramNumber < diagramHistory.length);
 
     return (
     <div>
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: "absolute", right: 85, top: 400}}
+        sx={{ position: "absolute", right: 85, top: 425}}
         icon={<SpeedDialIcon />}
         direction="down"
       >

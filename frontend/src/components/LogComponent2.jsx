@@ -4,7 +4,6 @@ import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
-// import {file} from 'gpt_files/gpt_response4.bpmn';
 import {LOCAL_HOST, PRODUCTION_HOST} from './UserInput';
 
 const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) => {
@@ -25,7 +24,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) =
       }
     }
       };
-      getInitialDiagram().then((console.log("Diagram loaded successfully")));
+      getInitialDiagram().then((console.log("Diagram should loaded successfully")));
 
   }, [apiNumber]);
   
@@ -61,7 +60,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) =
         bjsContainer[0].remove();
       }
   }
-
+  // console.log("Main re-render")
   return (
     <div className="App">
       <div
