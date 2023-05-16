@@ -56,38 +56,38 @@ export default Examples;
 
 export const examplesData = [
   {
-    filePath: "examples/BookLendingExample.bpmn",
-    description: "BPMN diagram describes library lending process. ",
+    filePath: "examples/Library-LONG.txt",
+    description: "First, the individual interested in borrowing a book must locate the desired item within the library's collection. This can be done by browsing the shelves, consulting the catalog, or asking a librarian for assistance. Once the book has been found, the borrower takes it to the circulation desk. At the desk, there is usually a librarian or library staff member who handles the borrowing process. The borrower presents their library card or identification to confirm their membership or eligibility to borrow materials. The librarian scans the barcode or manually enters the book's identification number into the library's system. This process records the transaction and updates the book's status as \"checked out\" in the library's database. The borrower may be asked to confirm their contact information or provide additional details if necessary. After the book has been checked out, the librarian deactivates the security measures in place, such as removing any electronic tags or desensitizing the book's barcode. This step ensures that the library's security system doesn't trigger any alarms when the borrower exits the premises. The borrower receives the book back and can take it home. Libraries usually set a due date for the return of borrowed materials. This due date is typically indicated on a receipt or a slip that the borrower receives at the circulation desk. It's essential for borrowers to adhere to this date to avoid overdue fines or penalties. When the borrower finishes reading the book or no longer needs it, they return it to the library. This can be done by bringing it to the circulation desk or placing it in a designated book drop-off location. The librarian scans the book's barcode, updates the library's system, and returns the book to its proper place on the shelves for other patrons to access. The library's system automatically updates the book's status from \"checked out\" to \"available\" once it has been returned successfully. This process ensures the book is ready for the next person who wants to borrow it.",
     bpmnID: 0,
     title: "Book Lending",
     imgPath: "./images/book.jpg",
   },
   {
-    filePath: "examples/BookingExample.bpmn",
+    filePath: "examples/Booking-LONG(2).txt",
     description:
-      "This is a booking process that involves booking travel activities.",
+      "When visiting the Booking.com website, users are greeted with a search bar prominently displayed on the homepage. This allows them to enter their desired destination, travel dates, and the number of guests. The website then provides a comprehensive list of available accommodations based on the search criteria.Each listing on Booking.com includes detailed information about the property, including descriptions, amenities, room types, and guest reviews. Users can further filter the search results based on their preferences, such as price range, accommodation type, star rating, and more.Upon selecting a specific accommodation, users can view additional details such as room rates, availability, and booking conditions. The website provides real-time information on room availability, allowing users to make informed decisions about their reservations.To proceed with a booking, users are prompted to provide their personal details, such as name, contact information, and payment details. Booking.com ensures secure transactions by using encryption technology to protect sensitive information.Once the booking is confirmed, users receive a confirmation email that includes the reservation details, payment summary, and any additional instructions from the property. This email serves as proof of the booking and provides users with important information for their upcoming stay.Booking.com also offers additional services to enhance the booking experience. These include options to add breakfast, request airport transfers, or specify special requests to accommodate specific needs or preferences.In the event that users need assistance or have questions, Booking.com provides customer support through various channels. This includes a dedicated help center with FAQs, live chat, and a customer service hotline.",
     bpmnID: 1,
     title: "Booking",
     imgPath: "./images/travel.jpg",
   },
   {
-    filePath: "examples/CashMaschineExample.bpmn",
+    filePath: "examples/ATM-SHORT.txt",
     description:
-      " Following example contatins process of cash flow in ATM cash maschine. ",
+      "Following example contatins process of cash flow in ATM cash maschine.",
     bpmnID: 2,
     title: "Cash Machine",
     imgPath: "./images/cashMachine.jpg",
   },
   {
-    filePath: "examples/OnlineShopExample.bpmn",
-    description: " Diagram contains process of placing order in online shop. ",
+    filePath: "examples/onlineshop-SHORT.txt",
+    description: "Process of placing order in online shop.",
     bpmnID: 3,
     title: "Online Shop",
     imgPath: "./images/onlineShop.jpg",
   },
   {
-    filePath: "examples/PizzaOrderingExample.bpmn",
-    description: "Ordering pizza in restaurant described by BPMN. ",
+    filePath: "examples/pizz-LONG.txt",
+    description: "To start, locate a pizza delivery service in your area. You can do this by searching online or using a mobile app specifically designed for food delivery. Once you have identified a suitable pizza place, visit their website or open the app.Browse through the menu to choose the type of pizza you want. Most pizza delivery services offer a variety of options, including different crust types, toppings, and sizes. Select your preferred pizza and indicate any customization or special requests you may have.After choosing your pizza, review the order to ensure accuracy. Some websites or apps provide a summary of your selected items and their prices. Check the quantity, toppings, and any additional items you may have added, such as sides or beverages.Once you're satisfied with your order, proceed to the checkout. Enter your delivery address, contact information, and any specific delivery instructions. You may also be asked to provide your preferred payment method, such as credit card or cash on delivery.After confirming your order and payment details, submit the order. You may receive an on-screen confirmation or a confirmation email. The pizza delivery service will then receive your order and begin preparing it.Depending on the estimated delivery time provided, you can expect your pizza to arrive at your doorstep within the specified timeframe. During this period, you can track the progress of your order if the delivery service offers a tracking feature.When the delivery person arrives, they will hand over the pizza and any accompanying items you ordered. Check the order to ensure it matches your request. If you opted for cash on delivery, provide the payment amount to the delivery person. If you paid online, no further payment will be necessary.After receiving your pizza, enjoy your meal! If you have any issues or concerns, contact the pizza delivery service's customer support, which is usually provided on their website or through the app.",
     bpmnID: 4,
     title: "Pizza Ordering",
     imgPath: "./images/pizza.jpg",
