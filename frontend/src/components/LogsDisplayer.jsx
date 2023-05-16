@@ -8,15 +8,23 @@ const LogsDisplayer = ({
   setDiagram,
   apiNumber,
   setRequestStatus,
+  requestStatus
 }) => {
   const [diagramHistory, setDiagramHistory] = useState([]);
-  const [currentDiagramNumber, setCurrentDiagramNumber] = useState(1);
-  useEffect(() => {
-    if (diagram.length > 5) {
-      setDiagramHistory((prev) => [...prev, diagram]);
-      setCurrentDiagramNumber((prev) => prev + 1);
-    }
-  }, [diagram]);
+  const [currentDiagramNumber, setCurrentDiagramNumber] = useState(0);
+  // useEffect(() => {
+  //   if (diagram.length > 5) {
+  //     setDiagramHistory(prev => [...prev, diagram]);
+  //     setCurrentDiagramNumber(prev => prev + 1);
+  //     // console.log("IM IN")
+  //   }
+  // }, [diagram]);
+
+  // useEffect(() => {
+  //   setDiagram(diagramHistory[currentDiagramNumber]);
+  // }, [currentDiagramNumber])
+  // console.log("Current history length: ", diagramHistory.length)
+  // console.log("currentDiagram number: ", currentDiagramNumber)
   return (
     <div className="logsDisplayer-main">
       { apiNumber < 1 && <div style={{ margin: "1.5vh" }}>
@@ -28,6 +36,7 @@ const LogsDisplayer = ({
         setDiagram={setDiagram}
         apiNumber={apiNumber}
         setRequestStatus={setRequestStatus}
+        requestStatus={requestStatus}
       />
 
       
@@ -36,6 +45,7 @@ const LogsDisplayer = ({
         diagramHistory={diagramHistory}
         diagram={diagram}
         currentDiagramNumber={currentDiagramNumber}
+        setCurrentDiagramNumber={setCurrentDiagramNumber}
         setDiagram={setDiagram}
       />
     </div>

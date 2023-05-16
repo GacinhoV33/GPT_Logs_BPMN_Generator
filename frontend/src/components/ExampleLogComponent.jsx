@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Modeler from "bpmn-js/lib/Modeler";
 import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-import axios from 'axios'
 import './Examples.scss';
 import { PRODUCTION_HOST, LOCAL_HOST } from "./UserInput";
 const ExampleLogComponent = ({ currentExample }) => {
@@ -28,8 +27,8 @@ const ExampleLogComponent = ({ currentExample }) => {
         }),
       };
       
+      const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); 
       // const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); 
-      const data = await ( await fetch(LOCAL_HOST + `examples`, requestOptions)).json(); 
 
       if(data.message !== "Error"){
         setDiagramExample(data.xmlString);

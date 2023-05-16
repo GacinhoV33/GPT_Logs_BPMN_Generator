@@ -11,7 +11,6 @@ export const requestStates = {
   CORRECT: 3, 
   WARNING: 4,
   ERROR: 5,
-  DISPLAY_ERROR: 6,
   WAITING_RESEND: 7,
 }
 
@@ -22,7 +21,7 @@ const MainApp = ({gptVersion}) => {
   return (
     <div className='mainApp-main'>
         <UserPanel gptVersion={gptVersion} diagram={diagram} setDiagram={setDiagram} setApiNumber={setApiNumber} requestStatus={requestStatus} setRequestStatus={setRequestStatus}/>
-        <LogsDisplayer diagram={diagram} setDiagram={setDiagram} apiNumber={apiNumber} setApiNumber={setApiNumber} setRequestStatus={setRequestStatus}/>
+        <LogsDisplayer diagram={diagram} setDiagram={setDiagram} apiNumber={apiNumber} setApiNumber={setApiNumber} setRequestStatus={setRequestStatus} requestStatus={requestStatus}/>
     </div>
   )
 }

@@ -138,13 +138,14 @@ const UserPanel = ({
                 alignItems: "center",
               }}
             >
-              <Alert severity="info" style={{ marginRight: "1.75vw" }}>
+                            <CircularProgress style={{marginLeft: '1.25vw'}}/>
+
+              <Alert severity="info" style={{ marginLeft: "1.75vw", width: '100%', marginTop: '1.25vh' }}>
                 <AlertTitle style={{ marginRight: "1vw" }}>
                   ChatGPT is generating a diagram
                 </AlertTitle>
-                Usually it takes more than 2 minutes. Be patient.
+                Usually it takes around 4 minutes. Be patient.
               </Alert>
-              <CircularProgress />
             </div>
           )}
           {requestStatus === requestStates.CORRECT && (
@@ -161,7 +162,7 @@ const UserPanel = ({
               <strong>Try ask him one more time</strong>
             </Alert>
           )}
-          {requestStatus === requestStates.DISPLAY_ERROR && (
+          {requestStatus === requestStates.WAITING_RESEND && (
             <Alert severity="info" style={{ marginTop: "1vh" }}>
               <AlertTitle>Information</AlertTitle>
               ChatGPT generated not valid BPMN 2.0 file.{" "}

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Tooltip, Typography } from "@mui/material";
 import { requestStates } from "./MainApp";
 
 export const LOCAL_HOST = "http://127.0.0.1:5000/";
@@ -25,7 +25,7 @@ const UserInput = ({
 
   useEffect(() => {
 
-    if (requestStatus === 6 && regenerateAnswer && failCounter < 1) {
+    if (((requestStatus === 5 || requestStatus === 4) && regenerateAnswer) && failCounter < 1) {
       setFailCounter(prev => prev + 1)
       console.log("BPMN JS XML error - trying to regenerate answer")
       resendRequestToChatGPT(userInput)
@@ -42,8 +42,8 @@ const UserInput = ({
   }
 
   async function sendRequestToChatGPT(message) {
+    setFailCounter(0);
     setRequestStatus(requestStates.WAITING);
-
     const requestOptions = {
       method: "POST",
       headers: {
@@ -62,6 +62,7 @@ const UserInput = ({
     // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
     const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     if (data.status === 200) {
       if ((data.xmlString).includes("Length error")) {
@@ -136,22 +137,25 @@ const UserInput = ({
                 sx={{ "& > div": "span 4" }}
               >
                 <Box sx={{ gridColumn: "span 4" }}>
-                  <Typography
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      fontSize: "1.75vh",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Type a quick description of business model:
-                  </Typography>
+                  <Tooltip title='Checkout EXAMPLES to find out how give a good prompts for model.'>
+                    <Typography
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        fontSize: "1.75vh",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Type a quick description of business model:
+                    </Typography>
+                  </Tooltip>
+                 
                 </Box>
                 <TextField
                   fullWidth
                   variant="filled"
                   type="text"
-                  label="Message"
+                  label={values.message === " " || values.message === ""  ? "ex. Small bakery in big town that generate money from delivering fresh breadstuff to clients houses." : "Describtion"}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   name="message"

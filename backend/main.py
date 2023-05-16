@@ -33,7 +33,7 @@ EXAMPLE_MODEL_DESCRIBTION = "An online shop," \
                     " such as returns, refunds, or exchanges. Overall, an online shop is a convenient way for businesses to sell products to customers" \
                     " without the need for a physical storefront. By using the internet to reach a wider audience, businesses can increase their sales " \
                     "and expand their customer base."
-EXAMPLE_PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around "  + f" {str(NUMBER_OF_ITEMS)} tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:" + EXAMPLE_MODEL_DESCRIBTION
+EXAMPLE_PROMPT = "Generate advanced BPMN 2.0 XML for business proccess that has around "  + f" {str(NUMBER_OF_ITEMS)} tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion: " + EXAMPLE_MODEL_DESCRIBTION
 MAX_TOKENS = 4000 - int(len(EXAMPLE_PROMPT)/4)
 
 
@@ -101,7 +101,7 @@ def make_list_of_activities_regenerate_request(user_text, items_number=NUMBER_OF
 
 
 def make_diagram_based_on_activities(user_text, items_number=NUMBER_OF_ITEMS, temperature=TEMPERATURE, frequency_penalty=FREQUENCE_PENALTY):
-    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text + " One task shouldn't have describtion longer than 50 characters."
+    prompt = PROMPT_BEGIN + str(items_number) + PROMPT_MIDDLE + "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion as list of activities:" + user_text + " One task shouldn't have describtion longer than 35 characters."
     max_tokens = count_max_tokens(prompt) - 20 # temporary solution
     response = openai.Completion.create(
         model="text-davinci-003",
