@@ -1,0 +1,138 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="PizzaDeliveryProcess" isExecutable="true">
+    <startEvent id="_start"/>
+    <sequenceFlow id="_flow1" sourceRef="_start" targetRef="_task1"/>
+    <task id="_task1">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow2" sourceRef="_task1" targetRef="_task2"/>
+    <task id="_task2">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow3" sourceRef="_task2" targetRef="_task3"/>
+    <task id="_task3">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow4" sourceRef="_task3" targetRef="_task4"/>
+    <task id="_task4">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow5" sourceRef="_task4" targetRef="_task5"/>
+    <task id="_task5">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow6" sourceRef="_task5" targetRef="_task6"/>
+    <task id="_task6">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow7" sourceRef="_task6" targetRef="_task7"/>
+    <task id="_task7">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow8" sourceRef="_task7" targetRef="_task8"/>
+    <task id="_task8">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow9" sourceRef="_task8" targetRef="_task9"/>
+    <task id="_task9">
+      <incoming/>
+      <outgoing/>
+      <name/>
+    </task>
+    <sequenceFlow id="_flow10" sourceRef="_task9" targetRef="_end"/>
+    <endEvent id="_end"/>
+  </process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="PizzaDeliveryProcess" id="_plane">
+      <bpmndi:BPMNShape bpmnElement="_start" id="_startShape">
+        <omgdc:Bounds x="20" y="20" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task1" id="_task1Shape">
+        <omgdc:Bounds x="120" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task2" id="_task2Shape">
+        <omgdc:Bounds x="240" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task3" id="_task3Shape">
+        <omgdc:Bounds x="360" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task4" id="_task4Shape">
+        <omgdc:Bounds x="480" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task5" id="_task5Shape">
+        <omgdc:Bounds x="600" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task6" id="_task6Shape">
+        <omgdc:Bounds x="720" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task7" id="_task7Shape">
+        <omgdc:Bounds x="840" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task8" id="_task8Shape">
+        <omgdc:Bounds x="960" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_task9" id="_task9Shape">
+        <omgdc:Bounds x="1080" y="20" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_end" id="_endShape">
+        <omgdc:Bounds x="1200" y="20" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_flow1" id="_flow1Edge">
+        <omgdi:waypoint x="56" y="38"/>
+        <omgdi:waypoint x="120" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow2" id="_flow2Edge">
+        <omgdi:waypoint x="220" y="38"/>
+        <omgdi:waypoint x="240" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow3" id="_flow3Edge">
+        <omgdi:waypoint x="340" y="38"/>
+        <omgdi:waypoint x="360" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow4" id="_flow4Edge">
+        <omgdi:waypoint x="460" y="38"/>
+        <omgdi:waypoint x="480" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow5" id="_flow5Edge">
+        <omgdi:waypoint x="580" y="38"/>
+        <omgdi:waypoint x="600" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow6" id="_flow6Edge">
+        <omgdi:waypoint x="700" y="38"/>
+        <omgdi:waypoint x="720" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow7" id="_flow7Edge">
+        <omgdi:waypoint x="820" y="38"/>
+        <omgdi:waypoint x="840" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow8" id="_flow8Edge">
+        <omgdi:waypoint x="950" y="38"/>
+        <omgdi:waypoint x="960" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow9" id="_flow9Edge">
+        <omgdi:waypoint x="1070" y="38"/>
+        <omgdi:waypoint x="1080" y="38"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_flow10" id="_flow10Edge">
+        <omgdi:waypoint x="1180" y="38"/>
+        <omgdi:waypoint x="1200" y="38"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

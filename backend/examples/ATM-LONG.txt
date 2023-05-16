@@ -1,0 +1,45 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="startEvent_1"/>
+    <task id="Task_1" name="Insert card to the designated card slot">
+      <incoming/>
+    </task>
+    <task id="Task_2" name="Enter PIN">
+      <incoming/>
+    </task>
+    <task id="Task_3" name="Choose desired transaction">
+      <incoming/>
+    </task>
+    <task id="Task_4" name="Provide additional information">
+      <incoming/>
+    </task>
+    <task id="Task_5" name="Collect cash or receipt">
+      <incoming/>
+    </task>
+    <task id="Task_6" name="Choose to perform additional transaction">
+      <incoming/>
+    </task>
+    <task id="Task_7" name="End the session">
+      <incoming/>
+    </task>
+    <task id="Task_8" name="Take card">
+      <incoming/>
+    </task>
+    <task id="Task_9" name="Provide quick access to banking services">
+      <incoming/>
+    </task>
+    <endEvent id="endEvent_1">
+      <incoming/>
+    </endEvent>
+    <sequenceFlow id="flow_1" sourceRef="startEvent_1" targetRef="Task_1"/>
+    <sequenceFlow id="flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <sequenceFlow id="flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <sequenceFlow id="flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <sequenceFlow id="flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <sequenceFlow id="flow_6" sourceRef="Task_5" targetRef="Task_6"/>
+    <sequenceFlow id="flow_7" sourceRef="Task_6" targetRef="Task_7"/>
+    <sequenceFlow id="flow_8" sourceRef="Task_7" targetRef="Task_8"/>
+    <sequenceFlow id="flow_9" sourceRef="Task_8" targetRef="Task_9"/>
+    <sequenceFlow id="flow_10" sourceRef="Task_9" targetRef="endEvent_1"/>
+  </process>
+</definitions>

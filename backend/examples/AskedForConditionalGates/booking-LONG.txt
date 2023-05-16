@@ -1,0 +1,26 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="process_1" name="Booking Process">
+    <startEvent id="startEvent_1"/>
+    <sequenceFlow id="flow_1" sourceRef="startEvent_1" targetRef="task_1"/>
+    <userTask id="task_1" name="Enter Travel Information"/>
+    <sequenceFlow id="flow_2" sourceRef="task_1" targetRef="task_2"/>
+    <userTask id="task_2" name="View Search Results"/>
+    <sequenceFlow id="flow_3" sourceRef="task_2" targetRef="task_3"/>
+    <userTask id="task_3" name="Select Accommodation"/>
+    <sequenceFlow id="flow_4" sourceRef="task_3" targetRef="task_4"/>
+    <userTask id="task_4" name="Provide Personal Details"/>
+    <sequenceFlow id="flow_5" sourceRef="task_4" targetRef="task_5"/>
+    <userTask id="task_5" name="Confirm Booking"/>
+    <sequenceFlow id="flow_6" sourceRef="task_5" targetRef="task_6"/>
+    <userTask id="task_6" name="Receive Confirmation Email"/>
+    <sequenceFlow id="flow_7" sourceRef="task_6" targetRef="task_7"/>
+    <userTask id="task_7" name="Add Services"/>
+    <sequenceFlow id="flow_8" sourceRef="task_7" targetRef="task_8"/>
+    <userTask id="task_8" name="Get Assistance"/>
+    <sequenceFlow id="flow_9" sourceRef="task_8" targetRef="endEvent_1"/>
+    <endEvent id="endEvent_1"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="process_1" id="BPMNPlane_1"/>
+  </bpmndi:BPMNDiagram>
+</definitions>

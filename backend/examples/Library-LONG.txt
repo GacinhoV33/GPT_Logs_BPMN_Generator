@@ -1,0 +1,147 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:jsbpmn="http://www.js-bpmn.org/bpmn/xml"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_1" targetNamespace="http://www.js-bpmn.org/bpmn/xml">
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="StartEvent_1" />
+    <task id="Task_1" name="Locate book">
+      <incoming>StartEvent_1</incoming>
+    </task>
+    <task id="Task_2" name="Take book to circulation desk">
+      <incoming>Task_1</incoming>
+      <outgoing>Task_3</outgoing>
+    </task>
+    <task id="Task_3" name="Present library card/ID">
+      <incoming>Task_2</incoming>
+      <outgoing>Task_4</outgoing>
+    </task>
+    <task id="Task_4" name="Scan barcode/enter book ID">
+      <incoming>Task_3</incoming>
+      <outgoing>Task_5</outgoing>
+    </task>
+    <task id="Task_5" name="Confirm contact info/additional details">
+      <incoming>Task_4</incoming>
+      <outgoing>Task_6</outgoing>
+    </task>
+    <task id="Task_6" name="Deactivate security">
+      <incoming>Task_5</incoming>
+      <outgoing>Task_7</outgoing>
+    </task>
+    <task id="Task_7" name="Receive book">
+      <incoming>Task_6</incoming>
+      <outgoing>Task_8</outgoing>
+    </task>
+    <task id="Task_8" name="Note due date">
+      <incoming>Task_7</incoming>
+      <outgoing>Task_9</outgoing>
+    </task>
+    <task id="Task_9" name="Return book">
+      <incoming>Task_8</incoming>
+      <outgoing>Task_10</outgoing>
+    </task>
+    <task id="Task_10" name="Scan barcode/update system">
+      <incoming>Task_9</incoming>
+    </task>
+    <endEvent id="EndEvent_1">
+      <incoming>Task_10</incoming>
+    </endEvent>
+    <sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <sequenceFlow id="flow2" sourceRef="Task_1" targetRef="Task_2" />
+    <sequenceFlow id="flow3" sourceRef="Task_2" targetRef="Task_3" />
+    <sequenceFlow id="flow4" sourceRef="Task_3" targetRef="Task_4" />
+    <sequenceFlow id="flow5" sourceRef="Task_4" targetRef="Task_5" />
+    <sequenceFlow id="flow6" sourceRef="Task_5" targetRef="Task_6" />
+    <sequenceFlow id="flow7" sourceRef="Task_6" targetRef="Task_7" />
+    <sequenceFlow id="flow8" sourceRef="Task_7" targetRef="Task_8" />
+    <sequenceFlow id="flow9" sourceRef="Task_8" targetRef="Task_9" />
+    <sequenceFlow id="flow10" sourceRef="Task_9" targetRef="Task_10" />
+    <sequenceFlow id="flow11" sourceRef="Task_10" targetRef="EndEvent_1" />
+  </process>
+  <bpmndi:BPMNDiagram id="jsBPMNDiagram_1">
+    <bpmndi:BPMNPlane id="jsBPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="jsBPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_1" bpmnElement="Task_1">
+        <dc:Bounds x="250" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_2" bpmnElement="Task_2">
+        <dc:Bounds x="400" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_3" bpmnElement="Task_3">
+        <dc:Bounds x="550" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_4" bpmnElement="Task_4">
+        <dc:Bounds x="700" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_5" bpmnElement="Task_5">
+        <dc:Bounds x="850" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_6" bpmnElement="Task_6">
+        <dc:Bounds x="1000" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_7" bpmnElement="Task_7">
+        <dc:Bounds x="1150" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_8" bpmnElement="Task_8">
+        <dc:Bounds x="1300" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_9" bpmnElement="Task_9">
+        <dc:Bounds x="1450" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_Task_10" bpmnElement="Task_10">
+        <dc:Bounds x="1600" y="100" width="100" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="jsBPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1750" y="100" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow1" bpmnElement="flow1">
+        <di:waypoint x="150" y="125" />
+        <di:waypoint x="250" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow2" bpmnElement="flow2">
+        <di:waypoint x="350" y="125" />
+        <di:waypoint x="400" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow3" bpmnElement="flow3">
+        <di:waypoint x="450" y="125" />
+        <di:waypoint x="550" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow4" bpmnElement="flow4">
+        <di:waypoint x="650" y="125" />
+        <di:waypoint x="700" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow5" bpmnElement="flow5">
+        <di:waypoint x="750" y="125" />
+        <di:waypoint x="850" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow6" bpmnElement="flow6">
+        <di:waypoint x="950" y="125" />
+        <di:waypoint x="1000" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow7" bpmnElement="flow7">
+        <di:waypoint x="1050" y="125" />
+        <di:waypoint x="1150" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow8" bpmnElement="flow8">
+        <di:waypoint x="1250" y="125" />
+        <di:waypoint x="1300" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow9" bpmnElement="flow9">
+        <di:waypoint x="1350" y="125" />
+        <di:waypoint x="1450" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow10" bpmnElement="flow10">
+        <di:waypoint x="1550" y="125" />
+        <di:waypoint x="1600" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="jsBPMNEdge_flow11" bpmnElement="flow11">
+        <di:waypoint x="1650" y="125" />
+        <di:waypoint x="1750" y="125" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

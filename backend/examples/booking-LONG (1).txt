@@ -1,0 +1,93 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="http://www.booking.com/process" id="booking">
+  <process id="BookingProcess" isClosed="false" isExecutable="false">
+    <startEvent id="startEvent"/>
+    <task id="searchTask" name="Search for Accommodations"/>
+    <task id="filterTask" name="Filter Search Results"/>
+    <task id="selectTask" name="Select Accommodation"/>
+    <task id="detailsTask" name="Enter Personal Details"/>
+    <task id="paymentTask" name="Enter Payment Information"/>
+    <task id="confirmTask" name="Receive Confirmation Email"/>
+    <task id="optionsTask" name="Add Additional Services"/>
+    <task id="helpTask" name="Request Assistance"/>
+    <endEvent id="endEvent"/>
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="searchTask"/>
+    <sequenceFlow id="flow2" sourceRef="searchTask" targetRef="filterTask"/>
+    <sequenceFlow id="flow3" sourceRef="filterTask" targetRef="selectTask"/>
+    <sequenceFlow id="flow4" sourceRef="selectTask" targetRef="detailsTask"/>
+    <sequenceFlow id="flow5" sourceRef="detailsTask" targetRef="paymentTask"/>
+    <sequenceFlow id="flow6" sourceRef="paymentTask" targetRef="confirmTask"/>
+    <sequenceFlow id="flow7" sourceRef="confirmTask" targetRef="optionsTask"/>
+    <sequenceFlow id="flow8" sourceRef="optionsTask" targetRef="helpTask"/>
+    <sequenceFlow id="flow9" sourceRef="helpTask" targetRef="endEvent"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BookingProcess">
+      <bpmndi:BPMNShape id="startEvent_shape" bpmnElement="startEvent">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="searchTask_shape" bpmnElement="searchTask">
+        <dc:Bounds x="200" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="filterTask_shape" bpmnElement="filterTask">
+        <dc:Bounds x="320" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="selectTask_shape" bpmnElement="selectTask">
+        <dc:Bounds x="440" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="detailsTask_shape" bpmnElement="detailsTask">
+        <dc:Bounds x="560" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="paymentTask_shape" bpmnElement="paymentTask">
+        <dc:Bounds x="680" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="confirmTask_shape" bpmnElement="confirmTask">
+        <dc:Bounds x="800" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="optionsTask_shape" bpmnElement="optionsTask">
+        <dc:Bounds x="920" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="helpTask_shape" bpmnElement="helpTask">
+        <dc:Bounds x="1040" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endEvent_shape" bpmnElement="endEvent">
+        <dc:Bounds x="1160" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="flow1_edge" bpmnElement="flow1">
+        <di:waypoint xsi:type="dc:Point" x="136" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow2_edge" bpmnElement="flow2">
+        <di:waypoint xsi:type="dc:Point" x="300" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="320" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow3_edge" bpmnElement="flow3">
+        <di:waypoint xsi:type="dc:Point" x="420" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="440" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow4_edge" bpmnElement="flow4">
+        <di:waypoint xsi:type="dc:Point" x="540" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="560" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow5_edge" bpmnElement="flow5">
+        <di:waypoint xsi:type="dc:Point" x="660" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="680" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow6_edge" bpmnElement="flow6">
+        <di:waypoint xsi:type="dc:Point" x="780" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow7_edge" bpmnElement="flow7">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="920" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow8_edge" bpmnElement="flow8">
+        <di:waypoint xsi:type="dc:Point" x="1020" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1040" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="flow9_edge" bpmnElement="flow9">
+        <di:waypoint xsi:type="dc:Point" x="1140" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="1160" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
