@@ -6,7 +6,8 @@ import {sendFailureInfo, sendRequestInfo} from '../utils/index';
 import { requestStates } from "./MainApp";
 import {LOCAL_HOST, PRODUCTION_HOST} from './UserInput';
 
-const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) => {
+const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, requestStatus}) => {
+  const [currentApiNumber, setCurrentApiNumber] = useState(0);
   const container = document.getElementById(`container${apiNumber}`);
   const modeler = new Modeler({
     container,
@@ -14,7 +15,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) =
       bindTo: document
     }
   });
-  const [isError, setError] = useState(false);
   useEffect(() => {
     async function getInitialDiagram(){
       if (diagram === "local") {
@@ -25,15 +25,17 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) =
     }
       };
       getInitialDiagram().then((console.log("Diagram should loaded successfully")));
-
+      setCurrentApiNumber(apiNumber)
   }, [apiNumber]);
-  
-  if(diagram.length > 5){
+
+  console.log("IM in reqstat:", requestStatus)
+  if(diagram.length > 5 && apiNumber !== currentApiNumber){
     modeler
     .importXML(diagram)
     .then(({ warnings }) => {
       if (warnings.length) {
         console.log("Warnings", warnings);
+        setRequestStatus(requestStates.WARNING);
       }
 
       const canvas = modeler.get("modeling");
@@ -41,19 +43,17 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus}) =
         stroke: "green",
         fill: "yellow"
       });
+      setCurrentApiNumber(apiNumber)
     })
     .catch((err) => {
-      if(isError !== true) setError(true); // IMPORTANT, without if statement component is re-rendering all the time and stay in a loop.
-      console.log("error", err);
+        setRequestStatus(requestStates.ERROR);
+        console.log("error", err);
       
     });
-    if(isError){
-      sendFailureInfo("Error");
-      setRequestStatus(requestStates.DISPLAY_ERROR);
-    }
-    else if(apiNumber > 0){
+  
+    if(apiNumber > 0 && requestStatus === requestStates.WAITING && requestStates.WAITING_RESEND){
       setRequestStatus(requestStates.CORRECT);
-    }    
+    }
 
     const bjsContainer = document.getElementsByClassName('bjs-container');
       if(bjsContainer.length > 1){

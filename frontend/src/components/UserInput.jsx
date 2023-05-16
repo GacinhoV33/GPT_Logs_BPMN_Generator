@@ -25,7 +25,7 @@ const UserInput = ({
 
   useEffect(() => {
 
-    if (requestStatus === 6 && regenerateAnswer && failCounter < 1) {
+    if (((requestStatus === 5 || requestStatus === 4) && regenerateAnswer) && failCounter < 1) {
       setFailCounter(prev => prev + 1)
       console.log("BPMN JS XML error - trying to regenerate answer")
       resendRequestToChatGPT(userInput)
@@ -42,8 +42,8 @@ const UserInput = ({
   }
 
   async function sendRequestToChatGPT(message) {
+    setFailCounter(0);
     setRequestStatus(requestStates.WAITING);
-
     const requestOptions = {
       method: "POST",
       headers: {
@@ -62,6 +62,7 @@ const UserInput = ({
     // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
     const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     if (data.status === 200) {
       if ((data.xmlString).includes("Length error")) {
