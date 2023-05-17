@@ -5,7 +5,9 @@ import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 import './Examples.scss';
 import { PRODUCTION_HOST, LOCAL_HOST } from "./UserInput";
-const ExampleLogComponent = ({ currentExample }) => {
+
+
+const ExampleLogComponent = ({ currentExample, isGPT }) => {
   const [diagramExample, setDiagramExample] = useState('local');
   const container = document.getElementById('containerExample');
   const modeler = new Modeler({
@@ -26,8 +28,8 @@ const ExampleLogComponent = ({ currentExample }) => {
           exampleNumber: currentExample,
         }),
       };
-      
-      const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); 
+      const ADRESS = isGPT ? PRODUCTION_HOST + `examplesGPT` : PRODUCTION_HOST + `examples`; 
+      const data = await ( await fetch(ADRESS, requestOptions)).json(); 
       // const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); 
 
       if(data.message !== "Error"){

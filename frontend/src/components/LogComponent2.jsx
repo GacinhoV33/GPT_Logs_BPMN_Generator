@@ -28,7 +28,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, re
       setCurrentApiNumber(apiNumber)
   }, [apiNumber]);
 
-  console.log("IM in reqstat:", requestStatus)
   if(diagram.length > 5 && apiNumber !== currentApiNumber){
     modeler
     .importXML(diagram)
@@ -60,7 +59,6 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, re
         bjsContainer[0].remove();
       }
   }
-  // console.log("Main re-render")
   return (
     <div className="App">
       <div

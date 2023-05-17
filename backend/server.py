@@ -123,6 +123,30 @@ class ExampleFile(Resource):
         return {'xmlString': xml_file, 'status': 200}, 200
 
 
+class ExampleFileGPT(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('exampleNumber', required=True)
+        args = parser.parse_args()
+        example_number = int(args['exampleNumber'])
+        xml_file: str
+        if example_number == 0:
+            xml_file = get_example_XML("examplesGPT/Library-LONG.bpmn")
+        elif example_number == 1:
+            xml_file = get_example_XML("examplesGPT/Booking-LONG.bpmn")
+        elif example_number == 2:
+            xml_file = get_example_XML("examplesGPT/ATM-SHORT.bpmn.bpmn")
+        elif example_number == 3:
+            xml_file = get_example_XML("examplesGPT/onlineshop-SHORT.bpmn")
+        elif example_number == 4:
+            xml_file = get_example_XML("examplesGPT/pizz-LONG.bpmn")
+        elif example_number == 5:
+            xml_file = get_example_XML("examplesGPT/app_explained.bpmn")
+        else:
+            return {'xmlString': 'ERROR', 'status:': 404}, 404
+        return {'xmlString': xml_file, 'status': 200}, 200
+
+
 def server():
     app = Flask(__name__)
     CORS(app)
@@ -131,6 +155,7 @@ def server():
     api.add_resource(OpenAIRegenerate, '/openairegenerate')
     api.add_resource(TestRequest, '/testRequest')
     api.add_resource(ExampleFile, '/examples')
+    api.add_resource(ExampleFileGPT, '/examplesGPT')
     api.add_resource(RequestInfo, '/reqInfo')
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)

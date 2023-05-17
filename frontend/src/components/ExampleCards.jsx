@@ -5,9 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { examplesData } from "./Examples";
 
-const ExampleCards = ({ currentExample, setCurrentExample }) => {
+const ExampleCards = ({ currentExample, setCurrentExample, examplesData, isGPT }) => {
   return (
     <div
       style={{
@@ -19,7 +18,7 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
     >
       {examplesData.map(({ filePath, description, bpmnID, title, imgPath }, index) => {
         return (
-          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID} description={description} imgPath={imgPath}/>
+          <ExampleCard key={`exampleCard-${index}`} title={title} setCurrentExample={setCurrentExample} currentExample={currentExample} bpmnID={bpmnID} description={description} imgPath={imgPath} isGPT={isGPT}/>
         );
       })}
     </div>
@@ -28,7 +27,7 @@ const ExampleCards = ({ currentExample, setCurrentExample }) => {
 
 export default ExampleCards;
 
-const ExampleCard = ({ title, description, bpmnID, setCurrentExample, currentExample, imgPath }) => {
+const ExampleCard = ({ title, description, bpmnID, setCurrentExample, currentExample, imgPath, isGPT }) => {
     const isSelectedCard = bpmnID === currentExample;
     function handleClick(bpmnID){
       setCurrentExample(bpmnID);
@@ -39,17 +38,20 @@ const ExampleCard = ({ title, description, bpmnID, setCurrentExample, currentExa
       })
     }
   return (
-    <Card sx={{ width: "17.5vw" , height: '325px'}} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
+    <Card sx={{ width: "17.5vw" , height: isGPT ? '1250px' : '325px'}} style={isSelectedCard ? {border: "2px solid #87a"} : undefined} raised={bpmnID === currentExample} key={`card-cont-${bpmnID}`}>
       <CardMedia
         sx={{ height: 175 }}
         image={imgPath}
         title="green iguana"
       />
-      <CardContent>
+      <CardContent style={{fontSize: isGPT ? '10px' : null}}>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        {isGPT ?  <Typography gutterBottom variant="h6" component="div">
+          Prompt:
+        </Typography> : null}
+        <Typography variant="body2" color="text.secondary" >
           {description}
         </Typography>
       </CardContent>
