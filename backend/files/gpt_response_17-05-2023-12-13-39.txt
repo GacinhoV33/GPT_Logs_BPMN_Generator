@@ -1,0 +1,29 @@
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="http://bpmn.io/schema/bpmn" id="Definitions_1">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1"/>
+    <bpmn2:task id="Task_1" name="Create Bus. Plan">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Create Mktg. Strat.">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Hire Train Empl.">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Develop Menu">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Establish Budget">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="seqFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="seqFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="seqFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="seqFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="seqFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="seqFlow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+</bpmn2:definitions>

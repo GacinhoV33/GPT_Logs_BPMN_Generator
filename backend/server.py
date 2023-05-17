@@ -135,7 +135,7 @@ class ExampleFileGPT(Resource):
         elif example_number == 1:
             xml_file = get_example_XML("examplesGPT/Booking-LONG.bpmn")
         elif example_number == 2:
-            xml_file = get_example_XML("examplesGPT/ATM-SHORT.bpmn.bpmn")
+            xml_file = get_example_XML("examplesGPT/ATM-SHORT.bpmn")
         elif example_number == 3:
             xml_file = get_example_XML("examplesGPT/onlineshop-SHORT.bpmn")
         elif example_number == 4:

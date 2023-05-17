@@ -1,0 +1,85 @@
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="Definitions_15q5qvc" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing/>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_1z0b1oa" name="Receive Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0f9ep7h" sourceRef="StartEvent_1" targetRef="Task_1z0b1oa"/>
+    <bpmn:task id="Task_0y1m3nr" name="Validate Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0v6q4dv" sourceRef="Task_1z0b1oa" targetRef="Task_0y1m3nr"/>
+    <bpmn:task id="Task_1v8kq0y" name="Produce Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0gkov4p" sourceRef="Task_0y1m3nr" targetRef="Task_1v8kq0y"/>
+    <bpmn:task id="Task_0vtrggr" name="Pack Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_09v5zr7" sourceRef="Task_1v8kq0y" targetRef="Task_0vtrggr"/>
+    <bpmn:task id="Task_1bhij5w" name="Send Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1yh9a18" sourceRef="Task_0vtrggr" targetRef="Task_1bhij5w"/>
+    <bpmn:endEvent id="EndEvent_1yqx2f3">
+      <bpmn:incoming/>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1dx10qd" sourceRef="Task_1bhij5w" targetRef="EndEvent_1yqx2f3"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1z0b1oa_di" bpmnElement="Task_1z0b1oa">
+        <dc:Bounds x="200" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0y1m3nr_di" bpmnElement="Task_0y1m3nr">
+        <dc:Bounds x="350" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1v8kq0y_di" bpmnElement="Task_1v8kq0y">
+        <dc:Bounds x="500" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0vtrggr_di" bpmnElement="Task_0vtrggr">
+        <dc:Bounds x="650" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1bhij5w_di" bpmnElement="Task_1bhij5w">
+        <dc:Bounds x="800" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1yqx2f3_di" bpmnElement="EndEvent_1yqx2f3">
+        <dc:Bounds x="950" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0f9ep7h_di" bpmnElement="SequenceFlow_0f9ep7h">
+        <di:waypoint xsi:type="dc:Point" x="136" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0v6q4dv_di" bpmnElement="SequenceFlow_0v6q4dv">
+        <di:waypoint xsi:type="dc:Point" x="300" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="350" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gkov4p_di" bpmnElement="SequenceFlow_0gkov4p">
+        <di:waypoint xsi:type="dc:Point" x="450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="500" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_09v5zr7_di" bpmnElement="SequenceFlow_09v5zr7">
+        <di:waypoint xsi:type="dc:Point" x="600" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="650" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yh9a18_di" bpmnElement="SequenceFlow_1yh9a18">
+        <di:waypoint xsi:type="dc:Point" x="750" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1dx10qd_di" bpmnElement="SequenceFlow_1dx10qd">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="950" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

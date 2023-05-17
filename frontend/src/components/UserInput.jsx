@@ -30,7 +30,7 @@ const UserInput = ({
       console.log("BPMN JS XML error - trying to regenerate answer")
       resendRequestToChatGPT(userInput)
     }
-    console.log(requestStatus)
+    // console.log(requestStatus)
 
   }, [requestStatus])
 
@@ -59,9 +59,9 @@ const UserInput = ({
     };
     // LOCAL
     // const data = await (await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    // const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
 
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     if (data.status === 200) {
@@ -69,7 +69,8 @@ const UserInput = ({
         console.log("Length error") // TODO: prepare state for it and dispaly it in the component
       } else {
         setDiagram(data.xmlString)
-        setTimeout(() => setApiNumber(prev => prev + 1), 500);
+        setApiNumber(prev => prev + 1)
+        // setTimeout(() => setApiNumber(prev => prev + 1), 500);
       }
     }
     else {
@@ -96,9 +97,9 @@ const UserInput = ({
 
     // LOCAL
     // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    // const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
 
     console.log(data.xmlString)

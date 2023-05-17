@@ -5951,3 +5951,215 @@ top_p: 1
 
 ----------------------------------------------------------------------------------------------------
 
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="Definitions_15q5qvc" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing/>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_1z0b1oa" name="Receive Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0f9ep7h" sourceRef="StartEvent_1" targetRef="Task_1z0b1oa"/>
+    <bpmn:task id="Task_0y1m3nr" name="Validate Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0v6q4dv" sourceRef="Task_1z0b1oa" targetRef="Task_0y1m3nr"/>
+    <bpmn:task id="Task_1v8kq0y" name="Produce Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0gkov4p" sourceRef="Task_0y1m3nr" targetRef="Task_1v8kq0y"/>
+    <bpmn:task id="Task_0vtrggr" name="Pack Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_09v5zr7" sourceRef="Task_1v8kq0y" targetRef="Task_0vtrggr"/>
+    <bpmn:task id="Task_1bhij5w" name="Send Order">
+      <bpmn:incoming/>
+      <bpmn:outgoing/>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1yh9a18" sourceRef="Task_0vtrggr" targetRef="Task_1bhij5w"/>
+    <bpmn:endEvent id="EndEvent_1yqx2f3">
+      <bpmn:incoming/>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1dx10qd" sourceRef="Task_1bhij5w" targetRef="EndEvent_1yqx2f3"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1z0b1oa_di" bpmnElement="Task_1z0b1oa">
+        <dc:Bounds x="200" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0y1m3nr_di" bpmnElement="Task_0y1m3nr">
+        <dc:Bounds x="350" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1v8kq0y_di" bpmnElement="Task_1v8kq0y">
+        <dc:Bounds x="500" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0vtrggr_di" bpmnElement="Task_0vtrggr">
+        <dc:Bounds x="650" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1bhij5w_di" bpmnElement="Task_1bhij5w">
+        <dc:Bounds x="800" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1yqx2f3_di" bpmnElement="EndEvent_1yqx2f3">
+        <dc:Bounds x="950" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0f9ep7h_di" bpmnElement="SequenceFlow_0f9ep7h">
+        <di:waypoint xsi:type="dc:Point" x="136" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0v6q4dv_di" bpmnElement="SequenceFlow_0v6q4dv">
+        <di:waypoint xsi:type="dc:Point" x="300" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="350" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gkov4p_di" bpmnElement="SequenceFlow_0gkov4p">
+        <di:waypoint xsi:type="dc:Point" x="450" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="500" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_09v5zr7_di" bpmnElement="SequenceFlow_09v5zr7">
+        <di:waypoint xsi:type="dc:Point" x="600" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="650" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yh9a18_di" bpmnElement="SequenceFlow_1yh9a18">
+        <di:waypoint xsi:type="dc:Point" x="750" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="800" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1dx10qd_di" bpmnElement="SequenceFlow_1dx10qd">
+        <di:waypoint xsi:type="dc:Point" x="900" y="118"/>
+        <di:waypoint xsi:type="dc:Point" x="950" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
+Prompt: Small bakery in big town
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 2331
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="http://bpmn.io/schema/bpmn" id="Definitions_1">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1"/>
+    <bpmn2:task id="Task_1" name="Create Bus. Plan">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_2" name="Create Mktg. Strat.">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_3" name="Hire Train Empl.">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_4" name="Develop Menu">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_5" name="Establish Budget">
+      <bpmn2:incoming/>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="seqFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <bpmn2:sequenceFlow id="seqFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="seqFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="seqFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <bpmn2:sequenceFlow id="seqFlow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="seqFlow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </bpmn2:process>
+</bpmn2:definitions>
+Prompt: Small bakery in big town
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 665
+
+----------------------------------------------------------------------------------------------------
+
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_0d5qz2v">
+      <bpmn2:outgoing/>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1iwqdof">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+      <bpmn2:documentation/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_1zv3c5h">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+      <bpmn2:documentation/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_1mf799t">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+      <bpmn2:documentation/>
+    </bpmn2:task>
+    <bpmn2:task id="Task_1hbx3h4">
+      <bpmn2:incoming/>
+      <bpmn2:outgoing/>
+      <bpmn2:documentation/>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1qdccl5">
+      <bpmn2:incoming/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1z0d3yc" sourceRef="StartEvent_0d5qz2v" targetRef="Task_1iwqdof"/>
+    <bpmn2:sequenceFlow id="Flow_051pz15" sourceRef="Task_1iwqdof" targetRef="Task_1zv3c5h"/>
+    <bpmn2:sequenceFlow id="Flow_17jq3bt" sourceRef="Task_1zv3c5h" targetRef="Task_1mf799t"/>
+    <bpmn2:sequenceFlow id="Flow_1lm2m2h" sourceRef="Task_1mf799t" targetRef="Task_1hbx3h4"/>
+    <bpmn2:sequenceFlow id="Flow_091v4m5" sourceRef="Task_1hbx3h4" targetRef="EndEvent_1qdccl5"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0d5qz2v">
+        <dc:Bounds x="173" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1iwqdof_di" bpmnElement="Task_1iwqdof">
+        <dc:Bounds x="258" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1zv3c5h_di" bpmnElement="Task_1zv3c5h">
+        <dc:Bounds x="408" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1mf799t_di" bpmnElement="Task_1mf799t">
+        <dc:Bounds x="558" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1hbx3h4_di" bpmnElement="Task_1hbx3h4">
+        <dc:Bounds x="708" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1qdccl5_di" bpmnElement="EndEvent_1qdccl5">
+        <dc:Bounds x="858" y="102" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1z0d3yc_di" bpmnElement="Flow_1z0d3yc">
+        <di:waypoint x="209" y="120"/>
+        <di:waypoint x="258" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_051pz15_di" bpmnElement="Flow_051pz15">
+        <di:waypoint x="358" y="120"/>
+        <di:waypoint x="408" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17jq3bt_di" bpmnElement="Flow_17jq3bt">
+        <di:waypoint x="508" y="120"/>
+        <di:waypoint x="558" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lm2m2h_di" bpmnElement="Flow_1lm2m2h">
+        <di:waypoint x="658" y="120"/>
+        <di:waypoint x="708" y="120"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_091v4m5_di" bpmnElement="Flow_091v4m5">
+        <di:waypoint x="808" y="120"/>
+        <di:waypoint x="858" y="120"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
+Prompt: Small Bakery in Big City
+Temperature: 0.7 
+top_p: 1
+ Tokens_resp: 1995
+
+----------------------------------------------------------------------------------------------------
+

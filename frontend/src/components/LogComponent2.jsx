@@ -18,14 +18,14 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, re
   useEffect(() => {
     async function getInitialDiagram(){
       if (diagram === "local") {
-        const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
+        const data = await ( await fetch(LOCAL_HOST + `examples`, requestOptions)).json(); // FOR TEST REQUEST
       if(data.message !== "Internal Server Error"){
         setDiagram(data.xmlString);
       }
     }
       };
       getInitialDiagram().then((console.log("Diagram should loaded successfully")));
-      setCurrentApiNumber(apiNumber)
+      // setCurrentApiNumber(apiNumber)
   }, [apiNumber]);
 
   if(diagram.length > 5 && apiNumber !== currentApiNumber){
@@ -42,7 +42,7 @@ const LogHookComponent = ({ diagram, setDiagram, apiNumber, setRequestStatus, re
         stroke: "green",
         fill: "yellow"
       });
-      setCurrentApiNumber(apiNumber)
+      // setCurrentApiNumber(apiNumber)
     })
     .catch((err) => {
         setRequestStatus(requestStates.ERROR);
