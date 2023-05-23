@@ -28,16 +28,16 @@ const UserInput = ({
     if (((requestStatus === 5 || requestStatus === 4) && regenerateAnswer) && failCounter < 1) {
       setFailCounter(prev => prev + 1)
       console.log("BPMN JS XML error - trying to regenerate answer")
+      setRequestStatus(requestStates.WAITING_RESEND);
       resendRequestToChatGPT(userInput)
     }
-    // console.log(requestStatus)
 
   }, [requestStatus])
 
   const form = useRef();
 
   async function handleSubmit(values) {
-    setUserInput(values.message)
+    // setUserInput(values.message)
     sendRequestToChatGPT(values.message);
   }
 
@@ -59,10 +59,10 @@ const UserInput = ({
     };
     // LOCAL
     // const data = await (await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    const data = await ( await fetch(LOCAL_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await ( await fetch(LOCAL_HOST + `openai`,   requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    // const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
-
+    const data = await ( await fetch(PRODUCTION_HOST + `openai`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    console.log(data)
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
     if (data.status === 200) {
       if ((data.xmlString).includes("Length error")) {
@@ -70,7 +70,7 @@ const UserInput = ({
       } else {
         setDiagram(data.xmlString)
         setApiNumber(prev => prev + 1)
-        // setTimeout(() => setApiNumber(prev => prev + 1), 500);
+        setTimeout(() => setApiNumber(prev => prev + 1), 500);
       }
     }
     else {
@@ -79,7 +79,6 @@ const UserInput = ({
   }
 
   async function resendRequestToChatGPT(message) {
-    setRequestStatus(requestStates.WAITING_RESEND);
 
     const requestOptions = {
       method: "POST",
@@ -97,22 +96,23 @@ const UserInput = ({
 
     // LOCAL
     // const data = await ( await fetch(LOCAL_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
-    const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    // const data = await (await fetch(LOCAL_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // PRODUCTION
-    // const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
+    const data = await ( await fetch(PRODUCTION_HOST + `openairegenerate`, requestOptions)).json(); // FOR LOCAL OPEN AI TESTING
     // const data = await ( await fetch(PRODUCTION_HOST + `testRequest`, requestOptions)).json(); // FOR TEST REQUEST
 
-    console.log(data.xmlString)
-
-    if (data.message !== "Internal Server Error") {
+    if (data.status === 200) {
       setDiagram(data.xmlString)
-      setTimeout(() => setApiNumber(prev => prev + 1), 500);
+      setTimeout(() => setApiNumber(prev => prev + 1), 1500);
+      setApiNumber(prev => prev + 1)
+      setFailCounter(0);
+      // 
     }
     else {
       setRequestStatus(requestStates.ERROR);
     }
   }
-
+  console.log("Render inside user input")
   return (
     <Box className="formComponent-contact">
 

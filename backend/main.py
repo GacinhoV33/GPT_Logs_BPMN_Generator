@@ -15,7 +15,7 @@ TOP_P = 1
 FREQUENCE_PENALTY = 0
 PRESENCE_PENALTY = 0
 NUMBER_OF_ITEMS = 10
-PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business proccess that has around "
+PROMPT_BEGIN = "Generate advanced BPMN 2.0 XML for business process that has around "
 PROMPT_MIDDLE = "tasks. Make it in format that fit to js-bmpn library and without <bpmn2:extensionElements>.\n Business process describtion:"
 
 EXAMPLE_MODEL_DESCRIBTION = "An online shop," \
@@ -139,6 +139,14 @@ def increment_failure_requests_number():
 
 def add_error(error_info: str):
     print(error_info)
+
+
+def check_first_line(text: str):
+    text_split = text.split("\n")[0]
+    if text_split != '<?xml version="1.0" encoding="UTF-8"?>':
+        return '<?xml version="1.0" encoding="UTF-8"?>\n' + text
+    else:
+        return text
 
 
 if __name__ == "__main__":

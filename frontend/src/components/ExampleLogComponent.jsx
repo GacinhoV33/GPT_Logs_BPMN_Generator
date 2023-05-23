@@ -28,11 +28,10 @@ const ExampleLogComponent = ({ currentExample, isGPT }) => {
           exampleNumber: currentExample,
         }),
       };
-      // const ADRESS = isGPT ? PRODUCTION_HOST + `examplesGPT` : PRODUCTION_HOST + `examples`; 
-      const ADRESS = isGPT ? LOCAL_HOST + `examplesGPT` : LOCAL_HOST + `examples`; 
+      const ADRESS = isGPT ? PRODUCTION_HOST + `examplesGPT` : PRODUCTION_HOST + `examples`; 
+      // const ADRESS = isGPT ? LOCAL_HOST + `examplesGPT` : LOCAL_HOST + `examples`; 
 
       const data = await ( await fetch(ADRESS, requestOptions)).json(); 
-      // const data = await ( await fetch(PRODUCTION_HOST + `examples`, requestOptions)).json(); 
 
       if(data.message !== "Error"){
         setDiagramExample(data.xmlString);

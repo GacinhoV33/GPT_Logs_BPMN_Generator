@@ -1,5 +1,3 @@
- A customer goes to the library and borrows a book. Librarian checks out the book to the customer, who then returns the book to the library when due.
-
 <bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"

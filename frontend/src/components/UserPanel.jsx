@@ -158,7 +158,7 @@ const UserPanel = ({
           {requestStatus === requestStates.WARNING && (
             <Alert severity="warning" style={{ marginTop: "1vh" }}>
               <AlertTitle>Warning</AlertTitle>
-              ChatGPT generated not valid BPMN 2.0 file —{" "}
+              ChatGPT generated BPMN 2.0 file with warnings —{" "}
               <strong>Try ask him one more time</strong>
             </Alert>
           )}

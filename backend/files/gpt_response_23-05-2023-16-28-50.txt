@@ -1,0 +1,18 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" targetNamespace="http://www.activiti.org/test" id="Definitions_1">
+  <process id="Process_1" name="Big factory process" isExecutable="true">
+    <startEvent id="StartEvent_1" name="Start"/>
+    <sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <task id="Task_1" name="Order raw materials"/>
+    <sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <task id="Task_2" name="Build weapons"/>
+    <sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <task id="Task_3" name="Test weapons"/>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <task id="Task_4" name="Ship weapons"/>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="Task_4" targetRef="EndEvent_1"/>
+    <endEvent id="EndEvent_1" name="End"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane bpmnElement="Process_1" id="BPMNPlane_1"/>
+  </bpmndi:BPMNDiagram>
+</definitions>

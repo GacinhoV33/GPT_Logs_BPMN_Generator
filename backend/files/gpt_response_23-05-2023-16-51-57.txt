@@ -1,0 +1,17 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
+  <process id="process_1" isExecutable="true">
+    <startEvent id="StartEvent_1"/>
+    <task id="Task_1" name="Determine budget and timeline for the event"/>
+    <task id="Task_2" name="Develop an event agenda"/>
+    <task id="Task_3" name="Book a venue and catering"/>
+    <task id="Task_4" name="Invite guests and coordinate RSVPs"/>
+    <task id="Task_5" name="Create event materials"/>
+    <endEvent id="EndEvent_1"/>
+    <sequenceFlow id="flow_1" sourceRef="StartEvent_1" targetRef="Task_1"/>
+    <sequenceFlow id="flow_2" sourceRef="Task_1" targetRef="Task_2"/>
+    <sequenceFlow id="flow_3" sourceRef="Task_2" targetRef="Task_3"/>
+    <sequenceFlow id="flow_4" sourceRef="Task_3" targetRef="Task_4"/>
+    <sequenceFlow id="flow_5" sourceRef="Task_4" targetRef="Task_5"/>
+    <sequenceFlow id="flow_6" sourceRef="Task_5" targetRef="EndEvent_1"/>
+  </process>
+</definitions>

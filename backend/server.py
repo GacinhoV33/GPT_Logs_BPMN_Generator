@@ -8,7 +8,8 @@ import os
 
 from BPMN import clean_xml
 from main import make_openai_request, save_response, get_test_XML, \
-    increment_requests_number, add_error, increment_failure_requests_number, get_example_XML, make_list_of_activities_regenerate_request, make_diagram_based_on_activities
+    increment_requests_number, add_error, increment_failure_requests_number, get_example_XML, \
+    make_list_of_activities_regenerate_request, make_diagram_based_on_activities, check_first_line
 
 
 class OpenAI(Resource):
@@ -27,6 +28,7 @@ class OpenAI(Resource):
             resp = make_openai_request(
                 user_text, items_number, temperature, frequency_penalty)
             text = resp['choices'][0]['text']
+            text = check_first_line(text)
             cleared_text = clean_xml(text)
             save_response(cleared_text, resp, user_text)
         except Exception as e:
@@ -59,6 +61,7 @@ class OpenAIRegenerate(Resource):
                 activities_text, items_number, temperature, frequency_penalty)
             diagram_text = diagram['choices'][0]['text']
             print(diagram_text)
+            diagram_text = check_first_line(diagram_text)
 
             cleared_text = clean_xml(diagram_text)
             save_response(cleared_text, diagram, user_text)
@@ -81,6 +84,8 @@ class TestRequest(Resource):
         user_text, items_number, temperature, frequency_penalty = args['user_text'], int(args['items_number']), float(
             args['temperature']), float(args['frequency_penalty'])
         test_XML = get_example_XML("examples/BookLendingExample.bpmn")
+        test_XML = check_first_line(test_XML)
+        print(test_XML)
         return {'xmlString': test_XML, 'status': 200}, 200
 
 
@@ -119,7 +124,7 @@ class ExampleFile(Resource):
         elif example_number == 5:
             xml_file = get_example_XML("examples/app_explained.bpmn")
         else:
-            return {'xmlString': 'ERROR', 'status:': 404}, 404
+            return {'xmlString': 'ERROR XML RECEIVED', 'status': 404}, 404
         return {'xmlString': xml_file, 'status': 200}, 200
 
 
@@ -143,7 +148,7 @@ class ExampleFileGPT(Resource):
         elif example_number == 5:
             xml_file = get_example_XML("examplesGPT/app_explained.bpmn")
         else:
-            return {'xmlString': 'ERROR', 'status:': 404}, 404
+            return {'xmlString': 'ERROR XML RECEIVED', 'status': 404}, 404
         return {'xmlString': xml_file, 'status': 200}, 200
 
 
